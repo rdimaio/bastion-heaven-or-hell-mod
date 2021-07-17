@@ -5,7 +5,7 @@ Based on the ["Heaven or Hell" mode in the Devil May Cry series](https://devilma
 - You die in one hit
 - Every enemy dies in one hit
 
-See also the [Hell or Hell Bastion mod](https://github.com/rdimaio/bastion-hell-or-hell-mod), where you die in one hit while the enemies retain their default HP.
+See also the [Hell and Hell Bastion mod](https://github.com/rdimaio/bastion-hell-and-hell-mod), where you die in one hit while the enemies retain their default HP.
 
 [Video showcase](https://www.youtube.com/watch?v=PSLiMieuzTg)
 
