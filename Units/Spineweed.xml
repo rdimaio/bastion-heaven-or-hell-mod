@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<Npc
+		Name="Spineweed"
+		InheritFrom="1_BaseAttacker"
+        Flyer="false"
+        ScoreValue="40"
+        PhaseInTimeMin="0.4"
+        PhaseInTimeMax="0.4"
+        PhaseInGraphic="SpineweedPhaseIn"
+		PhaseInFx="Spineweed_PhaseIn_Decal"
+		PhaseInSound="FilchGrow"
+		VisionRange="825"
+		CollisionWeapon="SpineweedOnTouched"
+		>
+		<Thing
+			Graphic="SpineweedIdle"
+			Grip="999.0"
+			OffsetZ="40"
+			OverheadOffset="155"
+			Scale="1.0"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="32"/>
+			<Point X="64" Y="0"/>
+			<Point X="0" Y="-32"/>
+			<Point X="-64" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			HealthRegen="0.0"
+			HealthRegenInterval="0.1"
+			Armor="0.0"
+			HitGraphic="null"
+			DeathAnimation="DeathD"
+			HitSound="GenericEnemyGettingHit"
+			DeathSound="SpineWeedDeath"
+			Decal="Decals\\Health_Circle_Large"
+			DamageDecal="null"
+			DeathShakeSpeed="250"
+			DeathShakeDistance="5"
+			Material="ORGANIC"
+			UseHealthMeter="true"
+			HealthMeterScale="1.3"
+			>
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_D" DropChance="0.8"/>
+		</Life>
+
+		<Weapon Name="SpineweedHose"/>
+
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="1500">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="Spineweed_Nova"
+		InheritFrom="Spineweed"
+		ClearWeapons="true"
+		ScoreValue="25"
+		>
+		<Thing
+			Scale="0.8">
+			<Color Red="0.91" Green="1.0" Blue="0.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1">
+		</Life>
+		<Weapon Name="SpineweedNova"/>
+	</Npc>
+
+	<Npc
+		Name="Spineweed_Burst"
+		InheritFrom="Spineweed"
+		ClearWeapons="true"
+		ScoreValue="50"
+		>
+		<Thing
+			Scale="0.6">
+			<Color Red="0.0" Green="1.0" Blue="0.88" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true">
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_E" DropChance="0.8"/>
+		</Life>
+		<Weapon Name="SpineweedBurst"/>
+	</Npc>
+
+	<Npc
+		Name="Spineweed_Fixed"
+		InheritFrom="Spineweed"
+		ClearWeapons="true"
+		ScoreValue="45"
+		RotationSpeed="0"
+		VisionRange="2000"
+		>
+		<Thing
+			Scale="0.9">
+			<Color Red="0.4" Green="0.4" Blue="0.4" Opacity="1.0"/>
+		</Thing>
+		<Weapon Name="SpineweedHose_Fixed"/>
+	</Npc>
+
+	<Npc
+		Name="Spineweed_Challenge09"
+		InheritFrom="Spineweed_Fixed"
+		ClearWeapons="true"
+		ScoreValue="0"
+		RotationSpeed="0"
+		VisionRange="1000"
+		>
+		<Life
+			Health="1">
+		</Life>
+		<Thing
+			Scale="1.0">
+			<Color Red="0.6" Green="0.6" Blue="0.6" Opacity="1.0"/>
+		</Thing>
+		<Weapon Name="Spineweed_Challenge09"/>
+	</Npc>
+
+</Npcs>

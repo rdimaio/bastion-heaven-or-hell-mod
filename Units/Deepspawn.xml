@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<Npc
+		Name="Deepspawn"
+		InheritFrom="1_BaseAttacker"
+        Flyer="false"
+		RotationSpeed="0.0"
+        ScoreValue="500"
+        PhaseInTimeMin="0.3"
+		PhaseInTimeMax="0.3"
+		PhaseInRumble="0.4"
+        PhaseInGraphic="DeepspawnPhaseIn"
+		PhaseInSound="DeepSpawnPhaseInNEW"
+		VisionRange="1300"
+		DormantOnDeath="true"
+		OnHitWeapon="DeepspawnOnHit"
+		CustomPackage="Deepspawn"
+		>
+		<Thing
+			Graphic="DeepspawnIdle"
+			Grip="999.0"
+			OffsetZ="40"
+			OverheadOffset="180"
+			Scale="0.8"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="295"/>
+			<Point X="380" Y="50"/>
+			<Point X="0" Y="-195"/>
+			<Point X="-340" Y="50"/>
+		</Thing>
+		<Life
+			Health="1"
+			HealthRegen="0.0"
+			HealthRegenInterval="0.1"
+			Armor="0.0"
+			HitGraphic="null"
+			HitSound="DeepspawnPain"
+			DeathGraphic="DeepspawnDeath"
+			DeathSound="DeepSpawnDeath"
+			Decal="null"
+			DamageShakeDistance="0"
+			DamageShakeSpeed="0"
+			DamageShakeDuration="0.0"
+			DeathShakeSpeed="500"
+			DeathShakeDistance="10"
+			Material="PLANT"
+			AlwaysDissolveDeath="true"
+			DissolveDurationMultiplier="3.0"
+			HealthPipFx="DeepspawnHealthOrb"
+			HealthPerPipFx="50"
+			>
+			<Loot TableName="DynamicHealth_Category4" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category4_B" DropChance="1.0"/>
+		</Life>
+
+		<Weapon Name="DeepspawnLob"/>
+
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="1500">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="Deepspawn_Stalagmite"
+		InheritFrom="Deepspawn"
+		ClearWeapons="true"
+		ScoreValue="675"
+		VisionRange="2000"
+		>
+		<Thing
+			Scale="0.7">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+				Health="1"
+			>
+			<Loot TableName="DynamicHealth_Category4" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category4_B" DropChance="1.0"/>
+		</Life>		
+		<Weapon Name="DeepspawnStalagmite"/>
+	</Npc>
+
+	<Npc
+		Name="Deepspawn_StabweedLob"
+		InheritFrom="Deepspawn"
+		ClearWeapons="true"
+		ScoreValue="250"
+		>
+		<Thing>
+			<Color Red="0.5" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Weapon Name="Deepspawn_StabweedLob"/>
+	</Npc>
+
+</Npcs>

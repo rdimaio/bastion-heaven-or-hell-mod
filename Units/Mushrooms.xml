@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<Npc
+		Name="Mushroom"
+		InheritFrom="1_BaseAttacker"
+        Flyer="false"
+		RotationSpeed="0.0"
+        ScoreValue="5"
+        PhaseInTimeMin="0.2"
+		PhaseInTimeMax="0.3"
+        PhaseInGraphic="Mushroom_Explode"
+		PhaseInSound="FilchGrow"
+		DisplayInEditor="false"
+		>
+		<Thing
+			Graphic="Mushroom_Explode"
+			Grip="1.0"
+			OverheadOffset="125"
+			Scale="1.0"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="16"/>
+			<Point X="32" Y="0"/>
+			<Point X="0" Y="-16"/>
+			<Point X="-32" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			HitGraphic="null"
+			DeathAnimation="null"
+			HitSound="GenericEnemyGettingHit"
+			DeathSound="GenericEnemyDeath"
+			Decal="Decals\\Health_Circle_Medium"
+			DeathShakeSpeed="250"
+			DeathShakeDistance="5"
+			Material="ORGANIC"
+			>
+		</Life>
+	</Npc>
+
+	<Npc
+		Name="Mushroom_Explode"
+		InheritFrom="Mushroom"
+		ClearWeapons="true"
+		OnDeathWeapon="Mushroom_Explode"
+		PhaseInGraphic="Mushroom_Explode_PhaseIn"
+		>
+		<Thing
+			Graphic="Mushroom_Explode"
+			>
+		</Thing>
+		<Life
+			DeathSound="PeacemakerDeath"
+			>
+		</Life>
+	</Npc>
+
+	<Npc
+		Name="Mushroom_Explode_Delay"
+		InheritFrom="Mushroom"
+		ClearWeapons="true"
+		OnDeathWeapon="Mushroom_Explode_Delay"
+		PhaseInGraphic="Mushroom_Explode_Delay_PhaseIn"
+		>
+		<Thing
+			Graphic="Mushroom_Explode_Delay"
+			>
+		</Thing>
+		<Life
+			DeathSound="PeacemakerDeath"
+			>
+		</Life>
+	</Npc>
+
+	<Npc
+		Name="Mushroom_Force"
+		InheritFrom="Mushroom"
+		ClearWeapons="true"
+		OnDeathWeapon="Mushroom_Force"
+		PhaseInGraphic="Mushroom_Force_PhaseIn"
+		>
+		<Thing
+			Graphic="Mushroom_Force"
+			>
+		</Thing>
+		<Life
+			DeathSound="MooseAttack"
+			>
+		</Life>
+	</Npc>
+
+	<Npc
+		Name="Mushroom_Heal"
+		InheritFrom="Mushroom"
+		ClearWeapons="true"
+		OnDeathWeapon="Mushroom_Heal"
+		PhaseInGraphic="Mushroom_Heal_PhaseIn"
+		>
+		<Thing
+			Graphic="Mushroom_Heal"
+			>
+		</Thing>
+		<Life
+			DeathSound="PotionUse"
+			>
+		</Life>
+	</Npc>
+
+	<Npc
+		Name="Mushroom_Freeze"
+		InheritFrom="Mushroom"
+		ClearWeapons="true"
+		OnDeathWeapon="Mushroom_Freeze"
+		PhaseInGraphic="Mushroom_Freeze_PhaseIn"
+		>
+		<Thing
+			Graphic="Mushroom_Freeze"
+			>
+		</Thing>
+	</Npc>
+
+	<Npc
+		Name="Mushroom_Random"
+		InheritFrom="Mushroom"
+		ClearWeapons="true"
+		OnDeathWeapon="Mushroom_Random"
+		PhaseInGraphic="Mushroom_Random_PhaseIn"
+		>
+		<Thing
+			Graphic="Mushroom_Random"
+			>
+		</Thing>
+	</Npc>
+
+</Npcs>

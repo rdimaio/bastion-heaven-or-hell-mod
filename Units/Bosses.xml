@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<!--
+	<Npc
+		Name="TestBoss"
+		Graphic="BlueCircle"
+		DeathAnimation="Explosion2"
+		DeathSound="Explosion"
+		Health="1"
+		Armor="0.4"
+		Shield="1000"
+		Speed="25.0"
+		Weapon="BossGun"
+		AvoidDamage="false"
+		ScoreValue="10000"
+		DropsLoot="true"
+		>
+		<TargetAI
+			ThingSet="BASES"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			OpportunityTargetDistance="150.0"
+			TargetLock="true">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			StopIfXDistanceFromObstacle="132.0"
+			AvoidDamage="false">				  
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+		<Slave Name="ObstacleDestroyerSlave" OffsetX="16" OffsetY="16"/>
+		<Slave Name="FactorySlave" OffsetX="16" OffsetY="-16"/>
+		<Slave Name="FactorySlave" OffsetX="-16" OffsetY="16"/>
+		<Slave Name="RepairSlave" OffsetX="-16" OffsetY="-16"/>
+	</Npc>
+
+	<Npc
+		Name="RepairSlave"
+		Graphic="LargeRSquare"
+		SkeletonGraphic="Skeleton"
+		DeathAnimation="Explosion2"
+		DeathSound="Explosion"
+		Health="1"
+		Armor="0.1"
+		Shield="0"
+		Weapon="RepairBeam"
+		ScoreValue="100"
+		>
+		<TargetAI
+			ThingSet="UNITS"
+			SortType="CLOSEST"
+			Allegiance="FRIENDS"
+			IgnoreFullHealth="true"
+			RequiresLoS="true">
+		</TargetAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="ObstacleDestroyerSlave"
+		Graphic="LargeLSquare"
+		SkeletonGraphic="Skeleton"
+		DeathAnimation="Explosion2"
+		DeathSound="Explosion"
+		Health="1"
+		Armor="0.8"
+		Shield="0"
+		Weapon="ObstacleDestroyer"
+		ScoreValue="100"
+		>
+		<TargetAI
+			ThingSet="OBSTACLES"
+			Allegiance="ANY"
+			RequiresCanAttack="true"
+			RequiresLoS="false"
+			TargetLock="true">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="FactorySlave"
+		Graphic="LargeFSquare"
+		SkeletonGraphic="Skeleton"
+		DeathAnimation="Explosion2"
+		DeathSound="Explosion"
+		Health="1"
+		Armor="0.1"
+		Shield="0"
+		Speed="30.0"
+		Weapon="1NormalEnemySpawn"
+		ScoreValue="10"
+		>
+		<TargetAI
+			ThingSet="BASES"
+			SortType="CLOSEST"
+			Allegiance="ENEMIES"
+			RequireLoS="false">
+		</TargetAI>
+		<AttackAI
+			Algorithm="INTERVAL">
+		</AttackAI>
+	</Npc>
+	-->
+
+</Npcs>

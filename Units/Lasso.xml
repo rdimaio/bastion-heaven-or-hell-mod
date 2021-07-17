@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<Npc
+		Name="Lasso"
+		InheritFrom="1_BaseAttacker"
+        Flyer="false"
+		Speed="20"
+        ScoreValue="40"
+        PhaseInTimeMin="1.0"
+        PhaseInTimeMax="1.0"
+        PhaseInGraphic="LassoPhaseIn"
+		PhaseInSound="QueenScreech"
+		VisionRange="750"
+		CollisionWeapon="null"
+		CheckShadow="false"
+		>
+		<Thing
+			Graphic="LassoIdle"
+			Grip="25.0"
+			OffsetZ="40"
+			OverheadOffset="300"
+			Scale="1.0"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="32"/>
+			<Point X="64" Y="0"/>
+			<Point X="0" Y="-32"/>
+			<Point X="-64" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			HealthRegen="0.0"
+			HealthRegenInterval="0.1"
+			Armor="0.0"
+			HitGraphic="null"
+			DeathAnimation="LassoDeath"
+			HitSound="GenericEnemyGettingHit"
+			DeathSound="GenericEnemyDeath"
+			Decal="Decals\\Health_Circle_Large"
+			DamageDecal="null"
+			DeathShakeSpeed="250"
+			DeathShakeDistance="5"
+			Material="PLANT"
+			UseHealthMeter="false"
+			HealthMeterScale="0.8"
+			DamageShakeDistance="0.0"
+			DamageStateTransitionFx="LassoDeath"
+			>
+			<DamageState Threshold="0.8" Graphic="LassoBody_2"/>
+			<DamageState Threshold="0.6" Graphic="LassoBody_3"/>
+			<DamageState Threshold="0.4" Graphic="LassoBody_4"/>
+			<DamageState Threshold="0.2" Graphic="LassoHead"/>
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_D" DropChance="0.8"/>
+		</Life>
+
+		<Weapon Name="LassoRope"/>
+
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="1500">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="1.0"
+			RandomTurnIntervalMax="4.0"
+			SpeedFraction="0.2"
+			TetherDistance="100"
+			>
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="LassoCage"
+		InheritFrom="1_BaseAttacker"
+        Flyer="false"
+        ScoreValue="0"
+        PhaseInTimeMin="0.01"
+        PhaseInTimeMax="0.01"
+        PhaseInGraphic="SpineweedPhaseIn"
+		PhaseInSound="FilchGrow"
+		VisionRange="1300"
+		CollisionWeapon="null"
+		CollideWithUnits="false"
+		ClearUpgrades="true"
+		ImmuneToStun="true"
+		ImmuneToDoTs="true"
+		>
+		<Thing
+			Graphic="LassoCagePhaseIn"
+			Grip="999.0"
+			OffsetZ="40"
+			OverheadOffset="155"
+			Scale="0.6"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="32"/>
+			<Point X="64" Y="0"/>
+			<Point X="0" Y="-32"/>
+			<Point X="-64" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			HealthRegen="-0.04"
+			HealthRegenInterval="0.1"
+			Armor="0.0"
+			HitGraphic="null"
+			DeathAnimation="DeathE"
+			HitSound="null"
+			DeathSound="WoodShatter"
+			DamageDecal="null"
+			DeathShakeSpeed="250"
+			DeathShakeDistance="5"
+			DamageFlashSeconds="0.0"
+			DamageShakeDistance="0"
+			Material="STONE"
+			Decal="null"
+			UseHealthMeter="false"
+			HealthMeterScale="1.3"
+			ClearLoot="true"
+			ShowDamageNumbers="false"
+			>
+			<DamageState Threshold="0.8" Graphic="LassoCage_Damaged_1"/>
+			<DamageState Threshold="0.6" Graphic="LassoCage_Damaged_2"/>
+			<DamageState Threshold="0.4" Graphic="LassoCage_Damaged_3"/>
+			<DamageState Threshold="0.2" Graphic="LassoCage_Damaged_4"/>
+		</Life>
+		<!-- Decal="Animations\\Lasso\\lasso_decal" -->
+
+		<Weapon Name="LassoCage"/>
+
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="LassoCageSpecial"
+		InheritFrom="LassoCage"
+		ClearWeapons="true"
+		>
+		<Thing
+			Graphic="LassoCage"
+			Grip="999.0"
+			Scale="1.0"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			HealthRegen="0.0"
+			HealthRegenInterval="0.0"
+			Armor="0.8"
+			UseHealthMeter="true"
+			HealthMeterScale="1.3"
+			ClearLoot="true"
+			>
+		</Life>
+		<Weapon Name="LassoCage"/>
+	</Npc>
+
+	<Npc
+		Name="PlayerSummonedLassoCage"
+		InheritFrom="LassoCage"
+		PlayerOwned="true"
+		FriendlyFx="null"
+		Flyer="true"
+		CollideWithUnits="false"
+		>
+		<Life
+			Health="1"
+			HealthRegen="-0.05"
+			HealthRegenInterval="0.3"
+			Armor="0.5"
+			>
+		</Life>
+	</Npc>
+	
+</Npcs>

@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<!-- BigSupport - "Scumbag" -->
+
+	<Npc
+        Name="BigSupport"
+        InheritFrom="1_BaseAttacker"
+        PhaseInSound="ScumbagFall"
+		PhaseInEndSound="GiantMeleeAttack"
+		Speed="100.0"
+		RotationSpeed="180"
+        Flyer="false"
+        ScoreValue="100"
+        PhaseInTimeMin="0.5"
+		PhaseInTimeMax="0.5"
+        PhaseInGraphic="BigSupport_PhaseIn"
+		OnHitWeapon="MudmanOnHit"
+		MoveGraphic="BigSupport_Walk"
+		RotateGraphic="null"
+		CollisionWeapon="ScumbagOnTouched"
+		CustomPackage="BigSupport"
+		CheckShadow="false"
+		>
+		<Thing
+			Graphic="BigSupport_Idle"
+			OverheadOffset="275"
+			Grip="12.5"
+			Width="256"
+			Height="128"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="64"/>
+			<Point X="128" Y="0"/>
+			<Point X="0" Y="-64"/>
+			<Point X="-128" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			Armor="0.0"
+			HitGraphic="BigSupport_OnHit"
+			DeathAnimation="GasfellaIchor"
+			HitSound="ScumbagPain"
+			DeathSound="SquirtDeath"
+			Decal="null"
+			DamageDecal="null"
+			Material="ORGANIC"
+			ShrinksOnDamaged="true"
+			>
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_C" DropChance="0.8"/>
+		</Life>
+
+		<Weapon Name="MudmanOoze"/>
+
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="800">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="1.0"
+			RandomTurnIntervalMax="4.0"
+			SpeedFraction="0.2"
+			TetherDistance="800"
+			StopToRotate="true"
+			>
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			StopToRotate="true"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT"
+			MustCompleteAttack="true">
+		</AttackAI>
+
+	</Npc>
+
+	<!-- BigSupport_Lunge -->
+
+	<Npc
+		Name="BigSupport_Lunge"
+		InheritFrom="BigSupport"
+		ClearWeapons="true"
+		ScoreValue="150"
+		Speed="100.0"
+		RotationSpeed="1080"
+		VisionRange="1000"
+		IgnoreTargetCollision="false"
+		>
+    <Thing
+ 			FallSound="MooseFall"
+      >
+			<Color Red="0.7" Green="0.7" Blue="0.7" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true">
+			<Loot TableName="DynamicHealth_Category4" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category4_B" DropChance="1.0"/>
+		</Life>
+		<Weapon Name="BigSupport_Lunge"/>
+	</Npc>
+
+
+	<!-- BigSupport_Assault -->
+	<Npc
+		Name="BigSupport_Volley"
+		InheritFrom="BigSupport"
+		ClearWeapons="true"
+		ScoreValue="200"
+		Speed="100.0"
+		CollisionWeapon="ScumbagOnTouched"		
+		>
+		<Thing
+			OverheadOffset="310"
+			Scale="1.3">
+			<Color Red="0.8" Green="1.0" Blue="0.8" Opacity="0.9"/>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			>
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category4_A" DropChance="1.0"/>
+		</Life>
+		<Weapon Name="MudmanOozeVolley"/>
+	</Npc>
+
+	<!-- BigSupport_Regen -->
+
+	<Npc
+		Name="BigSupport_Regen"
+		InheritFrom="BigSupport"
+		ScoreValue="150"
+		Speed="200.0"
+		OnHitWeapon="null"
+		>
+		<Thing>
+			<Color Red="0.0" Green="1.0" Blue="0.56" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			StartingHealthFraction="0.1"
+			HealthRegen="0.01"
+			HealthRegenInterval="0.1"
+			>
+		</Life>
+	</Npc>
+
+	<!-- BigSupport_Trail -->
+
+	<Npc
+		Name="BigSupport_Trail"
+		InheritFrom="BigSupport"
+		ClearWeapons="true"
+		ClearAI="true"
+		ScoreValue="40"
+		Speed="215.0"
+		RotationSpeed="1080"
+		OnHitWeapon="null"
+		PhaseInEndSound="Drop"
+		CollisionWeapon="ScumbagOnTouched"		
+		>
+		<Thing
+			OverheadOffset="160"
+			Scale="0.65">
+			<Color Red="0.5" Green="1.0" Blue="0.5" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			>
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category2_B" DropChance="0.95"/>
+		</Life>
+		<Weapon Name="MudmanTrail"/>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="1.0"
+			RandomTurnIntervalMax="3.0">
+		</MoveAI>
+		<AttackAI
+			Algorithm="RANDOM"
+			CanAttackWhileMoving="true">
+		</AttackAI>
+	</Npc>
+
+</Npcs>

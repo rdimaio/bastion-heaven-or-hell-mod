@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<Npc
+		Name="Ura_Base"
+		InheritFrom="1_BaseAttacker"
+		DisplayInEditor="false"
+        Speed="0.0"
+        Flyer="false"
+        ScoreValue="100"
+        PhaseInTimeMin="0.01"
+        PhaseInTimeMax="0.01"
+        PhaseInGraphic="null"
+		PhaseInSound="GasfellaPhaseIn"
+		VisionRange="650"
+		StunGraphicName="null"
+		OnHitWeaponHealthFraction="0.65"
+		OnHitWeapon="Ura_Blink_OnHit"
+		SpawnFacingPlayer="false"
+		BreathFx="ColdBreath"
+		BreathOffset="115"
+		RotationGhostDuration="0.5"
+		CustomPackage="Ura"
+		CheckShadow="false"
+		>
+		<Thing
+			Graphic="PlayerIdle"
+			Grip="8.0"
+			OverheadOffset="240"
+			>
+			<Point X="0" Y="28"/>
+			<Point X="48" Y="0"/>
+			<Point X="0" Y="-28"/>
+			<Point X="-48" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			Armor="0.0"
+			HitGraphic="null"
+			DeathAnimation="UraPolearmDeath"
+			HitSound="MetalImpact"
+			DeathSound="GasfellaDeath"
+			FallDeathSound="null"
+			Decal="Decals\\Health_Circle_Medium"
+			DamageDecal="null"
+			UseHealthMeter="true"
+			Material="HUMANOID"
+			ImmuneToDissolveDeath="true"
+			>
+			<Loot TableName="DynamicHealth_Category5" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category5_A" DropChance="0.8"/>
+		</Life>
+		<Weapon Name="Ura_Blink"/>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="9999">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="WEAPON"
+			TetherDistance="0"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT"
+			MustCompleteAttack="false">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="Ura_Melee_Male"
+		InheritFrom="Ura_Base"
+		PhaseInTimeMin="0.25"
+        PhaseInTimeMax="0.25"
+		PhaseInGraphic="UraPolearmEntrance"
+		PhaseInSound="SpearThrow"
+		PhaseInEndSound="UraM2TargetAcquired"
+		BreathOffset="45"
+		ClearTargetAI="true"
+		>
+		<Thing
+			FallSound="UraM2Fall"
+			OverheadOffset="180"
+			Scale="1.2"
+			Graphic="UraPolearmEntranceIdle"
+			>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			DeathAnimation="UraPolearmDeath"
+			HitSound="UraM2Hit"
+			DeathSound="UraM2Death"
+			SkipHitSoundOnDeath="true"
+			>
+			<Loot TableName="DynamicHealth_Category5" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category5_A" DropChance="0.8"/>
+		</Life>
+		<Thing>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="9999"
+			TargetAcquiredSound="UraM2TargetAcquired">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<Weapon Name="Ura_Melee_Male"/>		
+	</Npc>
+
+	<Npc
+		Name="Ura_Melee_Male_Deadly"
+		InheritFrom="Ura_Melee_Male"
+		PhaseInGraphic="UraPolearmEntrance"
+		PhaseInFx="UraCaptainFx"
+		ClearWeapons="true"
+		ScoreValue="1000"
+		>
+		<Thing
+			Graphic="UraPolearmEntranceIdle"
+			>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			DeathAnimation="UraPolearmDeath"
+			>
+			<Loot TableName="DynamicHealth_Category5" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category5_C" DropChance="0.8"/>
+		</Life>
+		<Thing>
+			<Color Red="1.0" Green="0.8" Blue="0.8" Opacity="1.0"/>
+		</Thing>
+		<Weapon Name="Ura_Melee_Male_Deadly"/>
+		<Weapon Name="Ura_Blink_Far"/>
+	</Npc>
+
+	<Npc
+		Name="Ura_Melee_Male_Deadly_Special"
+		InheritFrom="Ura_Melee_Male_Deadly"
+		PhaseInGraphic="UraBossEntrance"
+		ClearWeapons="true"
+		PhaseInFx="null"
+		ClearUpgrade="Enemy_Regen"
+		>
+		<Thing
+			Scale="0.91"
+			Graphic="UraBossEntranceIdle"
+			Light="Circle"
+			>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			DeathAnimation="UraBossDeath"
+			>
+			<Loot TableName="DynamicHealth_Category5" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category5_D" DropChance="1.0"/>
+		</Life>
+		<Weapon Name="Ura_Melee_Male_Deadly_Special"/>
+		<Weapon Name="Ura_Blink_Far"/>
+	</Npc>
+
+	<Npc
+		Name="Ura_Melee_Female"
+		InheritFrom="Ura_Base"
+		PhaseInTimeMin="0.28"
+        PhaseInTimeMax="0.28"
+		PhaseInGraphic="UraScimitarEntrance"
+		PhaseInSound="SpearThrow"
+		PhaseInFx="Ura_PhaseIn_Decal"
+		PhaseInEndSound="UraF2TargetAcquired"
+		ClearTargetAI="true"
+		>
+		<Thing
+			Scale="1.175"
+			Graphic="UraScimitarEntranceIdle"
+			FallSound="UraF2Fall"
+			>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			DeathAnimation="UraScimitarDeath"
+			HitSound="UraF2Hit"
+			DeathSound="UraF2Death"
+			SkipHitSoundOnDeath="true"
+			>
+			<Loot TableName="DynamicHealth_Category5" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category5_A" DropChance="0.8"/>
+		</Life>
+		<Thing>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="9999"
+			TargetAcquiredSound="UraF2TargetAcquired">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<Weapon Name="Ura_Melee_Female"/>
+	</Npc>
+
+	<Npc
+		Name="Ura_Melee_Female_Relentless"
+		InheritFrom="Ura_Melee_Female"
+		ClearWeapons="true"
+		PhaseInFx="UraCaptainFx"
+		ScoreValue="500"
+		>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			>
+			<Loot TableName="DynamicHealth_Category5" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category5_B" DropChance="1.0"/>
+		</Life>
+		<Thing>
+			<Color Red="1.0" Green="0.8" Blue="0.8" Opacity="1.0"/>
+		</Thing>
+		<Weapon Name="Ura_Melee_Female_Relentless"/>
+		<Weapon Name="Ura_Blink_Fast_Short"/>
+	</Npc>
+
+	<Npc
+		Name="Ura_Melee_Female_Special"
+		InheritFrom="Ura_Melee_Female"
+		ClearWeapons="true"
+		PhaseInFx="UraCaptainFx"
+		ScoreValue="500"
+		>
+		<Thing>
+			<Color Red="1.0" Green="0.8" Blue="0.8" Opacity="1.0"/>
+		</Thing>
+		<Weapon Name="Ura_Melee_Female_Special"/>
+		<Weapon Name="Ura_Blink_Fast_Short"/>
+	</Npc>
+
+	<Npc
+		Name="Ura_Ranged_Male"
+		InheritFrom="Ura_Base"
+		PhaseInTimeMin="0.25"
+        PhaseInTimeMax="0.25"
+		PhaseInGraphic="UraCrossbowEntrance"
+		PhaseInSound="SpearThrow"
+		PhaseInEndSound="UraM1TagetAcquired"
+		BreathOffset="100"
+		ClearTargetAI="true"
+		>
+		<Thing
+			Graphic="UraCrossbowEntranceIdle"
+			ClearGeometry="true"
+			FallSound="UraM1Fall"
+			Scale="0.935">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="36"/>
+			<Point X="72" Y="0"/>
+			<Point X="0" Y="-36"/>
+			<Point X="-72" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			DeathAnimation="UraCrossbowDeath"
+			HitSound="UraM1Hit"
+			DeathSound="UraM1Death"
+			SkipHitSoundOnDeath="true"
+			>
+			<Loot TableName="DynamicHealth_Category5" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category5_B" DropChance="0.8"/>
+		</Life>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="9999"
+			TargetAcquiredSound="UraM1TagetAcquired">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<Weapon Name="Ura_Ranged_Male_Rapid"/>
+	</Npc>
+
+	<Npc
+		Name="Ura_Ranged_Male_NoDefense"
+		InheritFrom="Ura_Ranged_Male"
+		OnHitWeapon="null"
+		>
+		<Life
+			Health="1"
+			>
+		</Life>
+	</Npc>
+
+	<Npc
+		Name="Ura_Ranged_Male_Poison"
+		InheritFrom="Ura_Ranged_Male"
+		PhaseInFx="UraCaptainFx"		
+		PhaseInGraphic="UraCrossbowEntrance"
+		ClearWeapons="true"
+		ScoreValue="500"
+		>
+		<Thing
+			Graphic="UraCrossbowEntranceIdle"
+			ClearGeometry="true"
+			MinScale="1.0"
+			MaxScale="1.1">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="36"/>
+			<Point X="72" Y="0"/>
+			<Point X="0" Y="-36"/>
+			<Point X="-72" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			DeathAnimation="UraCrossbowDeath"
+			>
+			<Loot TableName="DynamicHealth_Category5" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category5_B" DropChance="0.8"/>
+		</Life>
+		<Weapon Name="Ura_Ranged_Male_Poison"/>
+		<Weapon Name="Ura_Blink_Unpredictable"/>
+	</Npc>	
+
+	<Npc
+		Name="Ura_Ranged_Female"
+		InheritFrom="Ura_Base"
+		PhaseInTimeMin="0.25"
+        PhaseInTimeMax="0.25"
+		PhaseInGraphic="UraFlintlockEntrance"
+		PhaseInSound="SpearThrow"
+		PhaseInEndSound="UraF1TargetAcquired"
+		ClearTargetAI="true"
+		>
+		<Thing
+			Graphic="UraFlintlockEntranceIdle"
+			ClearGeometry="true"
+			MinScale="0.8"
+			MaxScale="0.8"
+			FallSound="UraF1Fall">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="36"/>
+			<Point X="72" Y="0"/>
+			<Point X="0" Y="-36"/>
+			<Point X="-72" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			DeathAnimation="UraFlintlockDeath"
+			HitSound="UraF1Hit"
+			DeathSound="UraF1Death"
+			SkipHitSoundOnDeath="true"
+			>
+			<Loot TableName="DynamicHealth_Category5" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category5_A" DropChance="0.8"/>
+		</Life>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="9999"
+			TargetAcquiredSound="UraF1TargetAcquired">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<Weapon Name="Ura_Ranged_Female"/>	
+	</Npc>
+
+	<Npc
+		Name="Ura_Ranged_Female_Unpredictable"
+		InheritFrom="Ura_Ranged_Female"
+		PhaseInGraphic="UraFlintlockEntrance"
+		PhaseInFx="UraCaptainFx"
+		ClearWeapons="true"
+		ScoreValue="500"
+		>
+		<Thing
+			Graphic="UraFlintlockEntranceIdle"
+			ClearGeometry="true"
+			MinScale="1.0"
+			MaxScale="1.0">
+			<Color Red="1.0" Green="0.8" Blue="0.8" Opacity="1.0"/>
+			<Point X="0" Y="36"/>
+			<Point X="72" Y="0"/>
+			<Point X="0" Y="-36"/>
+			<Point X="-72" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			>
+			<Loot TableName="DynamicHealth_Category5" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category5_B" DropChance="1.0"/>
+		</Life>
+		<Weapon Name="Ura_Ranged_Female_Unpredictable"/>
+		<Weapon Name="Ura_Blink_Unpredictable"/>
+	</Npc>
+
+
+</Npcs>

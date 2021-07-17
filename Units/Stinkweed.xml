@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<Npc
+		Name="Stinkweed"
+		InheritFrom="1_BaseAttacker"
+        Flyer="false"
+        ScoreValue="80"
+        PhaseInTimeMin="0.25"
+        PhaseInTimeMax="0.25"
+        PhaseInGraphic="StinkweedPhaseIn"
+		PhaseInSound="StinkweedPhaseIn"
+		VisionRange="1000"
+		OnDeathWeapon="StinkweedDeathCloud"
+		>
+		<Thing
+			Graphic="StinkweedIdle"
+			Grip="999.0"
+			OffsetZ="40"
+			OverheadOffset="200"
+			Scale="1.0"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="48"/>
+			<Point X="96" Y="0"/>
+			<Point X="0" Y="-48"/>
+			<Point X="-96" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			HealthRegen="0.0"
+			HealthRegenInterval="0.1"
+			Armor="0.0"
+			HitGraphic="null"
+			DeathAnimation="StinkweedDeath"
+			HitSound="GenericEnemyGettingHit"
+			DeathSound="GenericEnemyDeath"
+			Decal="Decals\\Health_Circle_Large"
+			DamageDecal="null"
+			DeathShakeSpeed="250"
+			DeathShakeDistance="5"
+			Material="PLANT"
+			UseHealthMeter="true"
+			HealthMeterScale="2.1"
+			>
+			<Loot TableName="DynamicHealth_Category2" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category2_D" DropChance="0.8"/>
+			<Loot TableName="SpecialAmmo" DropChance="1.0"/>		
+		</Life>
+
+		<Weapon Name="StinkweedGasCloud"/>
+
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="1500">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="Stinkweed_Lob"
+		InheritFrom="Stinkweed"
+		ClearWeapons="true"
+		ScoreValue="100"
+		>
+		<Thing
+			Scale="0.8">
+			<Color Red="0.85" Green="0.35" Blue="0.0" Opacity="1.0"/>
+		</Thing>
+		<Weapon Name="StinkweedLob"/>
+	</Npc>
+
+	<Npc
+		Name="Stinkweed_Bulb"
+		InheritFrom="Stinkweed"
+		ClearWeapons="true"
+		ClearAI="true"
+		PhaseInGraphic="Stinkweed_Bulb_PhaseIn"
+		PhaseInSound="null"
+		PhaseInEndSound="ObjectFall4"
+		PhaseInTimeMin="0.5"
+        PhaseInTimeMax="0.5"
+		OnDeathWeapon="Stinkweed_Bulb_Death"
+		CollisionWeapon="Stinkweed_Bulb_Collision"
+		ScoreValue="0"
+		>
+		<Thing
+			Graphic="Stinkweed_Bulb"
+			ClearGeometry="true"
+			OffsetZ="0"
+			OverheadOffset="135"
+			>
+			<Color Red="0.75" Green="0.50" Blue="0.95" Opacity="1.0"/>
+			<Point X="-24" Y="26"/>
+			<Point X="40" Y="1"/>
+			<Point X="18" Y="-29"/>
+			<Point X="-42" Y="-7"/>
+		</Thing>
+		<Life
+			Health="1"
+			UseHealthMeter="false"
+			Decal="null"
+			Material="PLANT"
+			LowHealthThreshold="0.25"
+			LowHealthGraphic="null"
+			DeathAnimation="PlantIchor"
+			DeathSound="Tumbleweed1"
+			DamageShakeDistance="2"
+			DamageShakeSpeed="120"
+			DamageShakeDuration="0.3"
+			DeathShakeSpeed="400"
+			DeathShakeDistance="20"
+			ClearLoot="true"
+			>
+		</Life>
+	</Npc>
+
+</Npcs>

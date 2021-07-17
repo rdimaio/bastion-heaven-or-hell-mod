@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<!-- LightMelee -->
+
+	<Npc
+		Name="LightMelee_Base"
+		InheritFrom="1_BaseAttacker"
+		DisplayInEditor="false"
+		Speed="290.0"
+		Flyer="true"
+		ScoreValue="1"
+		PhaseInTimeMin="1.06"
+		PhaseInTimeMax="1.06"
+		PhaseInGraphic="LightMelee_PhaseIn"
+		PhaseInFx="LightMelee_PhaseIn_Decal"
+		PhaseInSound="SquirtSpawn"
+		VisionRange="140"
+		RotationSpeed="440"
+		AlertFriendsOnDeathDistance="425"
+		SpawnFacingPlayer="false"
+		CollideWithUnits="false"
+		WobbleDistance="10.0"
+		WobbleSpeed="40.0"
+		NoWobbleWhileAttacking="true"
+		CustomPackage="GasfellaSquirt"
+		>
+		<Thing
+			Graphic="LightMelee_Idle"
+			OverheadOffset="190"
+			Grip="5.0"
+			OffsetZ="90"
+			Scale="0.80"
+			SelectionRadius="50"
+			>
+			<Point X="0" Y="12"/>
+			<Point X="24" Y="0"/>
+			<Point X="0" Y="-12"/>
+			<Point X="-24" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			Armor="0.0"
+			HitGraphic="LightMelee_OnHit"
+			DeathAnimation="LightMelee_Death"
+			HitSound="GenericEnemyGettingHit"
+			DeathSound="SquirtDeath"
+			Decal="Decals\\Health_Circle_Tiny"
+			OverPitDecal="Decals\\Dotted_Circle_Tiny"
+			DamageDecal="null"
+			DeathShakeSpeed="150"
+			DeathShakeDistance="5"
+			Material="ORGANIC"
+			>
+			<Loot TableName="DynamicHealth_Category1" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category1_A" DropChance="0.6"/>
+		</Life>
+		<Weapon Name="LightMeleeLunge"/>
+	</Npc>
+	<!-- Decals\\Health_Circle_Damaged_Tiny -->
+
+	<Npc
+		Name="LightMelee"
+		InheritFrom="LightMelee_Base">
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			DamagedVisionRange="1000"
+			MaxDistance="600"
+			FlashOnAcquire="false"
+			TargetAcquiredSound="SquirtMove">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="1.0"
+			RandomTurnIntervalMax="4.0"
+			SpeedFraction="0.2"
+			TetherDistance="100"
+			>
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT"
+			MustCompleteAttack="true">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="LightMeleeSuicide"
+		InheritFrom="LightMelee_Base"
+		ScoreValue="10"
+		ClearWeapons="true"
+		OnDeathWeapon="LightMeleeSuicide"
+		Speed="575"
+		VisionRange="625"
+		>
+		<Thing>
+			<Color Red="0.0" Green="1.0" Blue="0.0" Opacity="1.0"/>
+		</Thing>
+		<Weapon Name="LightMeleeSuicide"/>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="9999"
+			DisableOnAcquire="1.0"
+			FlashOnAcquire="true"
+			>
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="1.0"
+			RandomTurnIntervalMax="4.0"
+			SpeedFraction="0.1"
+			>
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="LightMeleeSpawn"
+		InheritFrom="LightMelee_Base"
+		VisionRange="800"
+		ScoreValue="0">
+		<Life
+			ClearLoot="true">
+		</Life>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			DamagedVisionRange="1000"
+			MaxDistance="1000"
+			FlashOnAcquire="false"
+			TargetAcquiredSound="SquirtMove">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="1.0"
+			RandomTurnIntervalMax="4.0"
+			SpeedFraction="0.2"
+			TetherDistance="400"
+			>
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT"
+			MustCompleteAttack="true">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="LightMeleeLarge"
+		InheritFrom="LightMelee"
+		ClearWeapons="true"
+		ScoreValue="50"
+		VisionRange="500"
+		PhaseInGraphic="LightMeleeLarge_PhaseIn">
+		<Thing
+			OverheadOffset="230"
+			Scale="1.4"
+			Grip="10">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="0.90"/>
+		</Thing>
+		<Life
+			Health="1"
+			UseHealthMeter="true"
+			HealthMeterScale="0.7"
+			ClearLoot="true"		
+			>
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_A" DropChance="0.8"/>
+		</Life>
+		<Weapon Name="LightMeleeLargeLunge"/>
+	</Npc>
+
+	<Npc
+		Name="LightMeleeLargeSpawn"
+		InheritFrom="LightMeleeLarge"
+		ScoreValue="0">
+	</Npc>
+
+	<Npc
+		Name="LightMeleeScared"
+		InheritFrom="LightMelee_Base"
+		VisionRange="350"
+		ScoreValue="5"
+		WobbleDistance="16.0"
+		WobbleSpeed="600.0"		
+		>
+		<Thing
+			Scale="1.0">
+			<Color Red="1.0" Green="0.4" Blue="0.0" Opacity="1.0"/>
+		</Thing>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="1000">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="2.0"
+			RandomTurnIntervalMax="3.0"
+			SpeedFraction="0.0">
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			>
+			<RetreatFromUnit Name="_PlayerUnit"/>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="LightMeleeVeryScared"
+		InheritFrom="LightMeleeScared"
+		VisionRange="350"
+		ClearAI="true"
+		>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="500">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="2.0"
+			RandomTurnIntervalMax="3.0"
+			SpeedFraction="0.6"
+			TetherDistance="1000">
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			RetreatFromDistance="350"
+			RetreatToDistance="525"
+			>
+			<RetreatFromUnit Name="_PlayerUnit"/>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="LightMeleeBoxSpawn"
+		InheritFrom="LightMeleeSpawn"
+		PhaseInTimeMin="0.01"
+		PhaseInTimeMax="0.01"
+		PhaseInGraphic="null"
+		PhaseInFx="null">
+	</Npc>
+
+	<Npc
+		Name="LightMeleeJumper"
+		InheritFrom="LightMelee_Base"
+		WobbleDistance="10.0"
+		WobbleSpeed="100.0"
+		ScoreValue="0"
+		VisionRange="2000"
+		ClearUpgrade="Enemy_Martyrdom">
+		<Thing
+			OverheadOffset="135"
+			Grip="5.0"
+			OffsetZ="90"
+		></Thing>
+		<Life
+			Health="1"
+			DeathAnimation="LightMeleeJumper_Death">
+			<Loot TableName="Enemy_Demo_Medium" DropChance="0.0"/>
+		</Life>
+		<Interact
+			Distance="125"
+			AudioFx="Special"
+		></Interact>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			DamagedVisionRange="1000"
+			MaxDistance="600"
+			FlashOnAcquire="false"
+			TargetAcquiredSound="SquirtMove">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="1.0"
+			RandomTurnIntervalMax="4.0"
+			SpeedFraction="0.2"
+			TetherDistance="100"
+			>
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT"
+			MustCompleteAttack="true">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="LightMeleeLargeGhost"
+		InheritFrom="LightMeleeLarge"
+		ClearWeapons="true"
+		ScoreValue="100"
+		VisionRange="500">
+		<Thing
+			Refract="false">
+			<Color Red="1.0" Green="1.0" Blue="1.00" Opacity="0.80"/>
+		</Thing>
+		<Life
+			Health="1"
+			UseHealthMeter="true"
+			HealthMeterScale="0.7"
+			ClearLoot="true"
+			>
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_D" DropChance="0.8"/>
+		</Life>
+		<Weapon Name="LightMeleeLargeLunge"/>
+	</Npc>
+
+	<Npc
+		Name="LightMeleeSpawner"
+		InheritFrom="1_BaseAttacker"
+		Speed="0.0"
+		Flyer="false"
+		ScoreValue="50"
+		PhaseInTimeMin="0.5"
+		PhaseInTimeMax="0.5"
+		PhaseInGraphic="LightMeleeSpawner_PhaseIn"
+		PhaseInSound="ObjectSlam"
+		OnDeathWeapon="null"
+		>
+		<Thing
+			Graphic="LightMeleeSpawner"
+			OverheadOffset="260"
+			Grip="100.0"
+			>
+			<Point X="-70" Y="4"/>
+			<Point X="-27" Y="29"/>
+			<Point X="68" Y="10"/>
+			<Point X="86" Y="-25"/>
+			<Point X="32" Y="-58"/>
+			<Point X="-74" Y="-28"/>
+		</Thing>
+		<Life
+			Health="1"
+			Armor="0.0"
+			HitGraphic="null"
+			DeathAnimation="ExplosionA"
+			HitSound="GenericEnemyGettingHit"
+			DeathSound="SquirtMachineDeath"
+			Decal="Decals\\Health_Circle_Large"
+			DamageDecal="null"
+			DeathShakeSpeed="250"
+			DeathShakeDistance="8"
+			Material="ORGANIC"
+			UseHealthMeter="true"
+			HealthMeterScale="1.2"
+			>
+			<Loot TableName="SpecialAmmo" DropChance="1.0"/>
+			<Loot TableName="DynamicHealth_Category2" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category2_B" DropChance="0.8"/>
+		</Life>
+		<Weapon Name="LightMeleeSpawner"/>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="800">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="LightMeleeSpawnerVolley"
+		InheritFrom="LightMeleeSpawner"
+		ClearWeapons="true"
+		ScoreValue="75"
+		>
+		<Thing
+			>
+			<Color Red="1.0" Green="0.7" Blue="0.7" Opacity="1.0"/>
+		</Thing>
+		<Life
+			ClearLoot="true">
+			<Loot TableName="SpecialAmmo" DropChance="1.0"/>
+			<Loot TableName="DynamicHealth_Category2" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category2_C" DropChance="0.8"/>
+		</Life>
+		<Weapon Name="LightMeleeSpawnerVolley"/>
+	</Npc>
+
+	<Npc
+		Name="LightMeleeSpawnerLarge"
+		InheritFrom="LightMeleeSpawner"
+		ClearWeapons="true"
+		ScoreValue="400"
+		PhaseInEndSound="GiantMeleeAttack"
+		>
+		<Thing
+			Scale="2.0"
+ 			OverheadOffset="520"
+      >
+			<Color Red="1.0" Green="0.8" Blue="0.4" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"	
+			ClearLoot="true"
+      DeathAnimation="MineExplosion"
+      >
+			<Loot TableName="SpecialAmmo" DropChance="1.0"/>
+			<Loot TableName="DynamicHealth_Category4" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category4_D" DropChance="1.0"/>
+		</Life>
+		<Weapon Name="LightMeleeSpawnerLarge"/>
+	</Npc>
+	
+	<Npc
+		Name="LightMeleeMulti_Box"
+		InheritFrom="HeavyMelee_Box"
+		ClearWeapons="true"
+		ScoreValue="10"
+		VisionRange="550"
+		>
+		<Life
+			Health="1"
+			>
+			<Loot TableName="Enemy_Demo" DropChance="1.0"/>
+		</Life>
+		<Weapon Name="LampTransform_LightMeleeMulti"/>
+	</Npc>
+
+	<Npc
+		Name="LightMelee_Challenge11"
+		InheritFrom="LightMelee"
+		ClearAI="true"
+		ClearWeapons="true"
+		CheckShadow="false"
+		SpawnAtRandomAngle="true"
+		VisionRange="0"
+		AlertFriendsOnDeathDistance="0">
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="4.0"
+			RandomTurnIntervalMax="8.0"
+			SpeedFraction="0.2"
+			TetherDistance="300"
+			>
+		</MoveAI>
+	</Npc>
+
+</Npcs>

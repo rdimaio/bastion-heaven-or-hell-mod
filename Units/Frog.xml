@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+	
+	<Npc
+		Name="Frog"
+		InheritFrom="1_BaseAttacker"
+		Speed="0.0"
+		Flyer="false"
+		ScoreValue="150"
+		PhaseInTimeMin="0.5"
+		PhaseInTimeMax="0.5"
+		PhaseInGraphic="FrogPhaseIn"
+		PhaseInFx="null"
+		PhaseInSound="FrogPhaseIn"
+		VisionRange="725"
+		RotationSpeed="1080"
+		SpawnFacingPlayer="false"
+		IgnoreTargetCollision="false"
+		OnTouchdownWeapon="FrogTouchdown"
+		BlockFx="BlockSparks3"
+		OnDeathWeapon="FrogDeath"
+		CustomPackage="Frog"
+		>
+		<Thing
+			Graphic="FrogIdle"
+			FlyingGraphic="FrogIdle"
+			TouchdownGraphic="FrogLandC"
+			TouchdownSound="FrogLand"
+			FallSound="FrogFall"
+			OverheadOffset="180"
+			FallSpeedMultiplier="16.0"
+			Grip="5.0"
+			OffsetZ="0"
+			RotateGeometry="true"
+			>
+			<Point X="0" Y="36"/>
+			<Point X="62" Y="0"/>
+			<Point X="0" Y="-36"/>
+			<Point X="-62" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			UseHealthMeter="true"
+			HealthMeterScale="1.2"
+			Armor="1.0"
+			ArmorCoverage="120"
+			HitGraphic="null"
+			DeathAnimation="FrogDeath"
+			HitSound="FrogPain"
+			DeathSound="FrogDeath"
+			Decal="Decals\\Health_Circle_Large"
+			DeathShakeSpeed="150"
+			DeathShakeDistance="5"
+			DamageShakeDistance="0.0"
+			Material="METAL"
+			>
+			<Loot TableName="DynamicHealth_Category5" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_E" DropChance="1.0"/>
+		</Life>
+		
+		<Weapon Name="FrogJump"/>
+
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="1200">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+		
+	</Npc>
+
+	<Npc
+		Name="Frog_Super"
+		InheritFrom="Frog"
+		ClearWeapons="true"
+		OnTouchdownWeapon="FrogSuperTouchdown"
+		ScoreValue="750"
+		PhaseInSound="FrogPhaseInSuper"
+		ImmuneToStun="true"
+    >
+		<Thing
+			Scale="1.5"
+			TouchdownGraphic="FrogLandA"
+			Grip="5.0"
+			FallSound="FrogFallSuper"
+      >
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			UseHealthMeter="true"
+			HealthMeterScale="1.3"
+			HitSound="FrogPainSuper"
+			ClearLoot="true"
+			DeathSound="FrogDeathSuper"
+      >
+			<Loot TableName="DynamicHealth_Category4" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category4_C" DropChance="1.0"/>
+		</Life>
+		<Weapon Name="FrogSuperJump"/>
+	</Npc>
+
+</Npcs>

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+	
+	<Npc
+		Name="Mole"
+		InheritFrom="1_BaseAttacker"
+		Speed="350.0"
+		Flyer="false"
+		ScoreValue="75"
+		PhaseInTimeMin="0.5"
+		PhaseInTimeMax="0.5"
+		PhaseInGraphic="MolePhaseIn"
+		PhaseInFx="null"
+		PhaseInSound="MolePhaseIn"
+		VisionRange="1000"
+		RotationSpeed="1080"
+		SpawnFacingPlayer="false"
+		IgnoreTargetCollision="false"
+		CollideWithUnits="true"
+		MoveGraphic="MoleWalk"
+		CustomPackage="Mole"
+		CheckShadow="false"
+		>
+		<Thing
+			Graphic="MoleWalk"
+ 			FallSound="MoleFall"
+			FlyingGraphic="null"
+			OverheadOffset="180"
+			FallSpeedMultiplier="16.0"
+			Grip="5.0"
+			OffsetZ="0"
+			RotateGeometry="true"
+			>
+			<Point X="0" Y="32"/>
+			<Point X="32" Y="0"/>
+			<Point X="0" Y="-32"/>
+			<Point X="-32" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			UseHealthMeter="true"
+			HealthMeterScale="1.2"
+			HitGraphic="null"
+			DeathAnimation="MoleDeath"
+			HitSound="MolePain"
+			DeathSound="MoleDeath"
+			Decal="Decals\\Health_Circle_Large"
+			DeathShakeSpeed="150"
+			DeathShakeDistance="5"
+			DamageShakeDistance="0.0"
+			Material="HUMANOID"
+			>
+			<Loot TableName="DynamicHealth_Category4" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_E" DropChance="1.0"/>
+		</Life>
+		
+		<Weapon Name="MoleLauncher"/>
+
+		<MoveAI
+			Algorithm="RANDOM"
+			StayOnTerrain="true"
+			RandomTurnIntervalMin="0.5"
+			RandomTurnIntervalMax="1.5"
+			SpeedFraction="1.0"
+			TetherDistance="800"
+			>
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			StayOnTerrain="true"
+			NodeDistance="10"
+			LookAheadDistance="256"
+			LookBehindDistance="128"
+			>
+		</MoveAI>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MinDistance="350"
+			MaxDistance="1200">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+		
+	</Npc>
+
+	<Npc
+		Name="Mole_Mini"
+		InheritFrom="Mole"
+		ClearWeapons="true"
+		ScoreValue="20"
+		ClearAI="true"
+		PhaseInSound="MolePhaseInMini"
+		>
+		<Thing
+			Scale="0.5"
+			FallSound="MoleFallMini"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			HitSound="GenericEnemyGettingHit"
+			DeathAnimation="MoleDeath_Small"
+ 			DeathSound="MoleDeathMini"
+			>
+			<Loot TableName="DynamicHealth_Category4" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category1_D" DropChance="1.0"/>
+		</Life>
+		<Weapon Name="MoleLauncher_Mini"/>
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="4.0"
+			RandomTurnIntervalMax="8.0"
+			SpeedFraction="0.35"
+			TetherDistance="800"
+			StayOnTerrain="true"
+			>
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			RetreatFromDistance="150"
+			RetreatToDistance="250"
+			CorneredDistance="175"
+			StayOnTerrain="true"
+			NodeDistance="10"
+			AvoidLocationDistance="30"
+			LookAheadDistance="256"
+			LookBehindDistance="128"
+			RetreatRecheckDuration="0.5"
+			>
+			<RetreatFromUnit Name="_PlayerUnit"/>
+		</MoveAI>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="1200">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+
+</Npcs>

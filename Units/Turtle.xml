@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<!-- Turtle -->
+
+	<Npc
+		Name="Turtle"
+		InheritFrom="1_BaseAttacker"
+        Speed="0.0"
+        Flyer="false"
+        ScoreValue="50"
+        PhaseInTimeMin="0.75"
+        PhaseInTimeMax="0.75"
+        PhaseInGraphic="TurtlePhaseIn"
+		InactiveGraphic="Animations\\Turtle_2\\turtle_bib"
+		PhaseInSound="FilchGrow"
+		OnHitWeapon="TurtleShell"
+		OnBlockWeapon="TurtleShellCopy1"
+		OnRangedBlockWeapon="TurtleShellCopy2"
+		VisionRange="675"
+		ImmuneToStun="true"
+		BlockFx="InvincibleHitSpark"
+		ClearUpgrade="Enemy_Reflection"
+		>
+		<Thing
+			Graphic="TurtleIdle"
+			Grip="999.0"
+			OverheadOffset="245"
+			Scale="1.0"
+			SelectionRadius="50"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="16"/>
+			<Point X="32" Y="0"/>
+			<Point X="0" Y="-16"/>
+			<Point X="-32" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			HealthRegen="0.0"
+			HealthRegenInterval="0.1"
+			ReflectionChance="1.0"
+			Armor="0.0"
+			HitGraphic="null"
+			DeathAnimation="DeathTurtle"
+			HitSound="GenericEnemyGettingHit"
+			DeathSound="GenericEnemyDeath"
+			Decal="Decals\\Health_Circle_Large"
+			DamageDecal="null"
+			DeathShakeSpeed="250"
+			DeathShakeDistance="5"
+			Material="PLANT"
+			UseHealthMeter="true"
+			HealthMeterScale="1.3"
+			DamageFlashSeconds="0.2"
+			>
+			<Loot TableName="DynamicHealth_Category2" DropChance="0.8"/>
+			<Loot TableName="Fragments_Category2_D" DropChance="0.8"/>
+		</Life>
+
+		<Weapon Name="TurtleMissile"/>
+
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="1100">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+
+	</Npc>
+
+	<Npc
+		Name="TurtleBarrage"
+		InheritFrom="Turtle"
+		ClearWeapons="true"
+		ScoreValue="90"
+		>
+		<Thing
+			Graphic="TurtleIdle_Barrage">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1">
+		</Life>
+		<Weapon Name="TurtleBarrage"/>
+	</Npc>
+
+	<Npc
+		Name="TurtleCloud"
+		InheritFrom="Turtle"
+		ClearWeapons="true"
+		ScoreValue="75"
+		VisionRange="1250"
+		>
+		<Thing
+			Graphic="TurtleIdle_Cloud">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1">
+		</Life>
+		<Weapon Name="TurtleCloud"/>
+	</Npc>
+
+	<Npc
+		Name="TurtleBurst"
+		InheritFrom="Turtle"
+		ClearWeapons="true"
+		ScoreValue="65"
+		>
+		<Thing
+			Graphic="TurtleIdle_Triple">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1">
+		</Life>
+		<Weapon Name="TurtleBurst"/>
+	</Npc>
+
+	<Npc
+		Name="TurtleSpray"
+		InheritFrom="Turtle"
+		ClearWeapons="true"
+		ScoreValue="50"
+		>
+		<Thing
+			Graphic="TurtleIdle_Triple">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1">
+		</Life>
+		<Weapon Name="TurtleSpray"/>
+	</Npc>
+
+	<Npc
+		Name="TurtleNova"
+		InheritFrom="Turtle"
+		ClearWeapons="true"
+		ScoreValue="85"
+		>
+		<Thing
+			Graphic="TurtleIdle_Nova">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1">
+			<Loot TableName="Enemy_HighHealthPotion" DropChance="0.0"/>
+		</Life>
+		<Weapon Name="TurtleNova"/>
+	</Npc>
+
+	<Npc
+		Name="TurtleEthereal"
+		InheritFrom="Turtle"
+		ClearWeapons="true"
+		ScoreValue="1"
+		>
+		<Thing>
+			<Color Red="0.35" Green="0.0" Blue="0.8" Opacity="0.70"/>
+		</Thing>
+		<Life
+			Health="1">
+			<Loot TableName="Enemy_Weak" DropChance="0.00"/>
+		</Life>
+		<Weapon Name="TurtleEthereal"/>
+	</Npc>
+
+</Npcs>

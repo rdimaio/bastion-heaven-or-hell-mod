@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+	
+	<Npc
+		Name="Bull"
+		InheritFrom="1_BaseAttacker"
+		Speed="0.0"
+		Flyer="true"
+		ScoreValue="300"
+		PhaseInTimeMin="0.25"
+		PhaseInTimeMax="0.25"
+		PhaseInGraphic="BullPhaseIn"
+		PhaseInFx="null"
+		PhaseInSound="BullActivate"
+		VisionRange="250"
+		RotationSpeed="150"
+		SpawnFacingPlayer="false"
+		WobbleDistance="0.0"
+		WobbleSpeed="0.0"
+		NoWobbleWhileAttacking="false"
+		IgnoreTargetCollision="true"
+		ObstacleDamageMultiplier="3.0"
+		OnDeathWeapon="BullDeath"
+		CustomPackage="Bull"
+		>
+		<Thing
+			Graphic="BullIdle"
+			OverheadOffset="270"
+			Grip="10.0"
+			OffsetZ="0"
+			RotateGeometry="true"
+			>
+			<Point X="0" Y="64"/>
+			<Point X="128" Y="0"/>
+			<Point X="0" Y="-64"/>
+			<Point X="-128" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			UseHealthMeter="true"
+			HealthMeterScale="1.3"
+			Armor="0.5"
+			HitGraphic="null"
+			DeathAnimation="MineExplosion"
+			HitSound="GenericEnemyGettingHit"
+			DeathSound="BullDeath"
+			Decal="Decals\\Health_Circle_Large"
+			DeathShakeSpeed="150"
+			DeathShakeDistance="5"
+			DamageShakeDistance="0.0"
+			Material="METAL"
+			>
+			<Loot TableName="DynamicHealth_Category4" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category4_B" DropChance="1.0"/>
+		</Life>
+		
+		<Weapon Name="BullChase"/>
+
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="1200">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			StopToAttack="false"
+			SuccessDistance="200"
+			TightTurnModifier="200.0"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT"
+			CanAttackWhileMoving="true"
+			OnlyAimAtDestination="true">
+		</AttackAI>
+		
+	</Npc>
+
+	<Npc
+		Name="Bull_MaxGrip"
+		InheritFrom="Bull"
+		>
+		<Thing
+			Grip="9999"
+			>
+		</Thing>
+	</Npc>
+	
+	<Npc
+		Name="Bull_Town"
+		InheritFrom="Bull"
+		Speed="0.0"
+		Flyer="true"
+		ScoreValue="0"
+		RotationSpeed="150"
+		SpawnFacingPlayer="false"
+		WobbleDistance="35.0"
+		WobbleSpeed="35.0"
+		VisionRange="2000"
+		>
+		<Thing
+			Scale="0.75"
+			>
+		</Thing>
+		<Life
+			Health="1"
+			Armor="0.9"
+		>
+		</Life>
+		<Interact
+			Distance="155"
+			AudioFx="MooseAggro"
+		></Interact>		
+	</Npc>
+
+	<Npc
+		Name="Bull_NormalMove"
+		InheritFrom="Bull"
+		Speed="400.0"
+		CollideWithUnits="false"
+		>
+	</Npc>
+
+	<Npc
+		Name="Bull_Mini"
+		InheritFrom="Bull"
+		ScoreValue="300"
+		OnDeathWeapon="BullDeath"
+		>
+		<Thing
+			Graphic="BullIdle"
+			Scale="0.66"
+			OverheadOffset="270"
+			Grip="10.0"
+			>
+			<Point X="0" Y="64"/>
+			<Point X="128" Y="0"/>
+			<Point X="0" Y="-64"/>
+			<Point X="-128" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			UseHealthMeter="true"
+			HealthMeterScale="1.0"
+			Armor="0.5"
+			>
+		</Life>
+
+	</Npc>	
+	
+</Npcs>

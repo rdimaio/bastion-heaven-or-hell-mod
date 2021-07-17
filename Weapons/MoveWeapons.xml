@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Weapons>
+	
+	<!-- Roll -->
+
+	<Weapon
+		Name="Roll"
+		InheritFrom="1_BaseWeapon"
+		Type="SELF"
+		SlotType="MOVE"
+		Cost="25"
+        Graphic="PlayerRoll"
+		IdleGraphic="PlayerIdle"
+		FireSound="Roll"
+		FireSound2="PlayerRoll"
+		Cooldown="0.45"
+		ReloadTime="0.45"
+		FullyAutomatic="false"
+		SelfVelocity="0"
+		MaxFireZ="999999"
+		>
+
+		<Effect Name="PlayerRollSwipe" Type="WEAPON_FIRE" Duration="0.40" ClearOnCollision="false"/>
+
+		<Effect Name="RollSpeed01" Type="SPEED" Duration="0.025" Modifier="130" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="RollSpeed02" Type="SPEED" Duration="0.050" Modifier="130" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="RollSpeed03" Type="SPEED" Duration="0.075" Modifier="115" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="RollSpeed04" Type="SPEED" Duration="0.100" Modifier="115" ChangeType="ADD" ClearOnCollision="false"/>
+
+		<Effect Name="RollSpeed05" Type="SPEED" Duration="0.125" Modifier="100" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="RollSpeed06" Type="SPEED" Duration="0.150" Modifier="100" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="RollSpeed07" Type="SPEED" Duration="0.175" Modifier="100" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="RollSpeed08" Type="SPEED" Duration="0.200" Modifier="100" ChangeType="ADD" ClearOnCollision="false"/>
+
+		<Effect Name="RollSpeed09" Type="SPEED" Duration="0.225" Modifier="100" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="RollSpeed10" Type="SPEED" Duration="0.250" Modifier="100" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="RollSpeed11" Type="SPEED" Duration="0.275" Modifier="75" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="RollSpeed12" Type="SPEED" Duration="0.300" Modifier="75" ChangeType="ADD" ClearOnCollision="false"/>
+
+		<Effect Name="RollSpeed13" Type="SPEED" Duration="0.325" Modifier="-100" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="RollSpeed14" Type="SPEED" Duration="0.350" Modifier="-60" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="RollSpeed15" Type="SPEED" Duration="0.375" Modifier="-30" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="RollSpeed16" Type="SPEED" Duration="0.400" Modifier="-10" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="RollSpeed17" Type="SPEED" Duration="0.425" Modifier="0" ChangeType="ADD" ClearOnCollision="false"/>
+
+		<Effect Name="RollSpeed20" Type="SPEED" Duration="0.45" Modifier="280" ChangeType="ADD" ClearOnCollision="false"/>
+		
+		<Effect Name="RollRotation" Type="ROTATION" Duration="0.25" Modifier="0.08"/>
+		<Effect Name="RollDisarm" Type="DISARM" Duration="0.1"/>
+		<Effect Name="RollDodge" Type="DODGE" Duration="0.3"/>
+		
+	</Weapon>
+
+	<Weapon
+        Name="PlayerRollSwipe"
+        Type="GUN"
+        Projectile="PlayerRollSwipe"
+        Cooldown="0.01"
+		>
+
+		<Upgrade Name="RollDamage" Graphic="GUI\\Shell\\tonic_hopscotch">
+			<Rank ValueChangeType="ADD" DamageLow="4" DamageHigh="4"/>
+		</Upgrade>
+		
+	</Weapon>
+	<Projectile
+		Name="PlayerRollSwipe"
+		Type="ARC"
+		ArcStart="-60"
+		ArcSize="120"
+		Speed="0.1"
+        DamageLow="2"
+        DamageHigh="2"
+        Range="60.0"
+		NumPenetrations="0"
+		ScreenShakeSpeed="0"
+		AffectsFriends="false"
+		ImmunityDuration="0.52"
+		MaxVictimZ="75"
+		InvincibleImpactSound="null"
+		ClearOnAttackEffects="false"
+		CanCrit="false"
+		>
+		<ImpactGraphic Material="ORGANIC" Name="WindbagImpact"/>
+	</Projectile>
+
+	<!-- Jump -->
+
+	<Weapon
+		Name="Jump"
+		InheritFrom="1_BaseWeapon"
+		Type="JUMP"
+		SlotType="MOVE"
+		Graphic="PlayerJump"
+		IdleGraphic="PlayerIdle"
+		Cooldown="0.85"
+		Projectile="Jump"
+		FlightThrust="9.0"
+		MaxFireZ="999999"
+		>
+
+		<Effect Name="JumpSpeed01" Type="SPEED" Duration="0.025" Modifier="80" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="JumpSpeed02" Type="SPEED" Duration="0.050" Modifier="80" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="JumpSpeed03" Type="SPEED" Duration="0.075" Modifier="65" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="JumpSpeed04" Type="SPEED" Duration="0.100" Modifier="65" ChangeType="ADD" ClearOnCollision="false"/>
+
+		<Effect Name="JumpSpeed05" Type="SPEED" Duration="0.125" Modifier="50" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="JumpSpeed06" Type="SPEED" Duration="0.150" Modifier="50" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="JumpSpeed07" Type="SPEED" Duration="0.175" Modifier="50" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="JumpSpeed08" Type="SPEED" Duration="0.200" Modifier="50" ChangeType="ADD" ClearOnCollision="false"/>
+
+		<Effect Name="JumpSpeed09" Type="SPEED" Duration="0.225" Modifier="50" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="JumpSpeed10" Type="SPEED" Duration="0.250" Modifier="50" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="JumpSpeed11" Type="SPEED" Duration="0.275" Modifier="25" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="JumpSpeed12" Type="SPEED" Duration="0.300" Modifier="25" ChangeType="ADD" ClearOnCollision="false"/>
+
+		<Effect Name="JumpSpeed13" Type="SPEED" Duration="0.325" Modifier="-50" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="JumpSpeed14" Type="SPEED" Duration="0.350" Modifier="-10" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="JumpSpeed15" Type="SPEED" Duration="0.375" Modifier="0" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="JumpSpeed16" Type="SPEED" Duration="0.400" Modifier="0" ChangeType="ADD" ClearOnCollision="false"/>
+		<Effect Name="JumpSpeed17" Type="SPEED" Duration="0.425" Modifier="0" ChangeType="ADD" ClearOnCollision="false"/>
+
+		<Effect Name="JumpSpeed20" Type="SPEED" Duration="0.45" Modifier="230" ChangeType="ADD" ClearOnCollision="false"/>
+
+		<Effect Name="Dodge" Type="DODGE" Duration="0.35"/>
+
+		<!--
+		<Upgrade Name="RollDamage" Graphic="GUI\\Shell\\distillery_bottle_amir">
+			<Rank ValueChangeType="ADD" DamageLow="4" DamageHigh="4"/>
+		</Upgrade>
+		-->
+			
+	</Weapon>
+	<Projectile
+		Name="Jump"
+		DetonateGraphic="DustC_Decal"
+		DetonateSound="Drop"
+		Type="STRAIGHT"
+		Fuse="0.0"
+		Range="400"
+		DamageLow="0"
+		DamageHigh="0"
+		DamageRadius="125.0"
+		CanCrit="false"
+		>
+	</Projectile>
+
+</Weapons>

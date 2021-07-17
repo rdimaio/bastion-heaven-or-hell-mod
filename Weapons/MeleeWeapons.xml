@@ -1,0 +1,1180 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Weapons>
+
+	<!-- Hammer -->
+	
+	<Weapon
+		Name="Hammer"
+		InheritFrom="1_BaseWeapon"
+		Cost="25"
+		Type="GUN"
+		SlotType="SECONDARY"
+		Icon="GUI\\Icons\\Icon_Hammer_02"
+		Graphic="PlayerHammerSwing"
+		FireGraphic="null"
+		IdleGraphic="PlayerHammerIdle"
+		FireSound="HammerSwing2"
+		FireSound2="PlayerAttack"
+		RotationSpeed="90.0"
+		Projectile="Hammer"
+		Cooldown="0.3"
+		ArsenalCooldown="0.15"
+		OutOfRangeSelfVelocity="400.0"
+		DisableOwnerForDuration="0.0"
+		RequiresTarget="false"
+		ScreenShakeSpeed="0"
+		RootOwnerWhileFiring="true"
+		AutoLock="true"
+		AutoLockWithMouse="true"
+		AutoLockRange="300"
+		AutoLockArcDistance="150"
+		AutoLockDuration="0.02"
+		AutoLockWithMouseDuration="0.32"
+		ShowLockLine="false"
+		StationaryWeapon="Hammer_Uppercut"
+		ChainOnHold="null"
+		OwnerChargeWeapon="Hammer_Charge"
+		ChainDelay="0.2"
+		FullyAutomatic="false"
+		CancelMovement="true"
+		MouseApproachRange="55"
+		>
+		<Effect Name="HammerRotation" Type="ROTATION" Duration="0.23" Modifier="0.08"/>
+		
+		<!-- Weapon Upgrades -->
+
+		<Upgrade Name="Hammer_Damage" Graphic="GUI\\Icons\\Upgrades\\upgrade_damage">
+			<Rank OwnerLevel="1" Cost="250" AudioCue="Menu_96" ValueChangeType="MULTIPLY" DamageLow="1.5" DamageHigh="1.5"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_CritChance" Graphic="GUI\\Icons\\Upgrades\\upgrade_critChance">
+			<Rank OwnerLevel="1" Cost="250" AudioCue="Menu_96" ValueChangeType="ADD" CriticalHitChance="0.1"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_ChargeBonus" Graphic="GUI\\Icons\\Upgrades\\upgrade_Special">
+			<Rank OwnerLevel="2" Cost="500" AudioCue="Menu_97"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_UppercutKnockup" Graphic="GUI\\Icons\\Upgrades\\upgrade_knockback">
+			<Rank OwnerLevel="2" Cost="500" AudioCue="Menu_97"/>
+		</Upgrade>
+		
+		<Upgrade Name="Hammer_Damage_2" Graphic="GUI\\Icons\\Upgrades\\upgrade_damage">
+			<Rank OwnerLevel="3" Cost="750" ValueChangeType="MULTIPLY" DamageLow="1.5" DamageHigh="1.5" AudioCue="Menu_98"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_CritMultiplier" Graphic="GUI\\Icons\\Upgrades\\upgrade_crit">
+			<Rank OwnerLevel="3" Cost="750" ValueChangeType="ADD" CriticalHitMultiplier="1.0" AudioCue="Menu_98"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_ArmorPenetration" Graphic="GUI\\Icons\\Upgrades\\upgrade_armor_pierce">
+			<Rank OwnerLevel="4" Cost="1250" IgnoreArmor="true" AudioCue="Menu_99"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_OverheadStun" Graphic="GUI\\Icons\\Upgrades\\upgrade_slow">
+			<Rank OwnerLevel="4" Cost="1250" AudioCue="Menu_99"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_Damage_3" Graphic="GUI\\Icons\\Upgrades\\upgrade_damage">
+			<Rank OwnerLevel="5" Cost="1500" ValueChangeType="MULTIPLY" DamageLow="1.75" DamageHigh="1.75" AudioCue="Menu_100"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_CritChanceAndDamage" Graphic="GUI\\Icons\\Upgrades\\upgrade_crit">
+			<Rank OwnerLevel="5" Cost="1500" ValueChangeType="ADD" CriticalHitChance="0.25" CriticalHitMultiplier="1.5" AudioCue="Menu_100"/>
+		</Upgrade>
+
+	</Weapon>
+	<!--  -->
+
+	<Projectile
+		Name="Hammer"
+		InheritFrom="1_BaseLargeProjectile"
+		DetonateSound="Grenade"
+		Type="ARC"
+		DamageLow="10"
+		DamageHigh="10"
+		StartDelay="0.08"
+    CriticalSound="CriticalHit"
+    ArcStart="-35"
+		ArcSize="70"
+		Range="125.0"
+		Speed="0.15"
+		NumPenetrations="99999"
+		ScreenShakeSpeed="0"
+		ImpactVelocity="0.0"
+		ImpactPauseFrames="0"
+		ImpactPauseOwnerFrames="5"
+		CriticalHitChance="0.0"
+		>
+	</Projectile>
+
+	<!-- Hammer_Uppercut -->
+
+	<Weapon
+		Name="Hammer_Uppercut"
+		InheritFrom="Hammer"
+		Graphic="PlayerHammerUppercut"
+		IdleGraphic="PlayerHammerUppercutIdle"
+		Projectile="Hammer_Uppercut"
+		CriticalFireWeapon="null"
+		StationaryWeapon="null"
+		SecondAttackWeapon="Hammer_Overhead"
+		OutOfRangeSelfVelocity="0.0"
+		ResetAfterAttack="2"
+		Cooldown="0.47"
+		ArsenalCooldown="0.3"
+		FireSound="HammerSwing2"
+		FullyAutomatic="false"
+		ChainDelay="0.3"
+		DisableOwnerForDuration="0.0"
+		ClearUpgrades="true"
+		>
+		<Effect Name="HammerRotation" Type="ROTATION" Duration="0.47" Modifier="0.01"/>
+
+
+		<Upgrade Name="Hammer_Damage" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_Damage">
+			<Rank ValueChangeType="MULTIPLY" DamageLow="1.5" DamageHigh="1.5"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_CritChance" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_CriticalChance">
+			<Rank ValueChangeType="ADD" CriticalHitChance="0.1"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_Damage_2" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_Damage">
+			<Rank ValueChangeType="MULTIPLY" DamageLow="1.5" DamageHigh="1.5"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_CritMultiplier" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_CriticalChance">
+			<Rank ValueChangeType="ADD" CriticalHitMultiplier="1.0"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_ArmorPenetration" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Longbow_PoisonArrow">
+			<Rank IgnoreArmor="true"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_Damage_3" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_Damage">
+			<Rank ValueChangeType="MULTIPLY" DamageLow="1.75" DamageHigh="1.75"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_CritChanceAndDamage" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_CriticalChance">
+			<Rank ValueChangeType="ADD" CriticalHitChance="0.25" CriticalHitMultiplier="1.5"/>
+		</Upgrade>		
+
+		<Upgrade Name="Hammer_UppercutKnockup" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_Knockup">
+			<Rank ValueChangeType="ADD" ImpactUpwardVelocity="1500" ImpactVelocity="1500"/>
+		</Upgrade>
+		
+	</Weapon>
+	<Projectile
+		Name="Hammer_Uppercut"
+		InheritFrom="Hammer"
+		CriticalSound="CriticalHit"
+		DamageLow="15"
+		DamageHigh="15"
+		StartDelay="0.22"
+		ArcStart="-20"
+		ArcSize="40"
+		Range="120.0"
+		Speed="0.1"
+		ImpactPauseOwnerFrames="4"
+		>
+	</Projectile>
+	
+	<!-- Hammer_Overhead -->
+
+	<Weapon
+		Name="Hammer_Overhead"
+		InheritFrom="Hammer"
+		Graphic="PlayerHammerOverhead"
+		IdleGraphic="PlayerHammerOverheadIdle"
+		Projectile="Hammer_Overhead"
+		CriticalFireWeapon="null"
+		StationaryWeapon="null"
+		SecondAttackWeapon="null"
+		OutOfRangeSelfVelocity="0.0"
+		Cooldown="0.56"
+		ArsenalCooldown="0.4"
+		FireSound="HammerSwing2"
+		FireSound2="PowerAttack"
+		FullyAutomatic="true"
+		ChainDelay="0.3"
+		ClearUpgrades="true"
+		>
+		<Effect Name="HammerRotation" Type="ROTATION" Duration="0.49" Modifier="0.01"/>
+		
+		<Upgrade Name="Hammer_Damage" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_Damage">
+			<Rank ValueChangeType="MULTIPLY" DamageLow="1.5" DamageHigh="1.5"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_CritChance" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_CriticalChance">
+			<Rank ValueChangeType="ADD" CriticalHitChance="0.1"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_Damage_2" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_Damage">
+			<Rank ValueChangeType="MULTIPLY" DamageLow="1.5" DamageHigh="1.5"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_CritMultiplier" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_CriticalChance">
+			<Rank ValueChangeType="ADD" CriticalHitMultiplier="1.0"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_ArmorPenetration" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Longbow_PoisonArrow">
+			<Rank IgnoreArmor="true"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_Damage_3" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_Damage">
+			<Rank ValueChangeType="MULTIPLY" DamageLow="1.75" DamageHigh="1.75"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_CritChanceAndDamage" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_CriticalChance">
+			<Rank ValueChangeType="ADD" CriticalHitChance="0.25" CriticalHitMultiplier="1.5"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_OverheadStun" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Longbow_PoisonArrow">
+			<Rank>
+				<Change Effect="HammerOverheadStunSpeed"/>
+				<Change Effect="HammerOverheadStunDisarm"/>
+				<Change Effect="HammerOverheadStunRotation"/>
+			</Rank>
+		</Upgrade>
+		
+	</Weapon>
+	<Projectile
+		Name="Hammer_Overhead"
+		InheritFrom="Hammer"
+		CriticalSound="CriticalHit"
+		DamageLow="20"
+		DamageHigh="20"
+		StartDelay="0.2"
+		ArcStart="-15"
+		ArcSize="30"
+		Range="110.0"
+		Speed="0.10"
+		HalfwayFx="Hammer_Overhead_Crater"
+		HalfwayFx2="Hammer_Ground_Blast"
+		HalfwayFxShiftFraction="0.8"
+		ImpactPauseOwnerFrames="4"
+		AllEffectsProcChance="0.67"
+		>
+
+		<Effect Name="HammerOverheadStunSpeed" Type="SPEED" Duration="1.95" Modifier="0.0" PlayStunGraphic="true" Active="false"/>
+		<Effect Name="HammerOverheadStunDisarm" Type="DISARM" Duration="1.95" Active="false"/>
+		<Effect Name="HammerOverheadStunRotation" Type="ROTATION" Duration="1.95" Modifier="0.000001" Active="false"/>
+		
+	</Projectile>
+
+	<!-- Hammer_Charge -->
+
+	<Weapon
+		Name="Hammer_Charge"
+		InheritFrom="1_BaseWeapon"
+		Type="GUN"
+		SlotType="SECONDARY"
+		Icon="GUI\\Icons\\Icon_Hammer_02"
+		Graphic="PlayerHammerChargeStrike"
+		FireGraphic="null"
+		IdleGraphic="PlayerHammerIdle"
+		FireSound="HammerSwing2"
+		FireSound2="PowerAttack"
+		Projectile="Hammer_Charge"
+		Cooldown="0.56"
+		ArsenalCooldown="0.4"
+		DisableOwnerForDuration="0.2"
+		RequiresTarget="false"
+		FireOnRelease="false"
+		SwapOnRelease="null"
+		ChargeGraphic="null"
+		ChargeSound="HammerCharge2"
+		ChargeFullSound="HammerFull"
+		ChargeTime="2.5"
+		MinChargeToFire="0.0"
+		ChargeDamageMultiplier="8.0"
+		FullChargeImpactPlayOnceSound="null"
+		OutOfRangeSelfVelocity="1200"
+		AutoLock="true"
+		AutoLockWithMouse="true"
+		>
+
+		<Upgrade Name="Hammer_Damage" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_Damage">
+			<Rank ValueChangeType="MULTIPLY" DamageLow="1.5" DamageHigh="1.5"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_CritChance" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_CriticalChance">
+			<Rank ValueChangeType="ADD" CriticalHitChance="0.1"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_Damage_2" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_Damage">
+			<Rank ValueChangeType="MULTIPLY" DamageLow="1.5" DamageHigh="1.5"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_CritMultiplier" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_CriticalChance">
+			<Rank ValueChangeType="ADD" CriticalHitMultiplier="1.0"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_ArmorPenetration" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Longbow_PoisonArrow">
+			<Rank IgnoreArmor="true"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_Damage_3" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_Damage">
+			<Rank ValueChangeType="MULTIPLY" DamageLow="1.75" DamageHigh="1.75"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_CritChanceAndDamage" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_CriticalChance">
+			<Rank ValueChangeType="ADD" CriticalHitChance="0.15" CriticalHitMultiplier="1.0"/>
+		</Upgrade>
+
+		<Upgrade Name="Hammer_ChargeBonus" Category="NORMAL" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_ShieldChargeAttackBonus">
+			<Rank OwnerLevel="2" Cost="500" ValueChangeType="MULTIPLY"/>
+		</Upgrade>
+		
+	</Weapon>
+	<Projectile
+		Name="Hammer_Charge"
+		InheritFrom="1_BaseLargeProjectile"
+		DetonateSound="Grenade"
+		CriticalSound="CriticalHit"
+		Type="ARC"
+		DamageLow="7"
+		DamageHigh="7"
+		StartDelay="0.13"
+		ArcStart="-15"
+		ArcSize="30"
+		Range="110.0"
+		Speed="0.08"
+		NumPenetrations="99999"
+		ScreenShakeSpeed="200"
+		IgnoreArmor="true"
+		HalfwayFx="Hammer_Overhead_Crater"
+		HalfwayFx2="Hammer_Charge_Ground_Blast"
+		HalfwayFxShiftFraction="0.8"
+		ImpactPauseOwnerFrames="8"
+		>
+	</Projectile>
+
+	<!-- Spear -->
+
+	<Weapon
+		Name="Spear"
+		InheritFrom="1_BaseWeapon"
+		Type="GUN"
+		SlotType="SECONDARY"
+		Icon="GUI\\Icons\\Icon_Spear"
+		Graphic="PlayerSpearLungeLong"
+		IdleGraphic="PlayerSpearIdle"
+		FireSound="SpearAttack"
+		FireSound2="PlayerAttack"
+		BarrelLength="0"
+		Projectile="Spear"
+		Cooldown="0.52"
+		ArsenalCooldown="0.15"
+		DisableOwnerForDuration="0.0"
+		RequiresTarget="false"
+		ScreenShakeSpeed="0"
+		SelfVelocity="0.0"
+		AutoLock="true"
+		AutoLockWithMouse="true"
+		AutoLockRange="320"
+		AutoLockArcDistance="75"
+		ShowLockLine="false"
+		FullyAutomatic="false"
+		ChainOnHold="SpearThrow"
+		ChainDelay="0.50"
+		CancelMovement="true"
+		MouseApproachRange="175"
+		>
+		
+		<!-- Weapon Upgrades -->
+
+		<Upgrade Name="Spear_CritChance" Graphic="GUI\\Icons\\Upgrades\\upgrade_crit">
+			<Rank OwnerLevel="1" Cost="200" ValueChangeType="ADD" CriticalHitChance="0.15" AudioCue="Menu_121"/>
+		</Upgrade>
+
+		<Upgrade Name="Spear_ThrowReloadTime" Graphic="GUI\\Icons\\Upgrades\\upgrade_time">
+			<Rank OwnerLevel="1" Cost="200" AudioCue="Menu_121"/>
+		</Upgrade>
+
+		<Upgrade Name="Spear_CritDamage" Graphic="GUI\\Icons\\Upgrades\\upgrade_crit">
+			<Rank OwnerLevel="2" Cost="475" ValueChangeType="ADD" CriticalHitMultiplier="0.5" AudioCue="Menu_122"/>
+		</Upgrade>
+
+		<Upgrade Name="Spear_Knockback" Graphic="GUI\\Icons\\Upgrades\\upgrade_knockback">
+			<Rank OwnerLevel="2" Cost="475" ValueChangeType="ADD" ImpactVelocity="900" AudioCue="Menu_122"/>
+		</Upgrade>
+
+		<Upgrade Name="Spear_Cooldown" Graphic="GUI\\Icons\\Upgrades\\upgrade_time">
+			<Rank OwnerLevel="3" Cost="825" ValueChangeType="MULTIPLY" Cooldown="0.8" WeaponGraphic="PlayerSpearLunge" AudioCue="Menu_123"/>
+		</Upgrade>
+
+		<Upgrade Name="Spear_ThrowRoot" Graphic="GUI\\Icons\\Upgrades\\upgrade_slow">
+			<Rank OwnerLevel="3" Cost="825" AudioCue="Menu_123"/>
+		</Upgrade>
+
+		<Upgrade Name="Spear_Damage" Graphic="GUI\\Icons\\Upgrades\\upgrade_damage">
+			<Rank OwnerLevel="4" Cost="1650" ValueChangeType="MULTIPLY" DamageLow="1.5" DamageHigh="1.5" AudioCue="Menu_124"/>
+		</Upgrade>
+
+		<Upgrade Name="Spear_ThrowReloadTime_2" Graphic="GUI\\Icons\\Upgrades\\upgrade_time">
+			<Rank OwnerLevel="4" Cost="1650" AudioCue="Menu_124"/>
+		</Upgrade>
+
+		<Upgrade Name="Spear_ArmorPenetration" Graphic="GUI\\Icons\\Upgrades\\upgrade_armor_pierce">
+			<Rank OwnerLevel="5" Cost="2075" IgnoreArmor="true" AudioCue="Menu_125"/>
+		</Upgrade>
+
+		<Upgrade Name="Spear_ThrowNumProjectiles" Graphic="GUI\\Icons\\Upgrades\\upgrade_ammo">
+			<Rank OwnerLevel="5" Cost="2075" AudioCue="Menu_125"/>
+		</Upgrade>
+
+	</Weapon>
+	<Projectile
+		Name="Spear"
+		InheritFrom="1_BaseLargeProjectile"
+		Graphic="SpearSwoosh"
+		CriticalSound="CriticalHit"
+		Type="STRAIGHT"
+		Speed="2250"
+		DamageLow="30"
+		DamageHigh="30"
+		Range="325.0"
+		ImpactVelocity="0.0"
+		ImpactPauseFrames="0"
+		ImpactPauseOwnerFrames="5"
+		NumPenetrations="9999"
+		DrawShadow="false"
+		>
+		<Thing
+			OffsetZ="70.0">
+			<Color Opacity="0.0"/>
+			<Point X="0" Y="16"/>
+			<Point X="16" Y="0"/>
+			<Point X="0" Y="-16"/>
+			<Point X="-16" Y="0"/>
+		</Thing>
+	</Projectile>
+
+	<Weapon
+		Name="SpearThrow"
+		InheritFrom="1_BaseWeapon"
+		Type="GUN"
+		SlotType="SECONDARY"
+		Icon="GUI\\Icons\\Icon_Spear"
+		AmmoIcon="Projectiles\\SpearProjectile\\SpearProjectile0001"
+		Graphic="PlayerSpearRelease"
+		IdleGraphic="PlayerSpearReleaseIdle"
+		FireSound="MacheteThrow"
+		FireSound2="PowerAttack"
+		PlayFireSoundForPausedProjectiles="true"
+		BarrelLength="60"
+		Projectile="SpearThrow"
+		NumProjectiles="1"
+		ChargeTime="1.0"
+		ChargeGraphic="PlayerSpearCharge"
+		ChargeFx="ShieldChargeFx"
+		ChargeSound="ThrowPrep"
+		ClipSize="1"
+		Cooldown="0.55"
+		ReloadTime="1.55"
+		RootOwnerWhileFiring="false"
+		RequiresTarget="false"
+		FireOnRelease="true"
+		MinChargeToFire="0.0"
+		ChargeDamageMultiplier="1.3"
+		ChargeRangeMultiplier="4.0"
+		ChargeSpeedMultiplier="2.5"
+		DisableOwnerForDuration="0.15"
+		ChargeZoom="0.9"
+		ChargeSlow="0.35"
+		PerfectChargeBonus="1.25"
+		NoAmmoSound="WeaponSwitch"
+		AutoLock="true"
+		AutoLockWithMouse="false"
+		AutoLockDuration="0.02"
+		AutoLockRange="675"
+		SwapOnReloadFinish="Spear"
+		ShowReloadBar="true"
+		DimMissingAmmo="false"
+		>
+
+		<Upgrade Name="Spear_CritChance" Graphic="GUI\\Icons\\Upgrades\\upgrade_critChance">
+			<Rank OwnerLevel="1" Cost="200" ValueChangeType="ADD" CriticalHitChance="0.15"/>
+		</Upgrade>
+
+		<Upgrade Name="Spear_CritDamage" Graphic="GUI\\Icons\\Upgrades\\upgrade_crit">
+			<Rank OwnerLevel="2" Cost="475" ValueChangeType="ADD" CriticalHitMultiplier="0.5"/>
+		</Upgrade>
+
+		<Upgrade Name="Spear_ThrowReloadTime" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Repeater_ReloadTime">
+			<Rank OwnerLevel="1" Cost="200" ValueChangeType="MULTIPLY" ReloadTime="0.50"/>
+		</Upgrade>
+
+		<Upgrade Name="Spear_ThrowReloadTime_2" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Repeater_ClipSize">
+			<Rank OwnerLevel="4" Cost="1650" ValueChangeType="MULTIPLY" ReloadTime="0.50"/>
+		</Upgrade>
+
+		<Upgrade Name="Spear_ThrowRoot" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Repeater_ClipSize">
+			<Rank OwnerLevel="3" Cost="375">
+				<Change Effect="SpearThrowSpeed"/>
+				<Change Effect="SpearThrowDisarm"/>
+				<Change Effect="SpearThrowRotation"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Spear_ThrowNumProjectiles" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Repeater_ClipSize">
+			<Rank OwnerLevel="5" Cost="2075" ValueChangeType="ADD" NumProjectiles="1" ProjectileFrameInterval="9" ProjectileGraphic="SpearProjectileLevelFive"/>
+		</Upgrade>
+
+		<Upgrade Name="Spear_ArmorPenetration" Graphic="GUI\\Icons\\Upgrades\\upgrade_armor_pierce">
+			<Rank OwnerLevel="5" Cost="2075" IgnoreArmor="true" ProjectileGraphic="SpearProjectileLevelFive"/>
+		</Upgrade>
+		
+	</Weapon>
+	<Projectile
+		Name="SpearThrow"
+		InheritFrom="1_BaseLargeProjectile"
+		Graphic="SpearProjectile"
+		PerfectChargeGraphic="SpearProjectilePowershot"
+		CriticalSound="CriticalHit"
+		Type="STRAIGHT"
+		DamageLow="30"
+		DamageHigh="30"
+		Range="150.0"
+		FadeTime="0.2"
+		Speed="800.0"
+		NumPenetrations="3"
+		GhostInterval="0.1"
+		GhostDuration="0.015"
+		ImpactVelocity="300.0"
+		OrganicImpactSound="OrganicImpact"
+		StoneImpactSound="BoneStoneImpact"
+		MetalImpactSound="MetalImpact"
+		AffectsFriends="false"
+		AffectsSelf="false"
+		StartDelay="0.06"
+		AllEffectsProcChance="0.4"
+		>
+
+		<Effect Name="SpearThrowSpeed" Type="SPEED" Duration="1.5" Modifier="0.0" PlayStunGraphic="true" Active="false"/>
+		<Effect Name="SpearThrowDisarm" Type="DISARM" Duration="1.5" Active="false"/>
+		<Effect Name="SpearThrowRotation" Type="ROTATION" Duration="1.5" Modifier="0.000001" Active="false"/>
+
+		<Thing
+			RotateGeometry="true"
+			OffsetZ="74.0">
+			<Point X="0" Y="8"/>
+			<Point X="48" Y="0"/>
+			<Point X="0" Y="-8"/>
+			<Point X="-48" Y="0"/>
+		</Thing>
+	</Projectile>
+	
+	<!-- Shield -->
+
+	<Weapon
+		Name="ShieldBash"
+		InheritFrom="1_BaseWeapon"
+		Graphic="PlayerShieldCounter"
+		IdleGraphic="PlayerIdle"
+		Type="GUN"
+		Icon="GUI\\Icons\\Icon_Shield_02"
+		RequiresTarget="false"
+		SlotType="DEFENSE"
+		Projectile="ShieldBash"
+		Cooldown="0.575"
+		AutoLock="true"
+		AutoLockRange="825"
+		AutoLockDuration="0.02"
+		ChainOnHold="ShieldHold"
+		ChainDelay="0.23"
+		FullyAutomatic="true"
+		ApplyCooldownToDefenseSlot="false"
+		>
+		<Effect Name="ShieldBashArmor" Type="ARMOR" Duration="0.24" Modifier="-1.0" Active="true"/>
+		<Effect Name="ShieldBashArmorCovergae" Type="ARMOR_COVERAGE" Duration="0.24" Modifier="-240" Active="true"/>
+		<Effect Name="ShieldBashCriticalReflect" Type="DEFLECT" Duration="0.24" Modifier="8.0" Active="true"/>
+		<Effect Name="ShieldBashGrip" Type="GRIP" Duration="0.24" Modifier="8.0" Active="true"/>
+
+		<Upgrade Name="Shield_CounterWindow" Category="NORMAL" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Shield_CounterWindow">
+			<Rank OwnerLevel="1" Cost="100"/>
+		</Upgrade>
+
+		<Upgrade Name="Shield_CounterMultiplier" Category="NORMAL" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Shield_CounterMultiplier">
+			<Rank OwnerLevel="2" Cost="200"/>
+		</Upgrade>
+
+		<Upgrade Name="PlusCounterDamage" Graphic="GUI\\Shell\\tonic_lunkhead_liquor">
+			<Rank ValueChangeType="ADD" Effect="ShieldBashCriticalReflect" Modifier="16.0"/>
+		</Upgrade>
+    
+	</Weapon>
+	<Projectile
+		Name="ShieldBash"
+		Type="STRAIGHT"
+		DamageLow="0"
+		DamageHigh="0"
+		Range="75.0"
+		Speed="325"
+		NumPenetrations="99999"
+		ScreenShakeSpeed="0"
+		ClearOnAttackEffects="false"
+		CanCrit="false"
+		>
+		<Thing
+			Width="10"
+			Height="10">
+		</Thing>
+	</Projectile>
+
+	<Weapon
+		Name="ShieldHold"
+		InheritFrom="1_BaseWeapon"
+        Graphic="PlayerShieldHold"
+		Type="GUN"
+		Icon="GUI\\Icons\\Icon_Shield_02"
+		RequiresTarget="false"
+		SlotType="DEFENSE"
+		Projectile="ShieldHold"
+		Cooldown="0.1"
+		SwapOnReleasedAndReady="ShieldBash"
+		FireSound="None"
+		AutoLock="true"
+		AutoLockRange="825"
+		AutoLockDuration="0.02"
+		ChargeOwnerTime="0.0"
+		ApplyCooldownToDefenseSlot="false"
+		>
+		<Effect Name="ShieldHoldArmor" Type="ARMOR" Duration="0.12" Modifier="-1.0" Active="true" ClearOnAttack="true"/>
+		<Effect Name="ShieldHoldArmorCoverage" Type="ARMOR_COVERAGE" Duration="0.12" Modifier="-240" Active="true" ClearOnAttack="true"/>
+		<Effect Name="ShieldHoldBasicReflect" Type="DEFLECT" Duration="0.12" Modifier="1.0" Active="true" ClearOnAttack="true"/>
+		<Effect Name="ShieldHoldGrip" Type="GRIP" Duration="0.12" Modifier="4.0" Active="true" ClearOnAttack="true"/>
+		<Effect Name="ShieldHoldSlow" Type="SPEED" Duration="0.12" Modifier="0.60" Active="true" ClearOnAttack="true"/>
+
+		<Upgrade Name="Hammer_ChargeBonus" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Hammer_ShieldChargeAttackBonus">
+			<Rank ValueChangeType="ADD" ChargeOwnerTime="1.5"/>
+		</Upgrade>
+
+		<Upgrade Name="StunImmunity" Graphic="GUI\\Icons\\Upgrades\\upgrade_slow">
+			<Rank Effect="ShieldHoldSlow" ValueChangeType="ABSOLUTE" Modifier="1.0"/>
+		</Upgrade>
+		
+	</Weapon>
+	<Projectile
+		Name="ShieldHold"
+		Type="STRAIGHT"
+		DamageLow="0"
+		DamageHigh="0"
+		Range="0.0"
+		Speed="140"
+		NumPenetrations="99999"
+		ScreenShakeSpeed="0"
+		ClearOnAttackEffects="false"
+		>
+		<Thing
+			Width="10"
+			Height="10">
+		</Thing>
+	</Projectile>
+
+	<Weapon
+		Name="RamShieldBash"
+		InheritFrom="ShieldBash"
+		Graphic="PlayerRamBlock"
+		IdleGraphic="null"
+		ChainOnHold="RamShieldHold"
+		RootOwnerWhileFiring="true"
+		>
+	</Weapon>
+
+	<Weapon
+		Name="RamShieldHold"
+		InheritFrom="ShieldHold"
+		Graphic="PlayerRamBlockHold"
+		SwapOnReleasedAndReady="RamShieldBash"
+		RootOwnerWhileFiring="true"
+		>
+	</Weapon>
+
+	<Weapon
+		Name="BlankDefense"
+		InheritFrom="1_BaseWeapon"
+		Type="SELF"
+		SlotType="DEFENSE"
+		Cooldown="9999.0"
+		>
+	</Weapon>
+	
+	<!-- Ram -->
+
+	<Weapon
+		Name="RamPound"
+		InheritFrom="1_BaseWeapon"
+		Type="GUN"
+		SlotType="SECONDARY"
+		Icon="GUI\\Icons\\Icon_Ram_01"
+		Graphic="PlayerRamPound"
+		FireGraphic="null"
+		IdleGraphic="PlayerRamPoundIdle"
+		FireSound2="PowerAttack"
+		Projectile="RamPound"
+		Cooldown="2.0"
+		ArsenalCooldown="1.03"
+		DisableOwnerForDuration="0.0"
+		RequiresTarget="false"
+		ScreenShakeSpeed="300"
+		RootOwnerWhileFiring="true"
+		FullyAutomatic="false"
+		BarrelLength="0"
+		CancelMovement="true"
+		ShowLockLine="false"
+		>
+	</Weapon>
+	<Projectile
+		Name="RamPound"
+		InheritFrom="1_BaseLargeProjectile"
+		Type="STRAIGHT"
+		DetonateSound="Grenade"
+		DetonateGraphic="RamPoundGroundBlast"
+		Fuse="0.5"
+		DamageLow="101"
+		DamageHigh="102"
+		DamageRadius="250"
+		RequireHitCenter="false"
+		ScreenShakeSpeed="300"
+		ImpactVelocity="0.0"
+		ImpactPauseOwnerFrames="0"
+		>
+	</Projectile>
+
+	<Weapon
+		Name="RamSwipe"
+		InheritFrom="1_BaseWeapon"
+		Type="GUN"
+		SlotType="PRIMARY"
+		Icon="GUI\\Icons\\Icon_Ram_02"
+		Graphic="PlayerRamSwipe"
+		FireGraphic="null"
+		IdleGraphic="PlayerRamSwipeIdle"
+		FireSound="RamSwing"
+		FireSound2="PlayerAttack"
+		Projectile="RamSwipe"
+		Cooldown="1.0"
+		ArsenalCooldown="0.83"
+		DisableOwnerForDuration="0.0"
+		RequiresTarget="false"
+		ScreenShakeSpeed="300"
+		RootOwnerWhileFiring="true"
+		FullyAutomatic="false"
+		BarrelLength="0"
+		UseReloadGraphic="false"
+		ReloadGraphic="PlayerRamIdle"
+		CancelMovement="true"
+		ShowLockLine="false"
+		>
+	</Weapon>
+	<Projectile
+		Name="RamSwipe"
+		InheritFrom="1_BaseLargeProjectile"
+		CriticalSound="CriticalHit"
+		Type="ARC"
+		DamageLow="125"
+		DamageHigh="150"
+		StartDelay="0.08"
+		ArcStart="-60"
+		ArcSize="120"
+		Range="175.0"
+		Speed="0.12"
+		DamageRadius="200"
+		ScreenShakeSpeed="300"
+		ImpactVelocity="900.0"
+		NumPenetrations="99999"
+		IgnoreArmor="true"
+		ImpactPauseOwnerFrames="4"
+		>
+	</Projectile>
+
+	<!-- Machete -->
+
+	<Weapon
+		Name="Machete"
+		InheritFrom="1_BaseWeapon"
+		Type="GUN"
+		SlotType="SECONDARY"
+		Icon="GUI\\Icons\\Icon_Machette"
+		Graphic="PlayerMacheteSwingC2"
+		AlternateGraphic="PlayerMacheteSwingD2"
+		FireGraphic="null"
+		FireFxShift="-120"
+		IdleGraphic="PlayerMacheteIdle"
+		FireSound="MacheteSwing1"
+		Projectile="Machete"
+		Cooldown="0.135"
+		ArsenalCooldown="0.135"
+		OutOfRangeSelfVelocity="0.0"
+		RequiresTarget="false"
+		ScreenShakeSpeed="0"
+		AutoLock="true"
+		AutoLockWithMouse="true"
+		AutoLockRange="300"
+		AutoLockArcDistance="120"
+		AutoLockDuration="0.02"
+		AutoLockWithMouseDuration="0.155"
+		ShowLockLine="false"
+		FullyAutomatic="false"
+		ChainOnHold="MacheteThrow"
+		ChainDelay="0.35"
+		CancelMovement="true"
+		MouseApproachRange="55"
+		>
+
+		<Effect Name="MacheteSwingRoot" Type="SPEED" Duration="0.135" Modifier="0.0" Active="true"/>
+
+		<!-- Weapon Upgrades -->
+
+		<Upgrade Name="Machete_CritChance" Graphic="GUI\\Icons\\Upgrades\\upgrade_critChance">
+			<Rank OwnerLevel="1" Cost="150" AudioCue="Menu_111" ValueChangeType="ADD" CriticalHitChance="0.2"/>
+		</Upgrade>
+
+		<Upgrade Name="Machete_CritChance_2" Graphic="GUI\\Icons\\Upgrades\\upgrade_critChance">
+			<Rank OwnerLevel="3" Cost="625" AudioCue="Menu_113" ValueChangeType="ADD" CriticalHitChance="0.2"/>
+		</Upgrade>
+
+		<Upgrade Name="Machete_Bleed" Graphic="GUI\\Icons\\Upgrades\\upgrade_DoT">
+			<Rank OwnerLevel="1" Cost="150" AudioCue="Menu_111" ValueChangeType="ADD" Effect="MacheteBleed1">
+				<Change Effect="MacheteSlow1"/>
+			</Rank>	
+		</Upgrade>
+
+		<Upgrade Name="Machete_Bleed_2" Graphic="GUI\\Icons\\Upgrades\\upgrade_DoT">
+			<Rank OwnerLevel="3" Cost="625" AudioCue="Menu_113" ValueChangeType="ADD" Effect="MacheteBleed2">
+				<Change Effect="MacheteSlow2"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Machete_CritMultiplier" Graphic="GUI\\Icons\\Upgrades\\upgrade_crit">
+			<Rank OwnerLevel="2" Cost="325" AudioCue="Menu_112" ValueChangeType="ADD" CriticalHitMultiplier="1.0"/>
+		</Upgrade>
+
+		<Upgrade Name="Machete_CritMultiplier_2" Graphic="GUI\\Icons\\Upgrades\\upgrade_crit">
+			<Rank OwnerLevel="4" Cost="1225" ValueChangeType="ADD" CriticalHitMultiplier="1.0" AudioCue="Menu_114"/>
+		</Upgrade>
+
+		<Upgrade Name="Machete_ThrowSplit" Graphic="GUI\\Icons\\Upgrades\\upgrade_ammo">
+			<Rank OwnerLevel="2" Cost="325" AudioCue="Menu_112"/>
+		</Upgrade>
+
+		<Upgrade Name="Machete_ThrowSplit_2" Graphic="GUI\\Icons\\Upgrades\\upgrade_ammo">
+			<Rank OwnerLevel="4" Cost="1225" AudioCue="Menu_114"/>
+		</Upgrade>
+
+		<Upgrade Name="Machete_AttackSpeed" Graphic="GUI\\Icons\\Upgrades\\upgrade_time">
+			<Rank OwnerLevel="5" Cost="1625" ValueChangeType="MULTIPLY" Cooldown="0.5" ArsenalCooldown="0.5" AudioCue="Menu_115"/>
+		</Upgrade>
+
+		<Upgrade Name="Machete_ThrowPowershot" Graphic="GUI\\Icons\\Upgrades\\upgrade_crit">
+			<Rank OwnerLevel="5" Cost="1625" AudioCue="Menu_115"/>
+		</Upgrade>
+
+	</Weapon>
+
+	<Projectile
+		Name="Machete"
+		InheritFrom="1_BaseSmallProjectile"
+		DetonateSound="Grenade"
+		CriticalSound="CriticalHit"
+		Type="ARC"
+		DamageLow="5"
+		DamageHigh="5"
+		StartDelay="0.08"
+		ArcStart="-35"
+		ArcSize="70"
+		Range="125.0"
+		Speed="0.15"
+		NumPenetrations="99999"
+		ScreenShakeSpeed="0"
+		ImpactVelocity="0.0"
+		ImpactPauseFrames="0"
+		ImpactPauseOwnerFrames="0"
+		CriticalHitChance="0.0"
+		>
+		<Effect Name="MacheteBleed1" Type="DAMAGE_OVER_TIME" Duration="2.2" Cooldown="0.300" Amount="1" Active="false" OverheadFx="BleedIndicator"/>
+		<Effect Name="MacheteBleed2" Type="DAMAGE_OVER_TIME" Duration="2.2" Cooldown="0.175" Amount="1" Active="false"/>
+		
+		<Effect Name="MacheteSlow1" Type="SPEED" Duration="2.2" Modifier="0.5" Active="false"/>
+		<Effect Name="MacheteSlow2" Type="SPEED" Duration="2.2" Modifier="0.5" Active="false"/>
+		
+	</Projectile>
+
+	<Weapon
+		Name="MacheteThrow"
+		InheritFrom="1_BaseWeapon"
+		Type="GUN"
+		SlotType="SECONDARY"
+		Cost="15"
+		Icon="GUI\\Icons\\Icon_Machette"
+		AmmoIcon="Projectiles\\MacheteProjectile\\MacheteProjectile0001"
+		Graphic="PlayerMacheteRelease"
+		IdleGraphic="PlayerMacheteReleaseIdle"
+		FireSound="MacheteThrow"
+		FireSound2="PowerAttack"
+		BarrelLength="60"
+		Projectile="MacheteThrow"
+		NumProjectiles="1"
+		ChargeTime="1.0"
+		ChargeGraphic="PlayerMacheteCharge"
+		ChargeFx="ShieldChargeFx"
+		ChargeSound="ThrowPrep"
+		ClipSize="1"
+		Cooldown="0.025"
+		ReloadTime="0.65"
+		RootOwnerWhileFiring="false"
+		RequiresTarget="false"
+		FireOnRelease="true"
+		MinChargeToFire="0.0"
+		ChargeDamageMultiplier="1.25"
+		ChargeRangeMultiplier="4.0"
+		ChargeSpeedMultiplier="3.55"
+		DisableOwnerForDuration="0.15"
+		ChargeZoom="0.9"
+		ChargeSlow="0.65"
+		PerfectChargeBonus="1.25"
+		NoAmmoSound="WeaponSwitch"
+		AutoLock="true"
+		AutoLockWithMouse="false"
+		AutoLockDuration="0.02"
+		AutoLockRange="675"
+		SwapOnReloadFinish="Machete"
+		ShowReloadBar="true"
+		DimMissingAmmo="false"
+		>
+
+		<Upgrade Name="Machete_CritChance" Category="NORMAL" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Machete_CritChance">
+			<Rank OwnerLevel="1" Cost="150" ValueChangeType="ADD" CriticalHitChance="0.2"/>
+		</Upgrade>
+
+		<Upgrade Name="Machete_CritChance_2" Category="NORMAL" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Machete_CritChance">
+			<Rank OwnerLevel="3" Cost="625" ValueChangeType="ADD" CriticalHitChance="0.2"/>
+		</Upgrade>
+
+		<Upgrade Name="Machete_CritMultiplier" Graphic="GUI\\Icons\\Upgrades\\upgrade_crit">
+			<Rank OwnerLevel="2" Cost="325" ValueChangeType="ADD" CriticalHitMultiplier="1.0"/>
+		</Upgrade>
+
+		<Upgrade Name="Machete_ThrowSplit" Category="NORMAL" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Machete_ThrowReload">
+			<Rank OwnerLevel="2" Cost="325" ValueChangeType="ADD" NumProjectiles="1" Spread="12"/>
+		</Upgrade>
+
+		<Upgrade Name="Machete_CritMultiplier_2" Graphic="GUI\\Icons\\Upgrades\\upgrade_crit">
+			<Rank OwnerLevel="4" Cost="1225" ValueChangeType="ADD" CriticalHitMultiplier="1.0"/>
+		</Upgrade>   
+    
+		<Upgrade Name="Machete_ThrowSplit_2" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Machete_ThrowReload">
+			<Rank OwnerLevel="4" Cost="1225" ValueChangeType="ADD" NumProjectiles="1" Spread="24"/>
+		</Upgrade>
+
+		<Upgrade Name="Machete_AttackSpeed" Graphic="GUI\\Icons\\Upgrades\\upgrade_time">
+			<Rank OwnerLevel="5" Cost="1625" ValueChangeType="MULTIPLY" ProjectileGraphic="MacheteProjectileLevelFive"/>
+		</Upgrade>
+
+		<Upgrade Name="Machete_ThrowPowershot" Graphic="GUI\\Icons\\Upgrades\\Upgrade_Longbow_PoisonArrow">
+			<Rank OwnerLevel="5" Cost="1625" ValueChangeType="MULTIPLY" PerfectChargeBonus="1.5" ProjectileGraphic="MacheteProjectileLevelFive"/>
+		</Upgrade>
+
+		<Upgrade Name="Machete_Bleed" Graphic="GUI\\Icons\\Upgrades\\upgrade_DoT">
+			<Rank OwnerLevel="1" Cost="150" ValueChangeType="ADD" Effect="MacheteBleed1">
+				<Change Effect="MacheteSlow1"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Machete_Bleed_2" Graphic="GUI\\Icons\\Upgrades\\upgrade_DoT">
+			<Rank OwnerLevel="3" Cost="575" ValueChangeType="ADD" Effect="MacheteBleed2">
+				<Change Effect="MacheteSlow2"/>
+			</Rank>
+		</Upgrade>
+		
+	</Weapon>
+
+	<Projectile
+		Name="MacheteThrow"
+		InheritFrom="1_BaseSmallProjectile"
+		Graphic="MacheteProjectile"
+		PerfectChargeGraphic="MacheteProjectilePowershot"
+		CriticalSound="CriticalHit"
+		Type="HOMING"
+		DamageLow="15"
+		DamageHigh="15"
+		Range="150.0"
+		FadeTime="0.2"
+		Speed="800.0"
+		NumPenetrations="0"
+		GhostInterval="0.0"
+		GhostDuration="0.0"
+		ImpactVelocity="300.0"
+		OrganicImpactSound="OrganicImpact"
+		StoneImpactSound="BoneStoneImpact"
+		MetalImpactSound="MetalImpact"
+		AffectsFriends="false"
+		AffectsSelf="false"
+		StartDelay="0.09"
+		>
+		
+		<Thing
+			RotateGeometry="true"
+			OffsetZ="74.0">
+			<Point X="0" Y="8"/>
+			<Point X="48" Y="0"/>
+			<Point X="0" Y="-8"/>
+			<Point X="-48" Y="0"/>
+		</Thing>
+
+		<Effect Name="MacheteBleed1" Type="DAMAGE_OVER_TIME" Duration="2.2" Cooldown="0.300" Amount="1" Active="false" OverheadFx="BleedIndicator"/>
+		<Effect Name="MacheteBleed2" Type="DAMAGE_OVER_TIME" Duration="2.2" Cooldown="0.200" Amount="1" Active="false"/>
+
+		<Effect Name="MacheteSlow1" Type="SPEED" Duration="2.2" Modifier="0.5" Active="false"/>
+		<Effect Name="MacheteSlow2" Type="SPEED" Duration="2.2" Modifier="0.5" Active="false"/>
+
+	</Projectile>
+
+	<!-- Flamethrower -->
+
+	<Weapon
+        Name="Flamethrower"
+		InheritFrom="1_BaseWeapon"
+		Type="GUN"
+		Graphic="PlayerFlamethrowerFire"
+		IdleGraphic="PlayerFlamethrowerIdle"
+		SlotType="SECONDARY"
+		Icon="GUI\\Icons\\Icon_Flamethrower"
+		AmmoIcon="Projectiles\\FlamethrowerAmmo"
+		AmmoIconSpacing="5"
+		FlashMissingAmmoFraction="0.01"
+		FireSound="FlameThrower"
+		StopFireSoundOnRelease="true"
+        Projectile="Flamethrower"
+        Spread="20"
+		NumProjectiles="1"
+        Cooldown="0.033"
+		ClipSize="60"
+		ClipRegenInterval="0.20"
+		ClipRegenIntervalReleased="0.05"
+		RequiresTarget="false"
+		BarrelLength="130"
+		AutoLock="true"
+		AutoLockRange="350"
+		AutoLockArcDistance="120"
+		ShowLockLine="false"
+		BlackDamageFlash="true"
+		ObstacleDamageMultiplier="3.0"
+		SilentImpactAfterFirst="true"
+		MouseApproachRange="250"
+		>
+		<Effect Name="FlamethrowerRotation" Type="ROTATION" Duration="0.275" Modifier="0.02"/>
+		<Effect Name="FlamethrowerSlow" Type="SPEED" Duration="0.08" Modifier="0.65"/>
+
+		<Effect Name="FlamethrowerArmor" Type="ARMOR" Duration="0.08" Modifier="-0.25" Active="false"/>
+
+		<!-- Weapon Upgrades -->
+
+		<Upgrade Name="Flamethrower_ClipRegen" Graphic="GUI\\Icons\\Upgrades\\upgrade_ammo">
+			<Rank OwnerLevel="1" Cost="150" ValueChangeType="MULTIPLY" ClipRegenInterval="0.80" ClipRegenIntervalReleased="0.80" AudioCue="Menu_136"/>
+		</Upgrade>
+
+		<Upgrade Name="Flamethrower_SpreadUp" Graphic="GUI\\Icons\\Upgrades\\upgrade_AoE">
+			<Rank OwnerLevel="1" Cost="150" ValueChangeType="ADD" Spread="40" AudioCue="Menu_136"/>
+		</Upgrade>
+
+		<Upgrade Name="Flamethrower_Burn" Graphic="GUI\\Icons\\Upgrades\\upgrade_DoT">
+			<Rank OwnerLevel="2" Cost="325" Effect="FlamethrowerBurn" AudioCue="Menu_137"/>
+		</Upgrade>
+
+		<Upgrade Name="Flamethrower_Damage" Graphic="GUI\\Icons\\Upgrades\\upgrade_damage">
+			<Rank OwnerLevel="2" Cost="325" ValueChangeType="ADD" DamageLow="0" DamageHigh="1" AudioCue="Menu_137"/>
+		</Upgrade>
+
+		<Upgrade Name="Flamethrower_ClipRegen_2" Graphic="GUI\\Icons\\Upgrades\\upgrade_ammo">
+			<Rank OwnerLevel="3" Cost="725" ValueChangeType="MULTIPLY" ClipRegenInterval="0.80" ClipRegenIntervalReleased="0.80" AudioCue="Menu_138"/>
+		</Upgrade>
+
+		<Upgrade Name="Flamethrower_Slow" Graphic="GUI\\Icons\\Upgrades\\upgrade_slow">
+			<Rank OwnerLevel="3" Cost="725" Effect="FlamethrowerSlow" AudioCue="Menu_138"/>
+		</Upgrade>
+
+		<Upgrade Name="Flamethrower_Cooldown" Graphic="GUI\\Icons\\Upgrades\\upgrade_time">
+			<Rank OwnerLevel="4" Cost="1350" ValueChangeType="MULTIPLY" Cooldown="0.75" AudioCue="Menu_139"/>
+		</Upgrade>
+
+		<Upgrade Name="Flamethrower_ArmorUp" Graphic="GUI\\Icons\\Upgrades\\upgrade_Special">
+			<Rank OwnerLevel="4" Cost="1350" Effect="FlamethrowerArmor" AudioCue="Menu_139"/>
+		</Upgrade>
+
+		<Upgrade Name="Flamethrower_Speed" Graphic="GUI\\Icons\\Upgrades\\upgrade_time">
+			<Rank OwnerLevel="5" Cost="1675" ValueChangeType="ADD" Effect="FlamethrowerSlow" MODIFIER="0.35" AudioCue="Menu_140"/>
+		</Upgrade>
+
+		<Upgrade Name="Flamethrower_Turret" Graphic="GUI\\Icons\\Upgrades\\upgrade_Special">
+			<Rank OwnerLevel="5" Cost="1675" AutoLock="false" ValueChangeType="MULTIPLY" Range="3.0" Effect="FlamethrowerSlow" MODIFIER="0.0" AudioCue="Menu_140"/>
+		</Upgrade>
+
+	</Weapon>
+	<Projectile
+		Name="Flamethrower"
+		Graphic="FlamethrowerFire"
+		Type="STRAIGHT"
+		DamageLow="1"
+		DamageHigh="2"
+		Range="115.0"
+		Speed="400.0"
+		SpeedVariance="100"
+		FadeTime="0.1"
+		NumPenetrations="9999"
+		DrawShadow="false"
+		IgnoreArmor="true"
+		CanBeReflected="false"
+		DissolveVictimDuration="0.75"
+		KillFx="FlameDeathAsh"
+		OrganicImpactSound="FlameHit"
+		PlantImpactSound="FlameHit"
+		HumanoidImpactSound="FlameHit"
+		WoodImpactSound="FlameHit"
+		StoneImpactSound="FlameHit"
+		MetalImpactSound="FlameHit"
+		IceImpactSound="FlameHit"
+		InvincibleImpactSound="FlameHit"
+		DeflectSound="FlameHit"
+		KillSound="FireDestruction"
+		TriggerHitSound="false"
+		CanCrit="false"
+		>
+		<Thing
+			Scale="0.4"
+			OffsetZ="70.0"
+			Radius="44"
+			RotateGeometry="true">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="96"/>
+			<Point X="96" Y="0"/>
+			<Point X="0" Y="-96"/>
+			<Point X="-96" Y="0"/>
+		</Thing>
+
+		<Effect Name="FlamethrowerBurn" Type="DAMAGE_OVER_TIME" Duration="2.0" Cooldown="0.100" Amount="1" Active="false" OverheadFx="BleedIndicator"/>
+		<Effect Name="FlamethrowerSlow" Type="SPEED" Duration="2.0" Modifier="0.3" Active="false"/>
+
+		<ImpactGraphic Material="PLAYER" Name="FlamethrowerSparks"/>
+		<ImpactGraphic Material="PLAYER" Name="FlamethrowerSparks_2"/>
+		<ImpactGraphic Material="INVINCIBLE" Name="InvincibleHitSpark_Small"/>
+		<ImpactGraphic Material="ORGANIC" Name="FlamethrowerSparks"/>
+		<ImpactGraphic Material="ORGANIC" Name="FlamethrowerSparks_2"/>
+		<ImpactGraphic Material="PLANT" Name="FlamethrowerSparks"/>
+		<ImpactGraphic Material="PLANT" Name="FlamethrowerSparks_2"/>
+		<ImpactGraphic Material="WOOD" Name="FlamethrowerSparks"/>
+		<ImpactGraphic Material="WOOD" Name="FlamethrowerSparks_2"/>
+		<ImpactGraphic Material="STONE" Name="FlamethrowerSparks"/>
+		<ImpactGraphic Material="STONE" Name="FlamethrowerSparks_2"/>
+		<ImpactGraphic Material="ICE" Name="FlamethrowerSparks"/>
+		<ImpactGraphic Material="ICE" Name="FlamethrowerSparks_2"/>
+		<ImpactGraphic Material="METAL" Name="FlamethrowerSparks"/>
+		<ImpactGraphic Material="METAL" Name="FlamethrowerSparks_2"/>
+		
+	</Projectile>
+
+</Weapons>

@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<Npc
+		Name="TargetFruit"
+		InheritFrom="1_BaseAttacker"
+		PhaseInTimeMin="0.3"
+		PhaseInTimeMax="0.3"
+		PhaseInGraphic="TargetFruit_PhaseIn"
+		ClearWeapons="true"
+		Speed="50"
+		VisionRange="0"
+		WobbleDistance="8.0"
+		WobbleSpeed="8.0">
+		<Thing
+			Graphic="TargetFruit"
+			Scale="0.5"
+			OverheadOffset="200"
+			OffsetZ="90"
+			>
+			<Point X="-95" Y="6"/>
+			<Point X="2" Y="56"/>
+			<Point X="97" Y="5"/>
+			<Point X="-2" Y="-40"/>
+		</Thing>
+		<Life
+			Health="1"
+			LowHealthThreshold="0.75"
+			LowHealthGraphic="null"
+			Material="NONE"
+			DeathAnimation="GasfellaIchor"
+			DeathSound="SquirtDeath"
+			DamageShakeDistance="2"
+			DamageShakeSpeed="120"
+			DamageShakeDuration="0.3"
+			DeathShakeSpeed="400"
+			DeathShakeDistance="20"
+			Decal="Decals\\Health_Circle_Large"
+			OverPitDecal="Decals\\Dotted_Circle_Large"
+			>
+		</Life>
+	</Npc>
+	
+	<Npc
+		Name="TargetFruit_RepeaterChallenge"
+		InheritFrom="TargetFruit">
+		<Thing
+			Scale="0.25">
+		</Thing>
+		<Life
+			Health="1">
+		</Life>
+	</Npc>
+
+	<Npc
+		Name="TargetFruit_ShotgunChallenge"
+		InheritFrom="TargetFruit"
+		Flyer="false"
+		WobbleDistance="0.0"
+		WobbleSpeed="0.0"
+		>
+		<Thing
+			Scale="0.5"
+			OffsetZ="30"
+			Grip="0.2"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="-95" Y="6"/>
+			<Point X="2" Y="56"/>
+			<Point X="97" Y="5"/>
+			<Point X="-2" Y="-40"/>
+		</Thing>
+		<Life
+			Health="1"
+			>
+		</Life>
+	</Npc>
+
+	<Npc
+		Name="Wisp"
+		InheritFrom="1_BaseAttacker"
+		ClearWeapons="true"
+		Speed="50"
+		RotationSpeed="60"
+		CollideWithUnits="false"
+		SilentObstacleCollision="true"
+		PhaseInTimeMin="0.3"
+		PhaseInTimeMax="0.5"
+		PhaseInGraphic="WispPhaseIn"
+		VisionRange="0"
+		WobbleDistance="8.0"
+		Flyer="true"
+		WobbleSpeed="8.0"
+		ClearUpgrades="true">
+		<Thing
+			Graphic="Wisp"
+			Light="Circle"
+			Scale="1.0"
+			OverheadOffset="200"
+			OffsetZ="90"
+			>
+			<Point X="0" Y="12"/>
+			<Point X="24" Y="0"/>
+			<Point X="0" Y="-12"/>
+			<Point X="-24" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			DeathShakeSpeed="0"
+			DeathShakeDistance="0"
+			Material="NONE"
+			DeathAnimation="WispDeath"
+			DeathSound="WhispDeath"
+			Decal="Decals\\Health_Circle_Tiny"
+			OverPitDecal="null"
+			ShowDamageNumbers="false"
+			>
+		</Life>
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="1.0"
+			RandomTurnIntervalMax="2.0"
+			SpeedFraction="1.0"
+			TetherDistance="200"
+			>
+		</MoveAI>
+	</Npc>
+
+	<Npc
+		Name="DarkPlayer_Hammer"
+		InheritFrom="1_BaseAttacker"
+        Speed="250.0"
+        Flyer="false"
+        ScoreValue="300"
+        PhaseInTimeMin="0.01"
+        PhaseInTimeMax="0.01"
+        PhaseInGraphic="null"
+		PhaseInSound="GasfellaPhaseIn"
+		MoveGraphic="PlayerSprint"
+		VisionRange="650"
+		StunGraphicName="null"
+		WalkLegs="PlayerWalkLegs"
+		StrafeLegs="PlayerStrafeLegs"
+		DormantOnDeath="true"
+		CustomPackage="Hammer"
+		>
+		<Thing
+			Graphic="PlayerIdle"
+			Grip="10.0"
+			OverheadOffset="270"
+			Refract="false"
+			>
+			<Color Red="0.6" Green="0.7" Blue="0.6" Opacity="0.95"/>
+			<Point X="0" Y="28"/>
+			<Point X="48" Y="0"/>
+			<Point X="0" Y="-28"/>
+			<Point X="-48" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			Armor="0.5"
+			HitGraphic="null"
+			DeathGraphic="PlayerDeath"
+			HitSound="null"
+			DeathSound="GasfellaDeath"
+			FallDeathSound="null"
+			Decal="Decals\\Health_Circle_Medium"
+			DamageDecal="null"
+			UseHealthMeter="true"
+			Material="HUMANOID"
+			>
+			<Loot TableName="DynamicHealth_Category5" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category5_B" DropChance="1.0"/>
+		</Life>
+		<Weapon Name="DarkPlayer_Hammer"/>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="1500">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="4.0"
+			RandomTurnIntervalMax="8.0"
+			SpeedFraction="0.35"
+			TetherDistance="800"
+			>
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT"
+			MustCompleteAttack="false">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="LootCase01"
+		InheritFrom="1_BaseAttacker"
+		Speed="0.0"
+        Flyer="true"
+        ScoreValue="100"
+        PhaseInTimeMin="0.2"
+        PhaseInTimeMax="0.2"
+        PhaseInGraphic="LootCasePhaseIn"
+		PhaseInSound="null"
+		IgnoreMapXpSetting="true"
+		OnDeathWeapon="BlankWeapon"
+		>
+		<Thing
+			Graphic="LootCaseIdle"
+			TouchdownSound="PotionTouchdown"
+			Grip="999.0"
+			>
+			<Point X="-62" Y="6"/>
+			<Point X="-34" Y="28"/>
+			<Point X="37" Y="28"/>
+			<Point X="61" Y="6"/>
+			<Point X="41" Y="-17"/>
+			<Point X="-44" Y="-17"/>
+		</Thing>
+		<Life
+			Health="1"
+			Decal="Decals\\Health_Circle_Medium"
+			LowHealthThreshold="0.75"
+			LowHealthGraphic="null"
+			Material="STONE"
+			DeathSound="WoodShatter"
+      IgnoreMapLootSetting="true"
+			>
+			<Loot TableName="Lootcase_Regular" DropChance="1.0"/>
+		</Life>
+	</Npc>
+
+	<Npc
+		Name="LootCase02"
+		InheritFrom="LootCase01"
+		ScoreValue="500"
+		>
+		<Thing
+			Scale="1.5"
+			>
+		</Thing>
+		<Life
+			Health="1"
+			OnDamagedLootTable="ScrapMine"
+			ClearLoot="true"
+			>
+			<Loot TableName="Lootcase_Big" DropChance="1.0"/>
+		</Life>
+	</Npc>
+
+</Npcs>

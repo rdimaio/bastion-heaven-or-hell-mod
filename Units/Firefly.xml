@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<Npc
+		Name="Firefly"
+		InheritFrom="1_BaseAttacker"
+		Speed="170.0"
+		Flyer="true"
+		ScoreValue="7"
+		PhaseInTimeMin="0.3"
+		PhaseInTimeMax="0.4"
+		PhaseInGraphic="FireflyPhaseIn"
+		PhaseInFx="null"
+		PhaseInSound="FireFlyActivate"
+		VisionRange="600"
+		AlertFriendsOnDeathDistance="500"
+		RotationSpeed="360"
+		SpawnFacingPlayer="true"
+		CollideWithUnits="false"
+		WobbleDistance="10.0"
+		WobbleSpeed="40.0"
+		NoWobbleWhileAttacking="true"
+		MoveGraphic="FireflyMove"
+		IgnoreTargetCollision="true"
+		FacedByTargetWeapon="FireflyShell"
+		CustomPackage="Firefly"
+		>
+		<Thing
+			Graphic="FireflyOpen"
+			OverheadOffset="190"
+			Grip="2.0"
+			OffsetZ="90"
+			MinScale="0.8"
+			MaxScale="1.0"
+			SelectionRadius="50"
+			>
+			<Point X="0" Y="12"/>
+			<Point X="24" Y="0"/>
+			<Point X="0" Y="-12"/>
+			<Point X="-24" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			Armor="0.0"
+			HitGraphic="null"
+			DeathAnimation="FireflyDeath"
+			HitSound="GenericEnemyGettingHit"
+			DeathSound="FireFlyDeath"
+			Decal="Decals\\Health_Circle_Tiny"
+			OverPitDecal="Decals\\Dotted_Circle_Tiny"
+			DamageDecal="null"
+			DeathShakeSpeed="150"
+			DeathShakeDistance="5"
+			Material="PLANT"
+			>
+			<Loot TableName="DynamicHealth_Category1" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category1_B" DropChance="0.6"/>
+		</Life>
+		
+		<Weapon Name="FireflySuicide"/>
+
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			RandomAimScan="true"
+			FlashOnAcquire="false"
+			TargetAcquiredSound="SquirtMove">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT"
+			MustCompleteAttack="true">
+		</AttackAI>
+		
+	</Npc>
+
+	<Npc
+		Name="Firefly_Fast"
+		InheritFrom="Firefly"
+		Speed="275.0"
+		Flyer="true"
+		ScoreValue="11"
+		VisionRange="700"
+		WobbleDistance="10.0"
+		WobbleSpeed="300.0"
+		NoWobbleWhileAttacking="true"
+		>
+		<Thing
+			MinScale="1.0"
+			MaxScale="1.1"
+			>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			>
+			<Loot TableName="DynamicHealth_Category1" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category1_B" DropChance="0.6"/>
+		</Life>
+	</Npc>
+
+	<Npc
+		Name="Firefly_Giant"
+		InheritFrom="Firefly"
+		Flyer="true"
+		ScoreValue="50"
+		Speed="200.0"
+		ClearWeapons="true"
+		WobbleDistance="10.0"
+		WobbleSpeed="300.0"
+		>
+		<Thing
+			MinScale="1.25"
+			MaxScale="1.50"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="12"/>
+			<Point X="24" Y="0"/>
+			<Point X="0" Y="-12"/>
+			<Point X="-24" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			Decal="Decals\\Health_Circle_Medium"
+			ClearLoot="true"
+			>
+			<Loot TableName="DynamicHealth_Category4" DropChance="0.0"/>
+			<Loot TableName="Fragments_Category4_C" DropChance="0.6"/>
+		</Life>
+
+		<Weapon Name="FireflyGiantSuicide"/>
+
+	</Npc>
+
+	<Npc
+		Name="Firefly_Sleeper"
+		InheritFrom="Firefly"
+		PhaseInTimeMin="0.3"
+		PhaseInTimeMax="0.4"
+		PhaseInGraphic="Firefly_Sleeper_PhaseIn"
+		PhaseInFx="Firefly_Sleeper_PhaseIn_Back"
+		InactiveGraphic="Firefly_Sleeper_Inactive_Back"
+		>
+	</Npc>
+
+	<Npc
+		Name="Firefly_Sleeper_Spawn"
+		InheritFrom="Firefly_Sleeper"
+		VisionRange="800"
+		ScoreValue="0">
+		<Life
+			ClearLoot="true">
+		</Life>
+	</Npc>
+
+	<Npc
+		Name="Firefly_Sleeper_Spawner"
+		InheritFrom="1_BaseAttacker"
+		Speed="0.0"
+		Flyer="false"
+		ScoreValue="175"
+		PhaseInTimeMin="0.5"
+		PhaseInTimeMax="0.5"
+		PhaseInGraphic="FireflySpawner_PhaseIn"
+		PhaseInSound="ObjectSlam"
+		OnDeathWeapon="FireflySpawnerDeath"
+		KillSpawnsOnDeathInterval="1.65"
+		CustomPackage="Firefly"
+		>
+		<Thing
+			Graphic="FireflySpawner"
+			OverheadOffset="260"
+			Grip="999.0"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="48"/>
+			<Point X="96" Y="0"/>
+			<Point X="0" Y="-48"/>
+			<Point X="-96" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			Armor="0.0"
+			HitGraphic="null"
+			DeathAnimation="ExplosionA"
+			HitSound="DeepspawnPain"
+			DeathSound="DeepSpawnPhaseInNEW"
+			Decal="Decals\\Health_Circle_Large"
+			DamageDecal="null"
+			DeathShakeSpeed="250"
+			DeathShakeDistance="8"
+			Material="PLANT"
+			UseHealthMeter="true"
+			HealthMeterScale="1.2"
+			ClearLoot="true"
+			>
+			<Loot TableName="SpecialAmmo" DropChance="1.0"/>
+			<Loot TableName="DynamicHealth_Category2" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category2_D" DropChance="0.8"/>
+		</Life>
+		<Weapon Name="Firefly_Sleeper_Spawner"/>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="800">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+
+</Npcs>

@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Weapons>
+
+	<!-- Timed Grenade -->
+
+	<Weapon
+		Name="TimedGrenade"
+		InheritFrom="1_BaseWeapon"
+		Cost="200"
+		Type="GUN"
+		SlotType="STICK"
+		Icon="Loot\\TimedGrenade_Kit"
+		FireSound="MolotovRelease"
+		RotationSpeed="90.0"
+		Projectile="TimedGrenade"
+		Spread="20.0"
+		Cooldown="3.25"
+		RequiresTarget="false"
+		CriticalFireChance="0.00"
+		CriticalFireWeapon="TimedGrenade_Critical"
+		>
+
+		<Upgrade Name="TimedGrenade_Damage" Category="NORMAL" Graphic="DamageUp">
+			<Rank Cost="100" ValueChangeType="MULTIPLY" DamageLow="1.25" DamageHigh="1.25"/>
+			<Rank Cost="200" ValueChangeType="MULTIPLY" DamageLow="1.25" DamageHigh="1.25"/>
+			<Rank Cost="300" ValueChangeType="MULTIPLY" DamageLow="1.25" DamageHigh="1.25"/>
+			<Rank Cost="400" ValueChangeType="MULTIPLY" DamageLow="1.25" DamageHigh="1.25"/>
+		</Upgrade>
+
+		<Upgrade Name="TimedGrenade_DamageRadius" Category="NORMAL" Graphic="SpeedUp">
+			<Rank Cost="100" ValueChangeType="MULTIPLY" DamageRadius="1.25"/>
+			<Rank Cost="200" ValueChangeType="MULTIPLY" DamageRadius="1.25"/>
+			<Rank Cost="300" ValueChangeType="MULTIPLY" DamageRadius="1.25"/>
+			<Rank Cost="400" ValueChangeType="MULTIPLY" DamageRadius="1.25"/>
+		</Upgrade>
+
+		<Upgrade Name="TimedGrenade_Cooldown" Category="SPECIAL" Graphic="DamageUp">
+			<Rank Cost="100" ValueChangeType="MULTIPLY" Cooldown="0.9"/>
+			<Rank Cost="200" ValueChangeType="MULTIPLY" Cooldown="0.9"/>
+			<Rank Cost="300" ValueChangeType="MULTIPLY" Cooldown="0.9"/>
+			<Rank Cost="400" ValueChangeType="MULTIPLY" Cooldown="0.9"/>
+		</Upgrade>
+
+		<Upgrade Name="TimedGrenade_CritFireChance" Category="SPECIAL" Graphic="DamageUp">
+			<Rank Cost="100" CriticalFireChance="0.15"/>
+			<Rank Cost="400" CriticalFireChance="0.30"/>
+		</Upgrade>
+
+		<Upgrade Name="TimedGrenade_SlowEffect" Category="SPECIAL" Graphic="DamageUp">
+			<Rank Cost="1000" Effect="Slow"/>
+		</Upgrade>
+		
+	</Weapon>
+	<Projectile
+		Name="TimedGrenade"
+		Graphic="GlassBottle"
+		DetonateGraphic="DeathB"
+		DetonateSound="MolotovExplode"
+		Type="LOB"
+		DamageLow="300"
+		DamageHigh="300"
+		DamageRadius="200.0"
+		Acceleration="1000.0"
+		SpinRate="-360"
+		Speed="650"
+		Range="260.0"
+		MinRange="0.0"
+		ImpactVelocity="0.0"
+		SpawnOnDetonate="TimedGrenade02"
+        SpawnOnImpactNum="10"
+		SpawnOnImpactType="PROJECTILE"
+		>
+		<Effect Name="Slow" Type="SPEED" Duration="0.15" Modifier="0.2" Active="false"/>
+	</Projectile>
+
+	<Projectile
+		Name="TimedGrenade02"
+		InheritFrom="TimedGrenade"
+		Graphic="MudBall"
+		DetonateSound="EyeballAttack"
+		SpawnOnImpactNum="0"
+		DamageLow="300"
+		DamageHigh="300"
+		Range="150.0"
+		Speed="250"
+		SpawnDamageField="TimedGrenadeField"
+		>
+    </Projectile>
+    <DamageField
+		Name="TimedGrenadeField"
+		Graphic="OozePuddle"
+		Duration="4.5"
+		SourceDamageMultiplier="0.01"
+		DamageInterval="0.25"
+		Radius="125.0">
+        <Effect Name="Slow" Type="SPEED" Duration="0.3" Modifier="0.5" Active="true"/>
+    </DamageField>
+
+	<Projectile
+		Name="TimedGrenade03"
+		InheritFrom="TimedGrenade02"
+		SpawnOnDetonate="TimedGrenade04"
+		SpawnOnImpactNum="1"
+		SpawnOnImpactType="PROJECTILE"
+		>
+	</Projectile>
+
+	<Projectile
+		Name="TimedGrenade04"
+		InheritFrom="TimedGrenade03"
+		SpawnOnDetonate="TimedGrenade05"
+		SpawnOnImpactNum="3"
+		SpawnOnImpactType="PROJECTILE"
+		>
+	</Projectile>
+
+	<Projectile
+		Name="TimedGrenade05"
+		InheritFrom="TimedGrenade04"
+		SpawnOnDetonate="TimedGrenade05"
+		SpawnOnImpactNum="0"
+		SpawnOnImpactType="PROJECTILE"
+		>
+	</Projectile>
+
+	<Weapon
+		Name="TimedGrenade_Critical"
+		InheritFrom="TimedGrenade"
+		Projectile="TimedGrenade_Critical"
+		CriticalFireChance="0.0"
+		CriticalFireWeapon="null"
+		>
+	</Weapon>
+
+	<Projectile
+		Name="TimedGrenade_Critical"
+		InheritFrom="TimedGrenade"
+		SpawnOnDetonate="TimedGrenade"
+        SpawnOnImpactNum="1"
+		SpawnOnImpactType="PROJECTILE"
+		DamageLow="200"
+		DamageHigh="200"
+		>
+	</Projectile>
+
+	<!-- Remote Grenade -->
+
+	<Weapon
+		Name="RemoteGrenade"
+		InheritFrom="1_BaseWeapon"
+		Cost="1250"
+		Type="GUN"
+		Icon="Loot\\RemoteGrenade_Kit"
+		FireSound="SatchelThrow"
+		RotationSpeed="90.0"
+		Projectile="RemoteGrenade"
+		Spread="20.0"
+		Cooldown="0.80"
+		RequiresTarget="false"
+		CriticalFireChance="0.0"
+		CriticalFireWeapon="RemoteGrenade_Critical"
+		SlotType="STICK"
+		>
+
+		<Upgrade Name="RemoteGrenade_Damage" Category="NORMAL" Graphic="DamageUp">
+			<Rank Cost="100" ValueChangeType="MULTIPLY" DamageLow="1.25" DamageHigh="1.25"/>
+			<Rank Cost="200" ValueChangeType="MULTIPLY" DamageLow="1.25" DamageHigh="1.25"/>
+			<Rank Cost="300" ValueChangeType="MULTIPLY" DamageLow="1.25" DamageHigh="1.25"/>
+			<Rank Cost="400" ValueChangeType="MULTIPLY" DamageLow="1.25" DamageHigh="1.25"/>
+		</Upgrade>
+
+		<Upgrade Name="RemoteGrenade_DamageVariance" Category="NORMAL" Graphic="DamageUp">
+			<Rank Cost="100" ValueChangeType="MULTIPLY" DamageHigh="1.5"/>
+			<Rank Cost="200" ValueChangeType="MULTIPLY" DamageHigh="1.5"/>
+			<Rank Cost="300" ValueChangeType="MULTIPLY" DamageHigh="1.5"/>
+			<Rank Cost="400" ValueChangeType="MULTIPLY" DamageHigh="1.5"/>
+		</Upgrade>
+		
+	</Weapon>
+	<Projectile
+		Name="RemoteGrenade"
+		Graphic="Satchel"
+		DetonateGraphic="DeathB"
+		DetonateSound="SatchelExplode"
+		ImpactSound="SatchelImpact"
+		Type="LOB"
+		DamageLow="750"
+		DamageHigh="750"
+		DamageRadius="245.0"
+		Acceleration="1000.0"
+		SpinRate="-360"
+		Speed="650"
+		Range="250.0"
+		MinRange="0.0"
+		Sticky="true"
+		RemoteDetonate="true"
+		>
+	</Projectile>
+
+	<Weapon
+       Name="RemoteGrenade_Critical"
+       InheritFrom="RemoteGrenade"
+       Projectile="RemoteGrenade_Critical"
+       CriticalFireChance="0.0"
+       CriticalFireWeapon="null"
+		>
+	</Weapon>
+
+	<Projectile
+		Name="RemoteGrenade_Critical"
+		InheritFrom="RemoteGrenade"
+		SpawnDamageField="RemoteGrenade"
+		>
+	</Projectile>
+
+	<DamageField
+		Name="RemoteGrenade"
+		Graphic="Radiation01a"
+		Duration="5.0"
+		SourceDamageMultiplier="0.01"
+		DamageInterval="0.1"
+		Radius="100.0">
+		<Effect Name="Slow" Type="SPEED" Duration="0.2" Modifier="0.3" Active="true"/>
+	</DamageField>
+
+</Weapons>

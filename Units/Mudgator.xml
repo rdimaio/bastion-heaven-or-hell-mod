@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<Npc
+		Name="Mudgator"
+		InheritFrom="1_BaseAttacker"
+        Flyer="false"
+		AllowFall="false"
+		Speed="175"
+		RotationSpeed="360.0"
+        ScoreValue="800"
+        PhaseInTimeMin="1.0"
+		PhaseInTimeMax="1.0"
+		PhaseInRumble="0.5"
+        PhaseInGraphic="MudgatorPhaseIn"
+		PhaseInSound="MudgatorActivate"
+		VisionRange="1300"
+		CollideWithUnits="false"
+		MoveGraphic="MudgatorIdle_Noisy"
+		OnHitWeapon="MudgatorGoBerserk"
+		OnHitWeaponHealthFraction="0.4"
+		DormantOnDeath="true"
+		RemoveOnIdleAfterDormant="true"
+		ImmuneToStun="true"
+		ClearUpgrades="true"
+		CheckShadow="false"
+		>
+		<Thing
+			Graphic="MudgatorIdle"
+			Grip="9999"
+			OverheadOffset="490"
+			Scale="1.0"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="16"/>
+			<Point X="32" Y="0"/>
+			<Point X="0" Y="-16"/>
+			<Point X="-32" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			Armor="0.0"
+			DamagedGraphic="MudgatorHit"
+			DeathGraphic="MudgatorDeath"
+			HitSound="GenericEnemyGettingHit"
+			DeathSound="MudgatorDeath"
+			Decal="null"
+			DeathShakeSpeed="500"
+			DeathShakeDistance="10"
+			Material="INVINCIBLE"
+			ImpactGraphicOffset="100"
+			Invulnerable="true"
+			>
+			<Loot TableName="DynamicHealth_Category4" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category4_C" DropChance="1.0"/>
+		</Life>
+
+		<Weapon Name="MudgatorAttack"/>
+		<Weapon Name="MudgatorBerserkAttack"/>
+
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			FlashOnAcquire="false">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="1.0"
+			RandomTurnIntervalMax="4.0"
+			SpeedFraction="0.2"
+			TetherDistance="500"
+			StayOnTerrain="false"
+			>
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			StayOnTerrain="false"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT"
+			MustCompleteAttack="true">
+		</AttackAI>
+
+		<Upgrade Name="Enemy_Damage" Graphic="GUI\\Shell\\idol_rose">
+			<Rank>
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.05" MoneyDropMultiplier="0.05"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Enemy_Martyrdom" Graphic="GUI\\Shell\\idol_chain">
+			<Rank ValueChangeType="REPLACE_IF_NULL" OnDeathWeapon="EnemyMartyrdom">
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.05" MoneyDropMultiplier="0.05"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Enemy_Slow" Category="NORMAL" Graphic="GUI\\Shell\\idol_hammer">
+			<Rank>
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.05" MoneyDropMultiplier="0.05"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Enemy_Health" Graphic="GUI\\Shell\\idol_tower">
+			<Rank ValueChangeType="MULTIPLY" Health="2.0">
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.05" MoneyDropMultiplier="0.05"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Enemy_TouchWeapon" Graphic="GUI\\Shell\\idol_stallion">
+			<Rank ValueChangeType="REPLACE_IF_NULL" CollisionWeapon="GenericTouchWeapon">
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.10" MoneyDropMultiplier="0.10"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Enemy_NoAmmo" Graphic="GUI\\Shell\\idol_tree">
+			<Rank ValueChangeType="MULTIPLY" AmmoDropMultiplier="0.0">
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.10" MoneyDropMultiplier="0.10"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Enemy_Stealth" Graphic="GUI\\Shell\\idol_pinwheel">
+			<Rank ValueChangeType="REPLACE_IF_NULL" OnHitWeapon="EnemyStealth">
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.10" MoneyDropMultiplier="0.10"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Enemy_Reflection" Graphic="GUI\\Shell\\idol_mirror">
+			<Rank ValueChangeType="ADD" Reflection="1.0" ReflectionChance="-0.8">
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.10" MoneyDropMultiplier="0.10"/>
+			</Rank>
+		</Upgrade>
+		
+	</Npc>
+
+	<!-- Used in Hunt01 -->
+	<Npc
+		Name="Mudgator_Instant"
+		InheritFrom="Mudgator"
+		ClearWeapons="true"
+		MoveGraphic="MudgatorInvisible"
+		PhaseInTimeMin="0.01"
+		PhaseInTimeMax="0.01"
+		PhaseInGraphic="MudgatorInvisible"
+		Flyer="true">
+		<Thing
+			Graphic="MudgatorInvisible"
+			>
+		</Thing>
+		<Life
+			Material="NONE"
+		></Life>
+		<Weapon Name="MudgatorInstantAttack"/>
+	</Npc>
+
+	<!-- Used in Town -->
+	<Npc
+		Name="Mudgator_Mini"
+		InheritFrom="Mudgator"
+		Speed="300"
+		VisionRange="2000"
+		OnHitWeapon="null"
+		PhaseInGraphic="MudgatorPhaseIn_Small"
+		MoveGraphic="MudgatorIdle_Noisy_Small">
+		<Thing
+			Graphic="MudgatorIdle_WithDust"
+			OverheadOffset="145"
+			Scale="0.5"
+			>
+		</Thing>
+		<Life
+			Material="NONE"
+		></Life>
+		<Interact
+			Distance="125"
+			AudioFx="SquirtLure"
+		></Interact>
+	</Npc>
+
+	<!-- Used in Fortress -->
+	<Npc
+		Name="Mudgator_Small"
+		InheritFrom="Mudgator"
+		ClearWeapons="true"
+		Speed="300"
+		ScoreValue="315">
+		<Thing
+			OverheadOffset="145"
+			Scale="0.5"
+			>
+		</Thing>
+		<Life
+			Health="1"
+			Material="NONE"
+		></Life>
+		<Weapon Name="MudgatorAttackSmall"/>
+		<Weapon Name="MudgatorBerserkAttack"/>
+	</Npc>
+
+</Npcs>

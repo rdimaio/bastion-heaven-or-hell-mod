@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<Npc
+		Name="FlyingSwarmer_Base"
+		InheritFrom="1_BaseAttacker"
+		DisplayInEditor="false"
+		Speed="350.0"
+		Flyer="true"
+		ScoreValue="75"
+		PhaseInTimeMin="0.7"
+		PhaseInTimeMax="0.8"
+		PhaseInGraphic="FlyingSwarmerPhaseIn"
+		PhaseInSound="CravenFlyInBIG"
+		CollideWithUnits="false"
+		RotationSpeed="540"
+		MoveGraphic="FlyingSwarmerMove"
+		StunGraphicName="FlyingSwarmerHit"
+		CustomPackage="FlyingSwarmer"
+		>
+		<Thing
+			Graphic="FlyingSwarmerIdle"
+			OverheadOffset="210"
+			Grip="5.0"
+			OffsetZ="120"
+			Scale="1.0"
+			>
+			<Point X="0" Y="20"/>
+			<Point X="40" Y="0"/>
+			<Point X="0" Y="-20"/>
+			<Point X="-40" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			Armor="0.0"
+			HitGraphic="null"
+			DeathAnimation="FlyingSwarmerDeath"
+			HitSound="CravenGetsHitBIG"
+			DeathSound="CravenDeathBIG"
+			Decal="Decals\\Health_Circle_Medium"
+			OverPitDecal="Decals\\Dotted_Circle_Medium"
+			DamageDecal="null"
+			DeathShakeSpeed="150"
+			DeathShakeDistance="5"
+			Material="HUMANOID"
+			>
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_C" DropChance="0.8"/>
+		</Life>
+	</Npc>
+
+	<Npc
+		Name="FlyingSwarmer"
+		InheritFrom="FlyingSwarmer_Base"
+		VisionRange="650"
+		RotationSpeed="720">
+		<Thing
+			Graphic="FlyingSwarmerIdle">
+		</Thing>
+		<Life
+			Health="1"
+			UseHealthMeter="true"
+			HealthMeterScale="1.0"
+			ClearLoot="true"
+			>
+			<Loot TableName="DynamicHealth_Category5" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_D" DropChance="0.8"/>
+		</Life>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="800">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="FLOCK"
+			NeighborhoodDistance="300"
+			CrowdingDistance="100"
+			RandomTurnIntervalMin="1.0"
+			RandomTurnIntervalMax="3.0"
+			TetherDistance="750"
+			SpeedFraction="1.0">
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			StopToAttack="true"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT"
+			CanAttackWhileMoving="false">
+		</AttackAI>
+		<Weapon Name="FlyingSwarmer_ClawLunge"/>
+	</Npc>
+
+	<Npc
+		Name="FlyingSwarmer_Gargoyle"
+		InheritFrom="FlyingSwarmer"
+		VisionRange="200"
+		RotationSpeed="720"
+		ClearAI="true"
+		ScoreValue="120"
+		NoTerrainIdleGraphic="FlyingSwarmerMove">
+		<Thing
+			Graphic="FlyingSwarmerIdle"
+			Scale="1.0"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			UseHealthMeter="true"
+			HealthMeterScale="1.0"
+			ClearLoot="true"
+			>
+			<Loot TableName="DynamicHealth_Category5" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_D" DropChance="0.8"/>
+		</Life>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="1600"
+			DamagedVisionRange="1600"
+			FoundTargetVisionRange="1600">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			StopToAttack="true"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT"
+			CanAttackWhileMoving="false">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="FlyingSwarmer_Pest"
+		InheritFrom="FlyingSwarmer_Base"
+		Speed="400.0"
+		VisionRange="225"
+		RotationSpeed="270"
+		ScatterFriendsOnDeathForDuration="1.0"
+		CollideWithUnits="false"
+		ScoreValue="15"
+		PhaseInSound="CravenFlyInSMALL"
+		WobbleDistance="5.0"
+		WobbleSpeed="30.0">>
+		<Thing
+			Graphic="FlyingSwarmerMove"
+			Scale="0.5"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			HitSound="CravenGetsHitSMALL"
+			DeathSound="CravenDeathSMALL"
+			DeathAnimation="FlyingSwarmerDeath_Small"
+			DissolveDurationMultiplier="0.25"
+			>
+			<Loot TableName="DynamicHealth_Category1" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category1_B" DropChance="0.6"/>
+		</Life>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="300">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="FLOCK"
+			NeighborhoodDistance="300"
+			CrowdingDistance="50"
+			RandomTurnIntervalMin="1.0"
+			RandomTurnIntervalMax="3.0"
+			TetherDistance="750"
+			SpeedFraction="1.0">
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+		<Weapon Name="FlyingSwarmer_BeakPeck"/>
+	</Npc>
+
+	<Npc
+		Name="FlyingSwarmer_Pest_Challenge08"
+		InheritFrom="FlyingSwarmer_Pest"
+		ClearAI="true"
+		>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="300">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="FLOCK"
+			NeighborhoodDistance="300"
+			CrowdingDistance="50"
+			RandomTurnIntervalMin="1.0"
+			RandomTurnIntervalMax="3.0"
+			TetherDistance="200"
+			SpeedFraction="1.0">
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="FlyingSwarmer_Pest_Aggressive"
+		InheritFrom="FlyingSwarmer_Pest"
+		ClearAI="true"
+		VisionRange="9999"
+		PhaseInSound="CravenFlyInSMALL"
+		WobbleDistance="5.0"
+		WobbleSpeed="30.0">
+		<Life
+			Health="1"
+			ClearLoot="true"
+			HitSound="CravenGetsHitSMALL"
+			DeathSound="CravenDeathSMALL"
+			>
+			<Loot TableName="DynamicHealth_Category1" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category1_B" DropChance="0.6"/>
+		</Life>		
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="9999">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="FLOCK"
+			NeighborhoodDistance="300"
+			CrowdingDistance="50"
+			RandomTurnIntervalMin="1.0"
+			RandomTurnIntervalMax="3.0"
+			SpeedFraction="1.0">
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="FlyingSwarmer_Harasser"
+		InheritFrom="FlyingSwarmer_Base"
+		Speed="400.0"
+		VisionRange="600"
+		RotationSpeed="720"
+		CollideWithUnits="false"
+		PhaseInSound="CravenFlyInSMALL"
+		ScoreValue="50"
+		>
+		<Thing
+			Graphic="FlyingSwarmerMove"
+			Scale="0.75"
+			>
+			<Color Red="0.41" Green="0.81" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			HitSound="CravenGetsHitSMALL"
+			DeathSound="CravenDeathSMALL"		
+			>
+			<Loot TableName="DynamicHealth_Category1" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category1_C" DropChance="0.8"/>
+		</Life>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			DamagedVisionRange="1000"
+			MaxDistance="800">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="FLOCK"
+			NeighborhoodDistance="300"
+			CrowdingDistance="50"
+			RandomTurnIntervalMin="1.0"
+			RandomTurnIntervalMax="3.0"
+			TetherDistance="750"
+			SpeedFraction="1.0">
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			RetreatFromDistance="300"
+			RetreatToDistance="490"
+			RetreatToTile="false"
+			>
+			<RetreatFromUnit Name="_PlayerUnit"/>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+		<Weapon Name="FlyingSwarmer_NeedleSpit"/>
+	</Npc>
+
+	<Npc
+		Name="FlyingSwarmer_Town"
+		InheritFrom="FlyingSwarmer_Pest"
+		VisionRange="200"
+		ScoreValue="0"
+		PhaseInSound="null"
+		MoveGraphic="FlyingSwarmerMove_Town">
+		<Thing
+			Scale="0.5"
+  		OverheadOffset="105"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			UseHealthMeter="false"
+			HealthMeterScale="1.0"
+			ClearLoot="true"
+			>
+		</Life>
+		<Interact
+			Distance="175"
+			OffsetY="-65"
+			AudioFx="CravenFlyIn"
+		></Interact>
+	</Npc>
+
+
+</Npcs>

@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<!-- Turret -->
+
+	<Npc
+		Name="Turret"
+		InheritFrom="1_BaseAttacker"
+		PhaseInSound="TurretSlide"
+		Speed="0.0"
+		RotationSpeed="150"
+		Flyer="false"
+		ScoreValue="10"
+		PhaseInTimeMin="0.9"
+		PhaseInTimeMax="0.9"
+		PhaseInGraphic="StatueTurret2PhaseIn"
+		PhaseInFx="TurretGrow"
+		VisionRange="1200"
+		OnHitWeapon="null"
+		OnDeathWeapon="TurretDeath"
+		>
+		<Thing
+			Graphic="StatueTurret2"
+			Grip="999.0"
+			OverheadOffset="195"
+			OffsetY="8">
+			<Point X="0" Y="32"/>
+			<Point X="64" Y="0"/>
+			<Point X="0" Y="-32"/>
+			<Point X="-64" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			Armor="0.0"
+			HitSound="GenericEnemyGettingHit"
+			DeathSound="PeacemakerDeath"
+			Decal="Decals\\Health_Circle_Medium"
+			DamageDecal="null"
+			HitGraphic="null"
+			DeathAnimation="ExplosionA"
+			DeathShakeSpeed="250"
+			DeathShakeDistance="5"
+			Material="STONE"
+			UseHealthMeter="true"
+			HealthMeterScale="0.8"
+			LowHealthTransitionEffect="TurretDamagedSmokeSpawner"
+			>
+			<Loot TableName="DynamicHealth_Category2" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category2_C" DropChance="0.8"/>
+		</Life>
+		<Weapon Name="TurretGun"/>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			RandomAimScan="true"
+			MaxDistance="725">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="TurretDirectional"
+		InheritFrom="Turret">
+		<Thing>
+			<Color Red="0.0" Green="1.0" Blue="0.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			Armor="0.95"
+			ArmorCoverage="170"
+			>
+		</Life>
+	</Npc>
+
+	<Npc
+		Name="TurretBeam"
+		InheritFrom="Turret"
+		PhaseInGraphic="TurretBeamPhaseIn"
+		RotationSpeed="125"
+		ClearWeapons="true"
+		ScoreValue="95">
+		<Thing
+			Graphic="TurretBeam">
+		</Thing>
+		<Life
+			Health="1"
+			>
+		</Life>
+		<Weapon Name="TurretBlaster"/>
+	</Npc>
+
+	<Npc
+		Name="TurretBurst"
+		InheritFrom="Turret"
+		ClearWeapons="true"
+		ScoreValue="15">
+		<Thing>
+			<Color Red="1.0" Green="0.5" Blue="0.25" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			>
+		</Life>
+		<Weapon Name="TurretBurst"/>
+	</Npc>
+
+  <Npc
+		Name="TurretRapid"
+		InheritFrom="Turret"
+		ClearWeapons="true"
+		ScoreValue="15">
+		<Thing>
+			<Color Red="1.0" Green="0.5" Blue="0.25" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			>
+		</Life>
+    <Weapon Name="TurretRapid"/>
+  </Npc>  
+
+	<Npc
+		Name="TurretHoming"
+		InheritFrom="Turret"
+		ClearWeapons="true"
+		ScoreValue="30"
+		PhaseInGraphic="TurretHomingPhaseIn"
+		>
+		<Thing
+			Graphic="TurretHoming">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1">
+		</Life>
+		<Weapon Name="TurretHoming"/>
+	</Npc>
+
+	<Npc
+		Name="TurretFlame"
+		InheritFrom="Turret"
+		ClearWeapons="true"
+		ScoreValue="35"
+		PhaseInGraphic="TurretFlamePhaseIn"
+		>
+		<Thing
+			Graphic="TurretFlame">
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true">
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_B" DropChance="0.8"/>		
+		</Life>
+		<Weapon Name="TurretFlame"/>
+	</Npc>
+
+	<Npc
+		Name="TurretFlame_Buff"
+		InheritFrom="TurretFlame"
+		ClearWeapons="true"
+		ScoreValue="40"
+		>
+		<Life
+			Health="1"
+			ClearLoot="true">
+		</Life>
+		<Weapon Name="TurretFlame_NoFriendlyFire"/>
+	</Npc>
+
+	<Npc
+		Name="TurretTurtle"
+		InheritFrom="Turret"
+		OnHitWeapon="TurretHide"
+		ScoreValue="15"
+		PhaseInGraphic="TurretTurtle_PhaseIn"
+		ClearWeapons="true"
+		>
+		<Thing
+			Graphic="StatueTurret2_Bib">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			HealthMeterScale="1.0">
+		</Life>
+		<Weapon Name="TurretTurtle"/>
+	</Npc>
+
+	<!-- PlayerSummonedTurret -->
+
+	<Npc
+		Name="PlayerSummonedTurret"
+		InheritFrom="Turret"
+		DisplayInEditor="true"
+		PlayerOwned="true"
+		OnDeathWeapon="null"
+		ClearWeapons="true"
+		ClearUpgrades="true"
+		ScoreValue="0">
+		<Life
+			Health="1"
+			>
+		</Life>		
+		<Thing>
+			<Color Red="0.85" Green="0.64" Blue="0.15"/>
+		</Thing>
+		<Weapon Name="PlayerSummonedTurret"/>
+	</Npc>
+	
+	<!-- Portal Turret -->
+
+	<Npc
+		Name="PortalTurret"
+		InheritFrom="Turret"
+		PhaseInTimeMin="0.5"
+		PhaseInTimeMax="0.5"
+		PhaseInGraphic="PortalTurretPhaseIn"
+		PhaseInFx="null"
+        PhaseInSound="PortalTurretOnSpawn_SFX"
+		PhaseInEndSound="PortalTurretOnSpawn_VO"
+		DisplayInEditor="true"
+		PlayerOwned="true"
+		OnDeathWeapon="null"
+		ClearWeapons="true"
+		ClearUpgrades="true"
+		RandomAimScanGraphic="PortalTurretLaser"
+		RotationSpeed="0"
+		ClearTargetAI="true"
+		VisionRange="625"
+		ScoreValue="0">
+		<Life
+			Health="1"
+			DamageDecal="null"
+			UseHealthMeter="false"
+			Material="METAL"
+			HitSound="PortalTurretOnHit"
+			DeathSound="PortalTurretDeath_SFX"
+			DeathSoundNoOverride="PortalTurretDeath_VO"
+			>
+		</Life>
+		<Thing
+			Graphic="PortalTurretIdle">
+			<Color Red="1.0" Green="1.0" Blue="1.0"/>
+		</Thing>
+		<TargetAI
+			TargetAcquiredSound="PortalTurretTargetAcquired"
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="false"
+			RandomAimScan="false"
+			MaxDistance="625">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<Weapon Name="PortalTurretGun"/>
+	</Npc>
+
+	<Npc
+		Name="PortalTurretFriendly"
+		InheritFrom="PortalTurret"
+		PhaseInSound="null"
+		PhaseInEndSound="null">
+		<Life
+			Health="1"
+			>
+		</Life>
+		<Interact
+			Distance="125"
+		></Interact>		
+	</Npc>
+
+</Npcs>

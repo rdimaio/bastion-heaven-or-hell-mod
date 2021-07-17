@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<!-- Boxes -->
+
+	<Npc
+		Name="HeavyMelee_Box"
+		InheritFrom="1_BaseAttacker"
+		ScoreValue="40"
+		Flyer="false"
+    PhaseInTimeMin="0.25"
+		PhaseInTimeMax="0.25"
+    PhaseInGraphic="HeavyMeleeBox_PhaseIn"
+		PhaseInEndSound="DebrisFallHitLOUD"
+		PhaseInFx="null"
+		PostPhaseInDisable="0.75"
+		VisionRange="650"
+		WobbleDistance="0.0"
+		WobbleSpeed="0.0"
+		InactiveGraphic="null"
+    CustomPackage="GasfellaSquirt"
+		>
+		<Thing
+			Graphic="HeavyMeleeBox_Idle"
+			Grip="6.0"
+			OverheadOffset="140"
+			Scale="0.9"
+			MinScale="0.85"
+			MaxScale="0.95"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="-64" Y="-10"/>
+			<Point X="-27" Y="47"/>
+			<Point X="63" Y="24"/>
+			<Point X="20" Y="-35"/>
+		</Thing>
+		<Life
+			Health="1"
+			Armor="0.0"
+			HitGraphic="null"
+			DeathAnimation="DeathC_Large"
+			HitSound="null"
+			DeathSound="GenericEnemyDeath"
+			Decal="Decals\\Health_Circle_Large"
+			OverPitDecal="Decals\\Dotted_Circle_Large"
+			Material="ORGANIC"
+			ClearLoot="true"
+			>
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_A" DropChance="1.0"/>
+		</Life>
+		<Weapon Name="LampTransform_HeavyMelee"/>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<AttackAI
+			Algorithm="ON_SIGHT"
+			MustCompleteAttack="true">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="HeavyMeleeEasy_Box"
+		InheritFrom="HeavyMelee_Box"
+		ClearWeapons="true"
+		ScoreValue="10"
+		VisionRange="550"
+		>
+		<Thing
+			Scale="0.8"
+			MinScale="0.75"
+			MaxScale="0.85"
+			>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			>
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_A" DropChance="1.0"/>
+		</Life>
+		<Weapon Name="LampTransform_HeavyMeleeEasy"/>
+	</Npc>
+
+	<!-- HeavyMelee -->
+
+	<Npc
+		Name="HeavyMelee"
+		InheritFrom="1_BaseAttacker"
+        Speed="225.0"
+        Flyer="true"
+        ScoreValue="30"
+        PhaseInTimeMin="0.5"
+        PhaseInTimeMax="0.5"
+        PhaseInGraphic="HeavyMelee_PhaseIn"
+		PhaseInSound="GasfellaPhaseIn"
+		MoveGraphic="HeavyMeleeWalk"
+		VisionRange="650"
+		WobbleDistance="35.0"
+		WobbleSpeed="35.0"
+		OnlyWobbleWhileMoving="false"
+		NoWobbleWhileAttacking="true"
+		StunGraphicName="HeavyMeleeHit"
+		LootMagnetism="0.0"
+		RotationSpeed="360"
+    CustomPackage="GasfellaSquirt"
+		>
+		<Thing
+			Graphic="HeavyMeleeIdle"
+			Grip="5.0"
+			OverheadOffset="270"
+			Width="142"
+			Height="80"
+			>
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="32"/>
+			<Point X="64" Y="0"/>
+			<Point X="0"  Y="-32"/>
+			<Point X="-64" Y="0"/>
+		</Thing>
+		<Life
+			Health="1"
+			Armor="0.0"
+			HitGraphic="null"
+			DeathAnimation="HeavyMeleeDeath"
+			HitSound=""
+			DeathSound="GasfellaDeath"
+			FallDeathSound="null"
+			Decal="Decals\\Health_Circle_Large"
+			OverPitDecal="Decals\\Dotted_Circle_Large"
+			UseHealthMeter="true"
+			Material="ORGANIC"
+			>
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_A" DropChance="0.8"/>
+		</Life>
+		<Weapon Name="HeavyMelee"/>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="1500">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="4.0"
+			RandomTurnIntervalMax="8.0"
+			SpeedFraction="0.35"
+			TetherDistance="800"
+			>
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT"
+			MustCompleteAttack="true">
+		</AttackAI>
+
+	</Npc>
+
+	<Npc
+		Name="HeavyMeleeEasy"
+		InheritFrom="HeavyMelee"
+		ClearWeapons="true"
+		ScoreValue="5"
+		>
+		<Thing
+			OverheadOffset="200"
+			Scale="0.65">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			DeathAnimation="HeavyMeleeEasyDeath"
+			HealthMeterScale="1.1"
+			ClearLoot="true"
+			>
+			<Loot TableName="DynamicHealth_Category2" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category2_A" DropChance="0.8"/>
+		</Life>
+		<Weapon Name="HeavyMeleeEasy"/>
+	</Npc>
+
+	<Npc
+		Name="HeavyMeleeLarge"
+		InheritFrom="HeavyMelee"
+		ImmuneToStun="true"
+		ClearWeapons="true"
+		ScoreValue="250"
+		PhaseInSound="GiantMeleePhaseIn"
+		Speed="300"
+		>
+		<Thing
+			OverheadOffset="390"
+			Scale="1.5"
+			Grip="999.0">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			DeathAnimation="HeavyMeleeLargeDeath"
+			ClearLoot="true"
+			>
+			<Loot TableName="Hammer_Plant" DropChance="0.0"/>
+		</Life>
+		<Weapon Name="HeavyMeleeLarge"/>
+	</Npc>
+
+	<Npc
+		Name="HeavyMeleeLunge"
+		InheritFrom="HeavyMelee"
+		ClearWeapons="true"
+		StunGraphicName="null"
+		ScoreValue="40"
+		LootMagnetism="200.0"
+		>
+		<Thing>
+			<Color Red="1.0" Green="1.0" Blue="0.20" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"		
+			>
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_B" DropChance="0.8"/>
+		</Life>
+		<Weapon Name="HeavyMeleeLunge"/>
+	</Npc>
+
+	<Npc
+		Name="HeavyMeleeSlam"
+		InheritFrom="HeavyMelee"
+		ClearWeapons="true"
+		StunGraphicName="null"
+		ScoreValue="40"
+		>
+		<Thing>
+			<Color Red="0.5" Green="1.0" Blue="1.0" OverheadOffset="180" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			>
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_B" DropChance="0.8"/>
+		</Life>
+		<Weapon Name="HeavyMeleeSlam"/>
+	</Npc>
+
+	<Npc
+		Name="HeavyMeleeWhirlwind"
+		InheritFrom="HeavyMelee"
+		ClearWeapons="true"
+		StunGraphicName="null"
+		ScoreValue="100"
+		VisionRange="1200"
+		ClearAI="true"
+		ImmuneToStun="true"
+		>
+		<Thing
+			Graphic="HeavyMeleeWalk"
+			Scale="1.15">
+			<Color Red="1.0" Green="0.45" Blue="0.45" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			>
+			<Loot TableName="DynamicHealth_Category4" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category4_A" DropChance="1.0"/>
+		</Life>
+		<Weapon Name="HeavyMeleeWhirlwind"/>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			MaxDistance="1500">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="4.0"
+			RandomTurnIntervalMax="8.0"
+			SpeedFraction="0.35"
+			TetherDistance="800"
+			>
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			StopToAttack="false"
+			SuccessDistance="90"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT"
+			MustCompleteAttack="true"
+			CanAttackWhileMoving="true">
+		</AttackAI>
+	</Npc>
+
+	<Npc
+		Name="HeavyMeleeShockwave"
+		InheritFrom="HeavyMelee"
+		ClearWeapons="true"
+		Speed="225.0"
+		ScoreValue="40"
+		>
+		<Thing
+			Grip="999.0">
+			<Color Red="0.34" Green="0.96" Blue="0.30" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+			>
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_B" DropChance="0.8"/>
+		</Life>
+		<Weapon Name="HeavyMeleeShockwave"/>
+	</Npc>
+
+	<Npc
+		Name="HeavyMeleeGhost"
+		InheritFrom="HeavyMelee"
+		ClearWeapons="true"
+		ScoreValue="130"
+		>
+		<Thing
+			Refract="false">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="0.80"/>
+		</Thing>
+		<Life
+			Health="1"
+			ClearLoot="true"
+		>
+			<Loot TableName="DynamicHealth_Category3" DropChance="1.0"/>
+			<Loot TableName="Fragments_Category3_B" DropChance="0.8"/>
+		</Life>
+		<Weapon Name="HeavyMeleeGhost"/>
+	</Npc>
+
+	<Npc
+		Name="HeavyMelee_BoxSpawn"
+		InheritFrom="HeavyMelee"
+		PhaseInTimeMin="0.1"
+		PhaseInTimeMax="0.1">
+	</Npc>
+
+	<Npc
+		Name="HeavyMeleeEasy_BoxSpawn"
+		InheritFrom="HeavyMeleeEasy"
+		PhaseInTimeMin="0.1"
+		PhaseInTimeMax="0.1">
+	</Npc>
+
+	<Npc
+		Name="HeavyMeleeMag"
+		InheritFrom="HeavyMelee"
+		LootMagnetism="200.0">
+	</Npc>
+
+
+</Npcs>

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<Npc
+		Name="1_BaseAttacker"
+		PhaseInTimeMin="2.0"
+		PhaseInTimeMax="5.0"
+		SpeedVariance="0.1"
+		PhaseInSound="GenericEnemyPhaseIn"
+		BlockFx="InvincibleHitSpark"
+		>
+		<Thing
+			FallSound="Falling"
+			>
+		</Thing>
+		<Life
+			HitSound="GenericEnemyGettingHit"
+			DeathSound="GenericEnemyDeath"
+			DamageShakeDistance="2"
+			DamageShakeSpeed="120"
+			DamageShakeDuration="0.3"
+			DeathShakeSpeed="400"
+			DeathShakeDistance="20"
+			>
+			<Loot TableName="Enemy_Weak" DropChance="0.0"/>
+		</Life>
+
+		<Upgrade Name="Enemy_Damage" Graphic="GUI\\Shell\\idol_rose">
+			<Rank Cost="250" AudioCue="Menu_84">
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.10" MoneyDropMultiplier="0.10"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Enemy_Martyrdom" Graphic="GUI\\Shell\\idol_chain">
+			<Rank Cost="100" AudioCue="Menu_85" ValueChangeType="REPLACE_IF_NULL" OnDeathWeapon="EnemyMartyrdom">
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.05" MoneyDropMultiplier="0.05"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Enemy_Slow" Category="NORMAL" Graphic="GUI\\Shell\\idol_hammer">
+			<Rank Cost="300" AudioCue="Menu_86">
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.05" MoneyDropMultiplier="0.05"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Enemy_Speed" Graphic="GUI\\Shell\\idol_bull">
+			<Rank Cost="100" AudioCue="Menu_87" ValueChangeType="MULTIPLY" Speed="2.0" RotationSpeed="2.0">
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.10" MoneyDropMultiplier="0.10"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Enemy_Health" Graphic="GUI\\Shell\\idol_tower">
+			<Rank Cost="100" AudioCue="Menu_88" ValueChangeType="MULTIPLY" Health="2.0">
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.05" MoneyDropMultiplier="0.05"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Enemy_TouchWeapon" Graphic="GUI\\Shell\\idol_stallion">
+			<Rank Cost="150" AudioCue="Menu_89" ValueChangeType="REPLACE_IF_NULL" CollisionWeapon="GenericTouchWeapon">
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.05" MoneyDropMultiplier="0.05"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Enemy_NoAmmo" Graphic="GUI\\Shell\\idol_tree">
+			<Rank Cost="250" AudioCue="Menu_90" ValueChangeType="MULTIPLY" AmmoDropMultiplier="0.0">
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.10" MoneyDropMultiplier="0.10"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Enemy_Regen" Graphic="GUI\\Shell\\idol_cog">
+			<Rank Cost="450" AudioCue="Menu_91" ValueChangeType="ADD" HealthRegen="0.01" HealthRegenInterval="0.175">
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.05" MoneyDropMultiplier="0.05"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Enemy_Stealth" Graphic="GUI\\Shell\\idol_pinwheel">
+			<Rank Cost="250" AudioCue="Menu_92" ValueChangeType="REPLACE_IF_NULL" OnHitWeapon="EnemyStealth">
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.10" MoneyDropMultiplier="0.10"/>
+			</Rank>
+		</Upgrade>
+
+		<Upgrade Name="Enemy_Reflection" Graphic="GUI\\Shell\\idol_mirror">
+			<Rank Cost="750" AudioCue="Menu_93" ValueChangeType="ADD" Reflection="1.0" ReflectionChance="-0.8">
+				<Change ValueChangeType="ADD" ScoreValueMultiplier="0.10" MoneyDropMultiplier="0.10"/>
+			</Rank>
+		</Upgrade>
+
+	</Npc>
+	
+	<Npc
+		Name="1_PlayerTargeter"
+		InheritFrom="1_BaseAttacker"
+		>
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="PATHFIND">
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT">
+		</AttackAI>
+	</Npc>
+	
+</Npcs>

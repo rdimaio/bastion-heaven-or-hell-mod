@@ -1,0 +1,837 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Weapons>
+	
+	<!-- Bastion Weapons -->
+
+	<Weapon
+		Name="1_BaseWeapon"
+		Cost="100"
+		>
+		<ExperienceLevel Points="100"/>
+		<ExperienceLevel Points="200"/>
+		<ExperienceLevel Points="300"/>
+		<ExperienceLevel Points="400"/>
+		<ExperienceLevel Points="500"/>
+		<ExperienceLevel Points="600"/>
+		<ExperienceLevel Points="700"/>
+		<ExperienceLevel Points="800"/>
+		<ExperienceLevel Points="900"/>
+	</Weapon>
+
+	<Projectile
+		Name="1_BaseLargeProjectile">
+		<ImpactGraphic Material="PLAYER" Name="PlayerHit"/>
+		<ImpactGraphic Material="INVINCIBLE" Name="InvincibleHitSpark"/>
+		<ImpactGraphic Material="ORGANIC" Name="WindbagImpact"/>
+		<ImpactGraphic Material="PLANT" Name="PlantHitSpark"/>
+		<ImpactGraphic Material="WOOD" Name="DustCloud_Small"/>
+		<ImpactGraphic Material="STONE" Name="DustCloud_Small"/>
+		<ImpactGraphic Material="STONE" Name="SmokePuff_Small"/>
+		<ImpactGraphic Material="STONE" Name="SmokePuff_Small2"/>
+		<ImpactGraphic Material="ICE" Name="IceImpact"/>
+		<ImpactGraphic Material="METAL" Name="DustCloud_Small"/>
+		<ImpactGraphic Material="METAL" Name="SmokePuff_Small"/>
+		<ImpactGraphic Material="METAL" Name="SmokePuff_Small2"/>
+	</Projectile>
+
+	<Projectile
+		Name="1_BaseSmallProjectile">
+		<ImpactGraphic Material="PLAYER" Name="PlayerHit"/>
+		<ImpactGraphic Material="INVINCIBLE" Name="InvincibleHitSpark_Small"/>
+		<ImpactGraphic Material="ORGANIC" Name="WindbagImpact_Small"/>
+		<ImpactGraphic Material="PLANT" Name="PlantHitSpark_Small"/>
+		<ImpactGraphic Material="WOOD" Name="DustCloud_Small"/>
+		<ImpactGraphic Material="STONE" Name="DustCloud_Small"/>
+		<ImpactGraphic Material="STONE" Name="SmokePuff_Small"/>
+		<ImpactGraphic Material="STONE" Name="SmokePuff_Small2"/>
+		<ImpactGraphic Material="ICE" Name="IceImpact_Small"/>
+		<ImpactGraphic Material="METAL" Name="DustCloud_Small"/>
+		<ImpactGraphic Material="METAL" Name="SmokePuff_Small"/>
+		<ImpactGraphic Material="METAL" Name="SmokePuff_Small2"/>
+	</Projectile>
+	
+	<!-- Consumables -->
+
+	<Weapon
+		Name="HealthPotion"
+		InheritFrom="1_BaseWeapon"
+		Type="SELF"
+		SlotType="CONSUMABLE"
+		Graphic="PlayerFlaskDrink"
+		AmmoIcon="GUI\\Icons\\Icon_Flask"
+		FireSound="PotionUse"
+		FireGraphic="BuffB"
+		BarrelLength="0"
+		StartingAmmo="3"
+		MaxAmmo="3"
+		Cooldown="0.5"
+		RequiresDamaged="true"
+		NoAmmoSound="WeaponSwitch"
+		>
+		<Effect Name="Heal" Type="HEAL_OVER_TIME" Duration="0.5" Cooldown="0.01" Modifier="0.017" Active="true" IgnorePause="true"/>
+
+		<Upgrade Name="PotionCapacityAndPotency" Category="NORMAL" Graphic="DamageUp">
+			<Rank ValueChangeType="ADD" MaxAmmo="2" Effect="Heal" Modifier="0.030"/>
+		</Upgrade>
+
+		<Upgrade Name="LifeSteal" Category="NORMAL" Graphic="DamageUp">
+			<Rank Cost="1" ValueChangeType="ADD" Effect="Heal" Duration="-0.300"/>
+		</Upgrade>
+		
+	</Weapon>
+
+	<!-- Touchdown -->
+
+	<Weapon
+		Name="TouchdownSlam"
+		InheritFrom="1_BaseWeapon"
+		SlotType="UNKNOWN"
+		Type="GUN"
+		Graphic="null"
+		Projectile="TouchdownSlam"
+		RequiresTarget="false"
+		>
+		<Upgrade Name="ImprovedTouchdown" Graphic="GUI\\Shell\\tonic_hopscotch">
+			<Rank ValueChangeType="MULTIPLY" DamageLow="3.0" DamageHigh="3.0" DamageRadius="1.1"/>
+		</Upgrade>
+	</Weapon>
+	<Projectile
+		Name="TouchdownSlam"
+		InheritFrom="1_BaseLargeProjectile"
+		DetonateGraphic="DustC_Decal"
+		DetonateSound="PlayerHit"
+		Type="STRAIGHT"
+		Fuse="0.0"
+		DamageLow="5"
+		DamageHigh="5"
+		DamageRadius="175.0"
+		ImpactVelocity="300.0"
+		CanCrit="false"
+		>
+	</Projectile>
+
+	<!-- LevelUp-->
+
+	<Weapon
+		Name="LevelUp"
+		InheritFrom="1_BaseWeapon"
+		SlotType="UNKNOWN"
+		Type="GUN"
+		Graphic="null"
+		Projectile="LevelUp"
+		RequiresTarget="false"
+		>
+	</Weapon>
+	<Projectile
+		Name="LevelUp"
+		DetonateGraphic="null"
+		DetonateSound="null"
+		Type="STRAIGHT"
+		Fuse="0.0"
+		DamageLow="100"
+		DamageHigh="100"
+		DamageRadius="300.0"
+		ImpactVelocity="750.0"
+		CanCrit="false"
+		>
+	</Projectile>
+	
+	<!-- PlayerOnHitWeapon -->
+
+	<Weapon
+		Name="PlayerOnHitWeapon"
+		InheritFrom="1_BaseWeapon"
+		SlotType="UNKNOWN"
+		Projectile="PlayerOnHitWeapon"
+		BarrelLength="0"
+		FireSound="null"
+		Type="NOVA"
+		NumProjectiles="8"
+		Cooldown="0.5"
+		RequiresTarget="false"
+		ChargeTime="9999.0"
+		ApplyCooldownToDefenseSlot="false"
+		>
+
+		<!-- ChargeTime is basically a hack to make this weapon dormant before the upgrade is applied -->
+		<Upgrade Name="PlayerOnHitWeapon" Graphic="GUI\\Shell\\distillery_bottle_amir">
+			<Rank Cost="200" ChargeTime="0.0"/>
+		</Upgrade>
+		
+	</Weapon>
+	<Projectile
+		Name="PlayerOnHitWeapon"
+		InheritFrom="1_BaseSmallProjectile"
+		Graphic="Projectiles\\craven_spike"
+		Type="STRAIGHT"
+		DamageLow="5"
+		DamageHigh="7"
+		Range="225.0"
+		FadeTime="0.15"
+		Speed="900.0"
+		NumPenetrations="0"
+		AffectsFriends="false"
+		AffectsSelf="false"
+		ClearOnAttackEffects="false"
+		ImmunityDuration="0.25"
+		>
+		<Thing
+			OffsetZ="115.0"
+			Scale="0.65">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+			<Point X="0" Y="24"/>
+			<Point X="24" Y="0"/>
+			<Point X="0" Y="-24"/>
+			<Point X="-24" Y="0"/>
+		</Thing>
+	</Projectile>
+
+	<!-- PlayerOnKillWeapon -->
+
+	<Weapon
+		Name="PlayerOnKillWeapon"
+		InheritFrom="1_BaseWeapon"
+		SlotType="UNKNOWN"
+		BarrelLength="0"
+		FireSound="null"
+		Type="SELF"
+		Cooldown="0.01"
+		IgnoreForceCooldown="true"
+		RequiresTarget="false"
+		AllEffectsProcChance="0.05"
+		>
+		<Effect Name="PlayerOnKillBuff" Type="DAMAGE_OUTPUT" Duration="3.0" Modifier="2.0" Active="false"
+				ThoughtBubbleIcon="GUI\\Shell\\tonic_graver_gimlet" ThoughtBubbleScale="0.4" ThoughtBubbleText="Graver Gimlet!" Sound="GraverGimlet"/>
+
+		<Effect Name="PlayerOnKillBuffSize" Type="SIZE" Duration="3.0" LerpTime="0.25" Modifier="1.25" Tint="SubtleTurquoise" FlashSpeed="4.0" Active="false"/>
+
+		<Upgrade Name="OnKillBuff" Graphic="GUI\\Shell\\tonic_werewhiskey">
+			<Rank Cost="200">
+				<Change Effect="PlayerOnKillBuff"/>
+				<Change Effect="PlayerOnKillBuffSize"/>
+			</Rank>
+		</Upgrade>
+		
+	</Weapon>
+
+	<!-- PlayerDeath -->
+
+	<Weapon
+		Name="PlayerDeath"
+		InheritFrom="1_BaseWeapon"
+		SlotType="UNKNOWN"
+		Type="GUN"
+		Graphic="null"
+		Projectile="PlayerDeath"
+		RequiresTarget="false"
+		>
+		<Upgrade Name="ExtraLives" Graphic="GUI\\Shell\\distillery_bottle_amir">
+			<Rank ValueChangeType="ABSOLUTE" DamageRadius="450" DetonateGraphic="PlayerDeathWeaponNova"/>
+		</Upgrade>
+	</Weapon>
+	<Projectile
+		Name="PlayerDeath"
+		DetonateGraphic="null"
+		DetonateSound="PlayerDeath"
+		Type="STRAIGHT"
+		Fuse="0.0"
+		DamageLow="50"
+		DamageHigh="50"
+		DamageRadius="0.0"
+		ImpactVelocity="750.0"
+		CanBeReflected="false"
+		>
+	</Projectile>
+	
+	<!-- OnCounterWeapon -->
+
+	<Weapon
+		Name="PlayerCounter"
+		InheritFrom="1_BaseWeapon"
+		Type="GUN"
+		SlotType="NONE"
+		Projectile="PlayerCounter"
+		FireSound="PerfectDeflect"
+		RequiresTarget="false"
+		BarrelLength="25"
+		NumProjectiles="1"
+		FireGraphic="ShieldCounter"
+		>
+		
+		<Upgrade Name="PlusCounterDamage" Graphic="GUI\\Shell\\tonic_lunkhead_liquor">
+			<Rank ValueChangeType="ADD" DamageLow="30" DamageHigh="30" Effect="CounterForceNova"/>
+		</Upgrade>
+
+		<Upgrade Name="CounterHeal" Graphic="GUI\\Shell\\tonic_extra_lives">
+			<Rank>
+				<Change Effect="CounterHeal"/>
+			</Rank>
+		</Upgrade>
+
+		<Effect Name="CounterHeal" Type="HEAL_OVER_TIME" Duration="0.02" Cooldown="0.01" Amount="5" Active="false"/>
+		<Effect Name="CounterForceNova" Type="WEAPON_FIRE" Duration="0.01" Active="false"/>
+		
+	</Weapon>
+	<Projectile
+		Name="PlayerCounter"
+		InheritFrom="1_BaseSmallProjectile"
+		Graphic="Projectiles\\Whitewave"
+		Type="STRAIGHT"
+		Range="400.0"
+		Speed="4000.0"
+		DamageLow="30"
+		DamageHigh="30"
+		ImpactVelocity="900.0"
+		CanBeReflected="false"
+		ImmunityDuration="0.25"
+		CanCrit="false"
+		>
+		<Thing OffsetZ="75.0"></Thing>
+		
+		<Effect Name="CounterStunSpeed" Type="SPEED" Duration="2.15" Modifier="0.0" PlayStunGraphic="true" Active="true"/>
+		<Effect Name="CounterStunRotation" Type="ROTATION" Duration="2.15" Modifier="0.000001" Active="true"/>
+	</Projectile>
+
+	<Weapon
+		Name="CounterForceNova"
+		InheritFrom="1_BaseWeapon"
+		Type="GUN"
+		FireGraphic="null"
+		FireSound="null"
+		Projectile="CounterForceNova"
+		BarrelLength="0"
+		>
+	</Weapon>
+	<Projectile
+		Name="CounterForceNova"
+		InheritFrom="1_BaseSmallProjectile"
+		Fuse="0.0"
+		DetonateGraphic="null"
+		Type="STRAIGHT"
+		DamageRadius="250"
+		ImpactVelocity="1000"
+		ImpactUpwardVelocity="0"
+		CanBeReflected="false"
+		CanCrit="false"
+		>
+	</Projectile>
+
+	<!-- OnBlockWeapon -->
+
+	<Weapon
+		Name="PlayerBlock"
+		InheritFrom="1_BaseWeapon"
+		Type="GUN"
+		SlotType="NONE"
+		Projectile="PlayerBlock"
+		RequiresTarget="false"
+		BarrelLength="25"
+		FireGraphic="null"
+		FireSound="ShieldDeflect"
+		SelfVelocity="-725"
+		>
+
+		<Upgrade Name="PlusCounterDamage" Graphic="GUI\\Shell\\tonic_lunkhead_liquor">
+			<Rank ValueChangeType="ADD">
+				<Change Effect="BlockStun" ValueChangeType="ADD" Duration="1.0"/>
+			</Rank>
+		</Upgrade>
+
+	</Weapon>
+	<Projectile
+		Name="PlayerBlock"
+		Graphic="null"
+		Type="STRAIGHT"
+		Range="400.0"
+		Speed="4000.0"
+		DamageLow="0"
+		DamageHigh="0"
+		ImpactVelocity="725.0"
+		CanBeReflected="false"
+		ClearOnAttackEffects="false"
+		CanCrit="false"
+		>
+		<Thing
+			OffsetZ="75.0"
+			Width="10"
+			Height="10">
+		</Thing>
+		<Effect Name="BlockStunSpeed" Type="SPEED" Duration="1.1" Modifier="0.0" PlayStunGraphic="true" Active="true"/>
+		<Effect Name="BlockStunRotation" Type="ROTATION" Duration="1.1" Modifier="0.000001" Active="true"/>
+		
+	</Projectile>
+
+	<!-- OnRangedBlockWeapon -->
+
+	<Weapon
+		Name="PlayerRangedBlock"
+		InheritFrom="PlayerBlock"
+		Type="GUN"
+		SlotType="NONE"
+		Projectile="null"
+		SelfVelocity="0"
+		FireSound="null"
+		>
+	</Weapon>
+
+	<!-- OnRangedCounterWeapon -->
+
+	<Weapon
+		Name="PlayerRangedCounter"
+		InheritFrom="PlayerRangedBlock"
+		>
+
+		<Upgrade Name="CounterHeal" Graphic="GUI\\Shell\\tonic_extra_lives">
+			<Rank>
+				<Change Effect="CounterHeal"/>
+			</Rank>
+		</Upgrade>
+
+		<Effect Name="CounterHeal" Type="HEAL_OVER_TIME" Duration="0.02" Cooldown="0.01" Amount="2" Active="false"/>
+		
+	</Weapon>
+
+	<!-- LastStandWeapon -->
+
+	<Weapon
+		Name="PlayerLastStand"
+		InheritFrom="1_BaseWeapon"
+		Type="SELF"
+		SlotType="NONE"
+		RequiresTarget="false"
+		BarrelLength="25"
+		FireGraphic="null"
+		FireSound="LifeWine"
+		Cooldown="12.5"
+		ApplyCooldownToDefenseSlot="false"
+		>
+		<Effect Name="LastStandArmor" Type="ARMOR" Duration="1.25" Modifier="-1.0" Active="true"
+			ThoughtBubbleIcon="GUI\\Shell\\tonic_lifewine" ThoughtBubbleScale="0.6" ThoughtBubbleText="Lifewine!"
+			OverheadFx="PlayerLastStandSparks"/>
+	</Weapon>
+	
+	<!-- RockFall -->
+
+	<Weapon
+		Name="RockFall"
+		Type="GUN"
+		Projectile="RockFall"
+		FireSound="DebrisFallHitLOUD"
+		Spread="100.0"
+		Cooldown="0.45"
+		ClipSize="1"
+		ReloadTime="1.0"
+		>
+	</Weapon>
+	<Projectile
+		Name="RockFall"
+		Type="SKY"
+		SkipAscent="true"
+		SkyTime="0.0"
+		DescentStartZ="1600"
+		Graphic="Meteor"
+		DetonateGraphic="DustCloud_Small"
+		DamageLow="5"
+		DamageHigh="5"
+		DamageRadius="150.0"
+		Speed="1800.0"
+		Acceleration="1100.0"
+		KnockDownTerrain="true"
+		DetonateSound="DebrisFallHitSHORT"
+		>
+	</Projectile>
+
+
+	<Weapon
+		Name="RockFallLight"
+		InheritFrom="RockFall"
+		Projectile="RockFallLight"
+		Spread="0.0"
+		Cooldown="0.0"
+		ClipSize="1"
+		ReloadTime="0.0"
+		FireSound="DebrisFallHitLOUD"
+		>
+	</Weapon>
+	<Projectile
+		Name="RockFallLight"
+		InheritFrom="RockFall"
+		SkipAscent="true"
+		DescentStartZ="1600"
+		Graphic="Meteor"
+		DamageLow="1"
+		DamageHigh="1"
+		DamageRadius="125.0"
+		Speed="8000.0"
+		Acceleration="1300.0"
+		KnockDownTerrain="false"
+		ImpactSound="DebrisFallHitSHORT"
+		>
+	</Projectile>
+
+	<Weapon
+		Name="RockFallHeavy"
+		InheritFrom="RockFall"
+		Projectile="RockFallHeavy"
+		Spread="0.0"
+		Cooldown="0.0"
+		ClipSize="1"
+		ReloadTime="0.0"
+		FireSound="DebrisFallHitLOUD"
+		>
+	</Weapon>
+	<Projectile
+		Name="RockFallHeavy"
+		InheritFrom="RockFall"
+		SkipAscent="true"
+		DescentStartZ="1600"
+		Graphic="Meteor"
+		DamageLow="1"
+		DamageHigh="1"
+		DamageRadius="125.0"
+		Speed="8000.0"
+		Acceleration="1300.0"
+		KnockDownTerrain="true"
+		ImpactSound="DebrisFallHitSHORT"
+		>
+	</Projectile>
+
+
+	<Weapon
+		Name="RockFallLong"
+		InheritFrom="RockFall"
+		Projectile="RockFallLong">
+	</Weapon>
+	<Projectile
+		Name="RockFallLong"
+		InheritFrom="RockFall"
+		DescentStartZ="4000">
+	</Projectile>
+
+	<Weapon
+		Name="RockStorm"
+		Type="GUN"
+		Projectile="RockFall"
+		FireSound="StoneThrow"
+		Spread="500.0"
+		CooldownMin="0.3"
+		CooldownMax="0.9"
+		ClipSize="99999"
+		ReloadTime="1.0"
+		>
+	</Weapon>
+	
+	<!-- Ice Fall -->
+
+	<Weapon
+		Name="IceFall"
+		Type="GUN"
+		Projectile="IceFall"
+		FireSound="DebrisFallHitLOUD"
+		Spread="100.0"
+		Cooldown="0.45"
+		ClipSize="1"
+		ReloadTime="1.0"
+		>
+	</Weapon>
+	<Projectile
+		Name="IceFall"
+		Type="SKY"
+		SkipAscent="true"
+		SkyTime="0.0"
+		DescentStartZ="1600"
+		Graphic="Ice01"
+		DetonateGraphic="DustCloud_Small"
+		DamageLow="5"
+		DamageHigh="5"
+		DamageRadius="150.0"
+		Speed="1800.0"
+		Acceleration="1100.0"
+		KnockDownTerrain="true"
+		DetonateSound="DebrisFallHitSHORT"
+		>
+		<Thing
+			Shadow="Decals\\Health_Circle_Medium">
+		</Thing>
+	</Projectile>
+
+	<Weapon
+		Name="IceFallLong"
+		Type="GUN"
+		Projectile="IceFallLong"
+		FireSound="DebrisFallHitLOUD"
+		Spread="100.0"
+		Cooldown="0.45"
+		ClipSize="1"
+		ReloadTime="1.0"
+		>
+	</Weapon>
+	<Projectile
+		Name="IceFallLong"
+		Type="SKY"
+		SkipAscent="true"
+		SkyTime="0.0"
+		DescentStartZ="9000"
+		Graphic="Ice02"
+		DetonateGraphic="IceShatter_Large"
+		DamageLow="2"
+		DamageHigh="2"
+		DamageRadius="75.0"
+		Speed="3600.0"
+		Acceleration="1100.0"
+		KnockDownTerrain="true"
+		DetonateSound="DebrisFallHitSHORT"
+		>
+		<Thing
+			Shadow="Decals\\Health_Circle_Medium">
+		</Thing>
+	</Projectile>
+
+
+	<Weapon
+		Name="IceFallShort"
+		Type="GUN"
+		Projectile="IceFallShort"
+		FireSound="DebrisFallHitLOUD"
+		Spread="100.0"
+		Cooldown="0.45"
+		ClipSize="1"
+		ReloadTime="0.1"
+		>
+	</Weapon>
+	<Projectile
+		Name="IceFallShort"
+		Type="SKY"
+		SkipAscent="true"
+		SkyTime="0.0"
+		DescentStartZ="1200"
+		Graphic="Ice02"
+		DetonateGraphic="DustCloud_Small"
+		DamageLow="2"
+		DamageHigh="2"
+		DamageRadius="75.0"
+		Speed="4800.0"
+		Acceleration="1100.0"
+		KnockDownTerrain="true"
+		DetonateSound="DebrisFallHitSHORT"
+		>
+		<Thing
+		   Shadow="Decals\\Health_Circle_Medium">
+		</Thing>
+	</Projectile>
+
+	<!-- Scum Puddle -->
+
+	<Weapon
+		Name="ScumPuddle"
+		Projectile="ScumPuddle"
+		Type="GUN"
+		Spread="0.0"
+		Cooldown="0.0"
+		ClipSize="1"
+		ReloadTime="0.0"
+		FireSound="DebrisFallHitLOUD"
+		>
+	</Weapon>
+	<Projectile
+		Name="ScumPuddle"
+		Type="SKY"
+		SkipAscent="true"
+		DescentStartZ="1600"
+		Graphic="BigSupport_Glob"
+		DetonateGraphic="GasfellaIchor"
+		Speed="8000.0"
+		Acceleration="1300.0"
+		KnockDownTerrain="false"
+        DamageLow="2"
+		DamageHigh="2"
+		Range="550.0"
+		DamageRadius="100"
+		SpinRate="-360"
+        SpawnDamageField="MudmanOozeField"
+		DetonateSound="ScumbagImpact"
+		>
+		<Thing
+			Refract="true">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+	</Projectile>
+	
+	<!-- Invisible InstantDamage -->
+
+	<Weapon
+		Name="InstantDamage"
+		Type="GUN"
+		Projectile="InstantDamage"
+		Cooldown="0.01"
+		ClipSize="1"
+		ReloadTime="0.01"
+		SilentImpact="true"
+		>
+	</Weapon>
+	<Projectile
+		Name="InstantDamage"
+		Type="INSTANT"
+		Range="9999999"
+		NumPenetrations="9999999"
+		DamageLow="2"
+		DamageHigh="2"
+		IgnoreArmor="true"
+		>
+	</Projectile>
+
+	<!-- Invisible Slow -->
+
+	<Weapon
+		Name="InvisibleSlow"
+		Type="GUN"
+		Projectile="InvisibleSlow"
+		Cooldown="0.01"
+		ClipSize="1"
+		ReloadTime="0.01"
+		SilentImpact="true"
+		>
+	</Weapon>
+	<Projectile
+		Name="InvisibleSlow"
+		Type="INSTANT"
+		Range="9999999"
+		NumPenetrations="9999999"
+		DamageLow="0"
+		DamageHigh="0"
+		IgnoreArmor="true"
+		>
+		<Effect Name="InvisibleSlow" Type="SPEED" Duration="999.0" Modifier="0.825" CanAffectInvulnerable="true" Active="true"/>
+	</Projectile>
+
+	<Weapon
+		Name="InvisibleSlowStrong"
+		InheritFrom="InvisibleSlow"
+		Projectile="InvisibleSlowStrong"
+		>
+	</Weapon>
+	<Projectile
+		Name="InvisibleSlowStrong"
+		InheritFrom="InvisibleSlow"
+		ClearEffects="true"
+		>
+		<Effect Name="InvisibleSlowStrong" Type="SPEED" Duration="999.0" Modifier="0.425" CanAffectInvulnerable="true" Active="true"/>
+	</Projectile>
+
+	
+	<Weapon
+		Name="InvisibleSlowFinal"
+		InheritFrom="InvisibleSlow"
+		Projectile="InvisibleSlowFinal"
+		>
+	</Weapon>
+	<Projectile
+		Name="InvisibleSlowFinal"
+		InheritFrom="InvisibleSlow"
+		ClearEffects="true"
+		>
+		<Effect Name="InvisibleSlowFinal" Type="SPEED" Duration="999.0" Modifier="0.75" CanAffectInvulnerable="true" Active="true"/>
+	</Projectile>
+
+
+	<Weapon
+		Name="InvisibleSlowFinal2"
+		InheritFrom="InvisibleSlow"
+		Projectile="InvisibleSlowFinal"
+		>
+	</Weapon>
+	<Projectile
+		Name="InvisibleSlowFinal2"
+		InheritFrom="InvisibleSlow"
+		ClearEffects="true"
+		>
+		<Effect Name="InvisibleSlowFinal2" Type="SPEED" Duration="999.0" Modifier="0.68" CanAffectInvulnerable="true" Active="true"/>
+	</Projectile>
+
+	<!-- InvisibleRamSlow -->
+
+	<Weapon
+		Name="InvisibleRamSlow"
+		Type="GUN"
+		Projectile="InvisibleRamSlow"
+		Cooldown="0.01"
+		ClipSize="1"
+		ReloadTime="0.01"
+		SilentImpact="true"
+		>
+	</Weapon>
+	<Projectile
+		Name="InvisibleRamSlow"
+		Type="INSTANT"
+		Range="9999999"
+		NumPenetrations="9999999"
+		DamageLow="0"
+		DamageHigh="0"
+		IgnoreArmor="true"
+		>
+		<Effect Name="RamSpeed" Type="SPEED" Duration="999999.0" Modifier="0.75" CanAffectInvulnerable="true" Active="true"/>
+		<Effect Name="RamRotation" Type="ROTATION" Duration="999999.0" Modifier="0.02" CanAffectInvulnerable="true" Active="true"/>
+		<Effect Name="RamArmor" Type="ARMOR" Duration="99999.0" Modifier="-0.65" CanAffectInvulnerable="true" Active="true"/>
+	</Projectile>
+
+	<!-- InvisibleFullArmor -->
+		
+	<Weapon
+		Name="InvisibleFullArmor"
+		Type="GUN"
+		Projectile="InvisibleFullArmor"
+		Cooldown="0.01"
+		ClipSize="1"
+		ReloadTime="0.01"
+		SilentImpact="true"
+		>
+	</Weapon>
+	<Projectile
+		Name="InvisibleFullArmor"
+		Type="INSTANT"
+		Range="9999999"
+		NumPenetrations="9999999"
+		DamageLow="0"
+		DamageHigh="0"
+		IgnoreArmor="true"
+		>
+		<Effect Name="InvisibleFullArmor" Type="ARMOR" Duration="99999.0" Modifier="-1.0" CanAffectInvulnerable="true" Active="true"/>
+	</Projectile>
+
+	<!-- InvisibleReflection -->
+
+	<Weapon
+		Name="InvisibleReflection"
+		Type="GUN"
+		Projectile="InvisibleReflection"
+		Cooldown="0.01"
+		ClipSize="1"
+		ReloadTime="0.01"
+		SilentImpact="true"
+		>
+	</Weapon>
+	<Projectile
+		Name="InvisibleReflection"
+		Type="INSTANT"
+		Range="9999999"
+		NumPenetrations="9999999"
+		DamageLow="0"
+		DamageHigh="0"
+		IgnoreArmor="true"
+		>
+		<Effect Name="InvisibleReflection" Type="DEFLECT" Duration="99999" Modifier="1.0" Active="true"/>
+	</Projectile>
+
+	<Weapon
+		Name="BlankWeapon"
+		Type="SELF"
+		Projectile="null"
+		Cooldown="0.01"
+		ClipSize="1"
+		ReloadTime="0.01"
+		SilentImpact="true"
+		>
+	</Weapon>
+
+</Weapons>
